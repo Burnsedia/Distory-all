@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://ECS/Weapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ECS/Heat-radators.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ECS/Engines.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ECS/Terent.tscn" type="PackedScene" id=5]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Weapon" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00765324, 0.0195007, -12.1425 )
+
+[node name="Forward_hall-hitbox" type="CollisionShape" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 5.61723, 0, 0, -4.61031 )
+shape = SubResource( 1 )
+
+[node name="Forward_hall" type="MeshInstance" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 5.61723, 0.0105467, 0.0881233, -4.58482 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MailHull-hitbox" type="CollisionShape" parent="."]
+transform = Transform( 2, 0, 0, 0, 1.61693, 0.0399503, 0, -0.0149536, 4.31982, 0, -6.63809e-05, 4.74836 )
+shape = SubResource( 1 )
+
+[node name="MainHall" type="MeshInstance" parent="."]
+transform = Transform( 3, 0, 0, 0, 1.49994, 0.0399503, 0, -0.0138716, 4.31982, 0.0603123, -0.0203175, 4.8622 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Bridge-hitbox" type="CollisionShape" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 2, 6 )
+shape = SubResource( 1 )
+
+[node name="Bridge" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 3, 0.0396166, 2, 6.05051 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 4, 5.00989, 0.0707731, 4.91868 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 4, -4.94158, -0.0535469, 5.07824 )
+
+[node name="Engines" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 10.249 )
+
+[node name="Engines2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.2487 )
+
+[node name="Engines3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 10.249 )
+
+[node name="Area" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40943, 0 )
+
+[node name="Area4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, -6 )
+
+[node name="Area2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 4 )
+
+[node name="Area5" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 1, 7, 0, 5 )
+
+[node name="Area6" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -7, 0, 5 )
+
+[node name="Area3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 4 )
+
+[node name="Area7" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, -1.5, 0 )
+
+[node name="Area8" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 2, -1.5, 4 )
+
+[node name="Area9" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, -2, -1.5, 4 )
+
+[node name="Engines4" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 5, 0, 0.249001 )
+
+[node name="Engines5" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -5, 0, 0.249 )
+
+[node name="Engines6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, -5, 1.5, 3 )
+
+[node name="Engines7" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -5, -1.5, 3 )
+
+[node name="Engines8" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 5, 1.5, 3 )
+
+[node name="Engines9" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 5, -1.5, 3 )
+
+[node name="target" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 6.4306, 24.5427 )
+far = 8192.0
+
+[node name="Spatial3" type="Spatial" parent="."]

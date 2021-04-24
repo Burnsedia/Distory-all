@@ -1,0 +1,168 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Sprites/flatDark/flatDark09.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/flatDark/flatDark04.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/flatDark/flatDark02.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/lineDark/lineDark00.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/lineDark/lineDark48.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/flatDark/flatDark34.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/flatDark/flatDark47.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/lineLight/lineLight46.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/lineLight/lineLight47.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/lineLight/lineLight29.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/lineLight/lineLight31.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/lineLight/lineLight33.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/flatDark/flatDark48.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/flatDark/flatDark49.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/lineLight/lineLight48.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/flatDark/flatDark32.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/lineDark/lineDark05.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/flatDark/flatDark05.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/lineDark/lineDark01.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/flatDark/flatDark30.png" type="Texture" id=20]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1520.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1520.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_right = 504.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Up" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control"]
+position = Vector2( 123.762, 202.569 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 17 )
+action = "ui_up"
+
+[node name="Left" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control"]
+position = Vector2( 35.3242, 281.401 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 19 )
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control"]
+position = Vector2( 199.987, 281.401 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 4 )
+action = "ui_right"
+
+[node name="Down" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control"]
+position = Vector2( 124.636, 349.957 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 5 )
+action = "ui_down"
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_left = 508.0
+margin_right = 1012.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_left = 1016.0
+margin_right = 1520.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3"]
+margin_right = 339.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+margin_right = 339.0
+margin_bottom = 197.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer2"]
+position = Vector2( 166.406, 121.069 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 12 )
+action = "shoot"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer2"]
+position = Vector2( 318.267, 115.586 )
+scale = Vector2( 0.92921, 0.882015 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
+action = "target"
+
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+margin_top = 201.0
+margin_right = 339.0
+margin_bottom = 398.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3"]
+position = Vector2( 163.388, 62.0504 )
+scale = Vector2( 0.92921, 0.929209 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 9 )
+action = "boost"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3"]
+position = Vector2( 331.609, 72.5536 )
+normal = ExtResource( 16 )
+pressed = ExtResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
+margin_top = 402.0
+margin_right = 339.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer"]
+margin_right = 339.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
+position = Vector2( 167.122, 42.8936 )
+normal = ExtResource( 20 )
+pressed = ExtResource( 10 )
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
+position = Vector2( 320.495, 27.2295 )
+scale = Vector2( 0.905612, 0.834822 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 15 )
+passby_press = true
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
