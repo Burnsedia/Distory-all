@@ -1,5 +1,4 @@
 extends Node
 
-signal shoot
-
+signal shoot(bullet, direction, location)
 

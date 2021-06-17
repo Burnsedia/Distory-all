@@ -41,9 +41,14 @@ func _process(delta):
 		boosting = true
 	if Input.is_action_just_released("boost"):
 		boosting = false
+	if Input.is_action_just_pressed("shoot"):
+		$Weapon.shoot()
 	print(pos)
 
 func _physics_process(delta):
 	val = -transform.basis.z * maxSpeed if !boosting else -transform.basis.z * maxSpeed * boostModiffer
 	move_and_collide(val * delta)
 	
+func die():
+	pass
+

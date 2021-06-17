@@ -127,7 +127,7 @@ pressed = ExtResource( 9 )
 action = "boost"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3"]
-position = Vector2( 331.609, 72.5536 )
+position = Vector2( 333.023, 72.5536 )
 normal = ExtResource( 16 )
 pressed = ExtResource( 11 )
 

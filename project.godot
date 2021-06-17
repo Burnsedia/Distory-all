@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Drone",
 "language": "GDScript",
 "path": "res://NPCs/Ships/Drone.gd"
+}, {
+"base": "Area",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://ECS/Weapon.gd"
 } ]
 _global_script_class_icons={
-"Drone": ""
+"Drone": "",
+"Weapon": ""
 }
 
 [application]
@@ -23,6 +29,10 @@ _global_script_class_icons={
 config/name="Distroy-All-alancsy"
 run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://Globals/Events.gd"
 
 [display]
 

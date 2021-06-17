@@ -6,7 +6,6 @@
 [node name="Root" type="Node"]
 
 [node name="Spatial" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.635612, 0.662506, -0.0815964 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 
