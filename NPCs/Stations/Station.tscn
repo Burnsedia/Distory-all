@@ -10,7 +10,7 @@ extents = Vector3( 8.13357, 4.44078, 6.3213 )
 [sub_resource type="CylinderMesh" id=3]
 
 [node name="Station" type="StaticBody"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 7.41383, 2.0322, 6.47842 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41383, 2.0322, 6.47842 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

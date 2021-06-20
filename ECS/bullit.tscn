@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Area.gd" type="Script" id=1]
+[ext_resource path="res://Bullet.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.1172, 1, 1.89202 )
@@ -22,3 +22,5 @@ shape = SubResource( 1 )
 transform = Transform( 1.00217, 0, 0, 0, 1.00217, 0, 0, 0, 1.81622, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_bullit_body_entered"]
