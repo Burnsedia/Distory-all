@@ -5,9 +5,6 @@ extends Area
 var bullet = preload("res://ECS/bullit.tscn")
 # Direction that the bullet will be fired
 var dir = transform.basis.z
-# Position of the object in 3d space
-var pos = global_transform
-
 # Fires a unchared shot, no seconday abbilies
 func shoot():
 	# when shoot event detected, fire the weapon when 
