@@ -12,4 +12,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	print("I am running")
+	if InputEventScreenTouch:
+		print("I touch the screen")
