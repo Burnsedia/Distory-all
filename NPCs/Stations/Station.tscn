@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=2]
-
-[ext_resource path="res://ECS/Terent.tscn" type="PackedScene" id=1]
+[gd_scene load_steps=4 format=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 8.13357, 4.44078, 6.3213 )
@@ -24,27 +22,3 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 9.06476, 0, 0, 0, 1, 0, -11.764, 0 )
 mesh = SubResource( 3 )
 material/0 = null
-
-[node name="Area" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.47668, -5.0882 )
-
-[node name="Area3" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.999936, 0.000177838, 0.0113079, 0, 0.999876, -0.0157249, -0.0113093, -0.0157239, -0.999812, 0, 4.184, 4.3485 )
-
-[node name="Area4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.00551515, 0, 0.999985, 0, 1, 0, -0.999985, 0, 0.00551515, -5.3385, 4.47668, 5.96046e-08 )
-
-[node name="Area5" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.0648807, 0, -0.997893, 0, 1, 0, 0.997893, 0, -0.0648807, 6.40291, 4.47668, -3.57628e-07 )
-
-[node name="Area2" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, -3.97001, -5.97204 )
-
-[node name="Area6" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.983584, -0.00283788, 0.180428, -3.25801e-07, -0.999876, -0.0157249, 0.18045, 0.0154667, -0.983462, 0, -4.26269, 4.97401 )
-
-[node name="Area7" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.000855164, 2.78647e-10, 1, -3.25841e-07, -1, 0, 1, -3.25841e-07, 0.000855164, -6.72518, -3.97001, 5.96046e-08 )
-
-[node name="Area8" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.0223734, -7.29017e-09, -0.99975, -3.25841e-07, -1, 0, -0.99975, 3.25759e-07, -0.0223734, 7.19689, -3.97001, -3.57628e-07 )

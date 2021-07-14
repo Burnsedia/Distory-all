@@ -12,12 +12,37 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://Bullet.gd"
+"path": "res://ECS/Bullet.gd"
+}, {
+"base": "HBoxContainer",
+"class": "ContributorClass",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/ContributorClass.gd"
+}, {
+"base": "KinematicBody",
+"class": "Crusier",
+"language": "GDScript",
+"path": "res://NPCs/Ships/Cursier.gd"
 }, {
 "base": "KinematicBody",
 "class": "Drone",
 "language": "GDScript",
 "path": "res://NPCs/Ships/Drone.gd"
+}, {
+"base": "PanelContainer",
+"class": "GistItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/GistItem.gd"
+}, {
+"base": "HBoxContainer",
+"class": "InvitationItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/InvitationItem.gd"
+}, {
+"base": "PanelContainer",
+"class": "RepositoryItem",
+"language": "GDScript",
+"path": "res://addons/github-integration/scripts/RepositoryItem.gd"
 }, {
 "base": "Area",
 "class": "Weapon",
@@ -26,26 +51,44 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bullet": "",
+"ContributorClass": "",
+"Crusier": "",
 "Drone": "",
+"GistItem": "",
+"InvitationItem": "",
+"RepositoryItem": "",
 "Weapon": ""
 }
 
 [application]
 
 config/name="Distroy-All-alancsy"
-run/main_scene="res://StartMenu.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://UI/StartMenu.tscn"
+boot_splash/image="res://assets/uvCswI.png"
+boot_splash/bg_color=Color( 0.12549, 0.145098, 0.192157, 1 )
+config/icon="res://assets/uvCswI.png"
 
 [autoload]
 
+Global="*res://Globals/Global.gd"
 Events="*res://Globals/Events.gd"
+PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
+IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 
 [display]
 
 window/size/width=1520
 window/size/height=720
+window/size/borderless=true
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/github-integration/plugin.cfg" )
 
 [input]
 
@@ -67,19 +110,42 @@ shield-toggle={
 }
 shoot={
 "deadzone": 0.5,
-"events": [  ]
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":7,"pressure":0.0,"pressed":false,"script":null)
+ ]
 }
 throttle_up={
 "deadzone": 0.5,
-"events": [  ]
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
 }
 throttle_down={
 "deadzone": 0.5,
-"events": [  ]
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+ ]
 }
 start-game={
 "deadzone": 0.5,
 "events": [  ]
+}
+pitch_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
+ ]
+}
+pitch_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
+ ]
+}
+roll_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+ ]
+}
+roll_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+ ]
 }
 
 [input_devices]
@@ -94,5 +160,5 @@ common/enable_object_picking=false
 [rendering]
 
 threads/thread_model=2
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://assets/default_env.tres"
 quality/dynamic_fonts/use_oversampling=false

@@ -81,6 +81,16 @@ margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 1, 0.0156863, 0.0156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
 margin_left = 1016.0
 margin_right = 1520.0
@@ -125,7 +135,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3"]
-position = Vector2( 69.1782, 85.8705 )
+position = Vector2( 69.1782, 87.8705 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 13 )
 pressed = ExtResource( 9 )

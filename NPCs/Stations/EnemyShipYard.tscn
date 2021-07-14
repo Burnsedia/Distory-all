@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://NPCs/Stations/Station.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NPCs/Stations/EnemyShipYard.gd" type="Script" id=2]
+
+[node name="EnemyShipYard" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="TopBase" parent="." index="1"]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 6, 0, 0, 0 )
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

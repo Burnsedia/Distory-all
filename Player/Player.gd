@@ -1,38 +1,49 @@
 extends KinematicBody
 
-onready var camera:Camera = $Camera
+export var max_speed = 100
+export var acceleration = 0.9
+export var pitch_speed = 1.9
 
-var boosting = false
-var maxSpeed = 500
-var boostModiffer = 10
-var minSpped = 10
-var turnSpeed = 10
-var accel = 10
-var val = Vector3()
+export var roll_speed = .75
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_pressed("ui_up"):
-		rotate_object_local(Vector3.RIGHT, .05)
-			
-	if Input.is_action_pressed("ui_down"):
-		rotate_object_local(Vector3.RIGHT, -.05)
-		
-	if Input.is_action_pressed("ui_left"):
-		rotate(Vector3.UP, .05)
-		
-	if Input.is_action_pressed("ui_right"):
-		rotate(Vector3.UP, -.05)
-		
-	if Input.is_action_just_pressed("boost"):
-		boosting = true
-		
-	if Input.is_action_just_released("boost"):
-		boosting = false
-		
-	if Input.is_action_just_pressed("shoot"):
-		$Weapon.shoot()
+export var yaw_speed = 1.75
+
+
+ # Set lower for linked roll/yaw
+export var input_response = 8.0
+
+var velocity = Vector3.ZERO
+var forward_speed = 0
+var pitch_input = 0
+var roll_input = 0
+var yaw_input = 0
+
+func get_input(delta):
+	if Input.is_action_pressed("throttle_up"):
+		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
+	if Input.is_action_pressed("throttle_down"):
+		forward_speed = lerp(forward_speed, 0, acceleration * delta)
+	
+#	if Input.is_action_just_pressed("shoot"):
+#		$Weapon.shoot()
+	pitch_input = lerp(pitch_input,
+			Input.get_action_strength("pitch_up") - Input.get_action_strength("pitch_down"),
+			input_response * delta)
+	roll_input = lerp(roll_input,
+			Input.get_action_strength("roll_left") - Input.get_action_strength("roll_right"),
+			input_response * delta)
+#	yaw_input = lerp(yaw_input,
+#			Input.get_action_strength("yaw_left") - Input.get_action_strength("yaw_right"),
+#			input_response * delta)
+	# replace the line above with this for linked roll/yaw:
+	yaw_input =  roll_input
+
 
 func _physics_process(delta):
-	val = -transform.basis.z 
-	move_and_collide(val * maxSpeed * delta)
+	get_input(delta)
+	transform.basis = transform.basis.rotated(transform.basis.z, roll_input * roll_speed * delta)
+	transform.basis = transform.basis.rotated(transform.basis.x, pitch_input * pitch_speed * delta)
+	transform.basis = transform.basis.rotated(transform.basis.y, yaw_input * yaw_speed * delta)
+	transform.basis = transform.basis.orthonormalized()
+	velocity = -transform.basis.z * forward_speed
+	move_and_collide(velocity * delta)
