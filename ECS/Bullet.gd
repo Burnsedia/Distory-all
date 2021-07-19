@@ -6,6 +6,8 @@ var BULLET_DAMAGE = 15
 var timer = Timer.new()
 var hit_something = false
 
+export var damage:int = 100
+
 const KILL_TIMER = 4
 
 func _ready():
@@ -21,5 +23,5 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_bullit_body_entered(body):
-	body.queue_free()
-	self.queue_free()
+	body.take_damage(damage)
+	
