@@ -10,6 +10,7 @@ var spawn_radius = 500
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.start()
+	spawn_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,23 +22,24 @@ func spawn_wave():
 	var spawn_position = Vector3()
 	var spawn_rotation = Vector3()
 	var drones =  drone.instance()
-	#randomize rotation
-	spawn_rotation.x = rand_range(-spawn_radius, spawn_radius)
-	spawn_rotation.y = rand_range(-spawn_radius, spawn_radius)
-	spawn_rotation.z = rand_range(-spawn_radius, spawn_radius)
-	# randomize position
-	spawn_position.x = rand_range(-spawn_radius, spawn_radius)
-	spawn_position.y = rand_range(-spawn_radius, spawn_radius)
-	spawn_position.z = rand_range(-spawn_radius, spawn_radius)
-	# set position
-	drones.translation = spawn_position
-	# set rotation
-	drones.rotation = spawn_rotation
-	print("Enemy sending drones")
-	print("Wave " + str(wave_num))
-	
-	get_tree().get_root().add_child(drones)
-	get_tree().call_group("enemies", "set_target", Global.player)
+	for w in wave_num:
+		#randomize rotation
+		spawn_rotation.x = rand_range(-spawn_radius, spawn_radius)
+		spawn_rotation.y = rand_range(-spawn_radius, spawn_radius)
+		spawn_rotation.z = rand_range(-spawn_radius, spawn_radius)
+		# randomize position
+		spawn_position.x = rand_range(-spawn_radius, spawn_radius)
+		spawn_position.y = rand_range(-spawn_radius, spawn_radius)
+		spawn_position.z = rand_range(-spawn_radius, spawn_radius)
+		# set position
+		drones.translation = spawn_position
+		# set rotation
+		drones.rotation = spawn_rotation
+		print("Enemy sending drones")
+		print("Wave " + str(wave_num))
+		
+		get_tree().get_root().add_child(drones)
+		get_tree().call_group("enemies", "set_target", Global.player)
 
 
 func _on_Timer_timeout():
