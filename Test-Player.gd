@@ -12,6 +12,7 @@ export var yaw_speed = 1.75
 export var input_response = 8.0
 
 onready var ui = $"MarginContainer/VBoxContainer/HBoxContainer/Control2/RichTextLabel"
+onready var game_over_text = $"MarginContainer/VBoxContainer/HBoxContainer/Control2/GameOverText"
 
 var velocity = Vector3.ZERO
 var forward_speed = 0
@@ -19,10 +20,11 @@ var pitch_input = 0
 var roll_input = 0
 var yaw_input = 0
 
-func _init():
-	Global.player = self
+#func _init(): 
+# 	Global.player = self */
 	
 func _ready():
+	Events.connect("game_over", self, "_gameOverScreen")
 	Global.player = self
 	yield(get_tree(), "idle_frame")
 
@@ -32,6 +34,9 @@ func get_input(delta):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 	if Input.is_action_pressed("throttle_down"):
 		forward_speed = lerp(forward_speed, 0, acceleration * delta)
+	if Input.is_action_just_pressed("shoot"):
+		#Shoot the gun
+		$Weapon.shoot()
 #
 #	if Input.is_action_just_pressed("shoot"):
 #		$Weapon.shoot()
@@ -58,3 +63,8 @@ func _physics_process(delta):
 	transform.basis = transform.basis.orthonormalized()
 	velocity = -transform.basis.z * forward_speed
 	move_and_collide(velocity * delta)
+
+func _gameOverScreen():
+	game_over_text.visible = true
+	
+	
