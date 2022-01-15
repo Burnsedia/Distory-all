@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ProxyamStarsystem/Proxma.tres" type="Environment" id=1]
+[ext_resource path="res://NPCs/Challenger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NPCs/Executioner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ProxyamStarsystem/GameWorld.gd" type="Script" id=4]
 [ext_resource path="res://NPCs/Stations/EnemyShipYard.tscn" type="PackedScene" id=5]
@@ -11,13 +12,25 @@
 script = ExtResource( 4 )
 
 [node name="Executioner" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7734, 11.6831, -9.91804 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.859, 19.5523, -9.91804 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
 
-[node name="EnemyShipYard" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -724.586, 2.0322, -179.522 )
-
 [node name="MainStation" parent="." instance=ExtResource( 7 )]
 script = ExtResource( 6 )
+
+[node name="EnemyShipYard" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111.6, 54.2899, -353.434 )
+
+[node name="EnemyShipYard2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -234.836, 54.2899, -332.946 )
+
+[node name="EnemyShipYard3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -234.836, 54.2899, 261.474 )
+
+[node name="EnemyShipYard4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 279.945, 54.2899, 261.474 )
+
+[node name="Challenger" parent="EnemyShipYard4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -98.0417, 5.60757, -109.37 )

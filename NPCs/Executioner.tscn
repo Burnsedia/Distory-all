@@ -50,9 +50,7 @@ albedo_texture = ExtResource( 2 )
 [sub_resource type="QuadMesh" id=6]
 material = SubResource( 5 )
 
-[node name="Executioner" groups=[
-"player",
-] instance=ExtResource( 4 )]
+[node name="Executioner" groups=["player"] instance=ExtResource( 4 )]
 script = ExtResource( 3 )
 
 [node name="Executioner" parent="." index="0"]
@@ -83,7 +81,7 @@ process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="." index="4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0855, 10.3934 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.58675, 21.3565 )
 current = true
 fov = 51.7424
 far = 8192.0
@@ -93,4 +91,4 @@ far = 8192.0
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
 
 [node name="Weapon" parent="." index="7" instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -3.42969 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -5.78086 )

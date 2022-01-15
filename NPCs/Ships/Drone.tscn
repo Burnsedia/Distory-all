@@ -7,9 +7,7 @@ extents = Vector3( 6.25669, 4.75233, 17.3216 )
 
 [sub_resource type="SphereMesh" id=3]
 
-[node name="Drone" type="KinematicBody" groups=[
-"enemies",
-]]
+[node name="Drone" type="KinematicBody" groups=["enemies"]]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

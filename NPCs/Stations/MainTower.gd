@@ -18,10 +18,9 @@ func _ready():
 
 
 func take_damage(damage):
-	if hp >= 0:
+	hp - damage
+	if hp <= 0:
 		Events.emit_signal("game_over")
 		queue_free()
 		get_tree().paused = true
-	else:
-		hp - damage
 		
