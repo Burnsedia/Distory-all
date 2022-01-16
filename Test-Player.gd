@@ -1,7 +1,7 @@
 extends KinematicBody
 
 
-export var max_speed = 100
+export var max_speed = 50
 export var acceleration = 0.6
 export var pitch_speed = 1.9
 export var roll_speed = .75
@@ -27,7 +27,6 @@ func _ready():
 	Events.connect("game_over", self, "_gameOverScreen")
 	Global.player = self
 	yield(get_tree(), "idle_frame")
-	get_tree().call_group("enemies", "set_target", self)
 
 
 func get_input(delta):

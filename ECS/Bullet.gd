@@ -2,7 +2,7 @@ extends Area
 class_name Bullet
 
 var BULLET_SPEED = 1000
-var BULLET_DAMAGE = 50
+var BULLET_DAMAGE = 15
 var timer = Timer.new()
 var hit_something = false
 

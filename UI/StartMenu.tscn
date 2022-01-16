@@ -64,7 +64,7 @@ scale = Vector2( 1.57617, 2.1212 )
 normal = ExtResource( 5 )
 action = "StartGame"
 
-[node name="Middle" type="Control" parent="HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer"]
 margin_left = 508.0
 margin_right = 1012.0
 margin_bottom = 720.0

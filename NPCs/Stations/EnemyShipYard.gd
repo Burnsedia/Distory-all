@@ -5,21 +5,13 @@ extends StaticBody
 var drone = preload("res://NPCs/Challenger.tscn")
 var friget = preload("res://NPCs/Executioner.tscn")
 var wave_num = 1
-var spawn_radius = 15
-var hp = 100
+var spawn_radius = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.start()
 	spawn_wave()
 
-
-func take_damage(damage):
-	hp - damage
-	print("hit")
-	if hp <= 0:
-		print("takend tammage, I am die")
-		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -50,5 +42,5 @@ func spawn_wave():
 		get_tree().call_group("enemies", "set_target", Global.player)
 
 
-#func _on_Timer_timeout():
-#	spawn_wave()
+func _on_Timer_timeout():
+	spawn_wave()
