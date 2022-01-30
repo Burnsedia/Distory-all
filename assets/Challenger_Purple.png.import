@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.s3tc.stex"
 path.etc2="res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.etc2.stex"
+path.etc="res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Challenger_Purple.png"
-dest_files=[ "res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.s3tc.stex", "res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.etc2.stex" ]
+dest_files=[ "res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.s3tc.stex", "res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.etc2.stex", "res://.import/Challenger_Purple.png-c34c61835e151e8311fd308e834002ff.etc.stex" ]
 
 [params]
 

@@ -44,3 +44,6 @@ func spawn_wave():
 
 func _on_Timer_timeout():
 	spawn_wave()
+
+func take_damage(damage):
+	queue_free()

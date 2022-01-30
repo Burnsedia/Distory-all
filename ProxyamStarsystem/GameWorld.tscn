@@ -5,8 +5,8 @@
 [ext_resource path="res://NPCs/Executioner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ProxyamStarsystem/GameWorld.gd" type="Script" id=4]
 [ext_resource path="res://NPCs/Stations/EnemyShipYard.tscn" type="PackedScene" id=5]
-[ext_resource path="res://NPCs/Stations/MainTower.gd" type="Script" id=6]
-[ext_resource path="res://NPCs/Stations/MainTower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/Sounds of Space - 5_7_19, 1.52 AM.mp3" type="AudioStream" id=6]
+[ext_resource path="res://NPCs/Ships/Cursier.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
@@ -21,5 +21,18 @@ environment = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -724.586, 2.0322, -179.522 )
 script = ExtResource( 2 )
 
-[node name="MainStation" parent="." instance=ExtResource( 7 )]
-script = ExtResource( 6 )
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[node name="Crusier" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -34.3119, 9.30949, 370.189 )
+
+[node name="Crusier2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 189.455, 9.30949, 370.189 )
+
+[node name="Crusier3" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 189.455, -127.771, 370.189 )
+
+[node name="Crusier4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 49.6455, -222.143, 370.189 )
