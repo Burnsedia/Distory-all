@@ -11,6 +11,8 @@ func shoot():
 	var bullet_inst = bullet.instance()
 	get_tree().get_root().add_child(bullet_inst)
 	bullet_inst.global_transform = global_transform
+	$AudioStreamPlayer3D.play()
+	
 	print("weapon fired")
 		
 ## Fires a charged shot, does

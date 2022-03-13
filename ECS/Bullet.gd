@@ -8,7 +8,7 @@ var hit_something = false
 
 export var damage:int = 100
 
-const KILL_TIMER = 4
+const KILL_TIMER = 10
 
 func _ready():
 	timer.connect("timeout", self, "_on_timer_timeout")
@@ -24,4 +24,6 @@ func _on_timer_timeout():
 
 func _on_bullit_body_entered(body):
 	body.take_damage(damage)
+	print("Hit " + body.name)
+	queue_free()
 	
