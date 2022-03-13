@@ -24,5 +24,6 @@ func _on_timer_timeout():
 
 func _on_bullit_body_entered(body):
 	body.take_damage(damage)
+	print("Hit " + body.name)
 	queue_free()
 	

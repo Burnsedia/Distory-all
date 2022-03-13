@@ -14,9 +14,7 @@ albedo_texture = ExtResource( 3 )
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 4.7444, 1.56263, 5.04572 )
 
-[node name="Challenger" groups=[
-"enemies",
-] instance=ExtResource( 2 )]
+[node name="Challenger" groups=["enemies"] instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
 [node name="Challenger" parent="." index="0"]
