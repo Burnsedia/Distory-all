@@ -1,6 +1,6 @@
 extends Area
 
-var target
+var target = Global.player
 var fire_point
 var bullit_speed = 1000
 # Declare member variables here. Examples:
@@ -10,7 +10,7 @@ var bullit_speed = 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	add_to_group("enemies")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
