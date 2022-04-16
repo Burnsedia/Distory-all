@@ -1,7 +1,8 @@
 extends KinematicBody
 
+export var hp = 100
 
-export var max_speed = 50
+export var max_speed = 30
 export var acceleration = 0.6
 export var pitch_speed = 1.9
 export var roll_speed = .75
@@ -34,12 +35,10 @@ func get_input(delta):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 	if Input.is_action_pressed("throttle_down"):
 		forward_speed = lerp(forward_speed, 0, acceleration * delta)
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		#Shoot the gun
 		$Weapon.shoot()
-#
-#	if Input.is_action_just_pressed("shoot"):
-#		$Weapon.shoot()
+		
 	pitch_input = lerp(pitch_input,
 			Input.get_action_strength("pitch_up") - Input.get_action_strength("pitch_down"),
 			input_response * delta)
@@ -55,7 +54,7 @@ func get_input(delta):
 
 func _physics_process(delta):
 	get_input(delta)
-	ui.text = str(velocity)
+	ui.text = str(velocity.length())
 	
 	transform.basis = transform.basis.rotated(transform.basis.z, roll_input * roll_speed * delta)
 	transform.basis = transform.basis.rotated(transform.basis.x, pitch_input * pitch_speed * delta)
@@ -67,4 +66,5 @@ func _physics_process(delta):
 func _gameOverScreen():
 	game_over_text.visible = true
 	
-	
+func take_damage(damage):
+	pass

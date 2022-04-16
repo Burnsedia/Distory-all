@@ -3,9 +3,9 @@ extends StaticBody
 
 # Declare member variables here. Examples:
 var drone = preload("res://NPCs/Challenger.tscn")
-var friget = preload("res://NPCs/Executioner.tscn")
+var friget = preload("res://NPCs/Ships/Cursier.tscn")
 var wave_num = 1
-var spawn_radius = 500
+var spawn_radius =50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +22,7 @@ func spawn_wave():
 	var spawn_position = Vector3()
 	var spawn_rotation = Vector3()
 	var drones =  drone.instance()
+	var frigets = friget.instance()
 	for w in wave_num:
 		#randomize rotation
 		spawn_rotation.x = rand_range(-spawn_radius, spawn_radius)
@@ -38,9 +39,18 @@ func spawn_wave():
 		print("Enemy sending drones")
 		print("Wave " + str(wave_num))
 		
+		
 		get_tree().get_root().add_child(drones)
-		get_tree().call_group("enemies", "set_target", Global.player)
 
+	
+		frigets.translation = spawn_position
+		frigets.rotation = spawn_rotation
+	
+
+		get_tree().call_group("enemies", "set_target", Global.player)
 
 func _on_Timer_timeout():
 	spawn_wave()
+
+func take_damage(damage):
+	queue_free()
