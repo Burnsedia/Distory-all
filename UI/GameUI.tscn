@@ -43,7 +43,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
-visible = false
 margin_right = 504.0
 margin_bottom = 720.0
 size_flags_horizontal = 3
@@ -78,7 +77,8 @@ pressed = ExtResource( 5 )
 action = "pitch_down"
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
-margin_right = 1520.0
+margin_left = 508.0
+margin_right = 1012.0
 margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -110,8 +110,7 @@ __meta__ = {
 }
 
 [node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
-visible = false
-margin_left = 762.0
+margin_left = 1016.0
 margin_right = 1520.0
 margin_bottom = 720.0
 size_flags_horizontal = 3

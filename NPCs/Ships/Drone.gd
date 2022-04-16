@@ -68,7 +68,7 @@ func attack(delta):
 	# update velocity
 	velocity += steer * delta
 	# look at movement
-	look_at(transform.origin + velocity, Vector3.UP)
+	look_at(get_aim_at_point(), Vector3.UP)
 	# move
 
 	move_and_collide(velocity)
