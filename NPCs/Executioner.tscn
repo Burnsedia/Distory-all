@@ -53,9 +53,7 @@ albedo_texture = ExtResource( 2 )
 [sub_resource type="QuadMesh" id=6]
 material = SubResource( 5 )
 
-[node name="Executioner" groups=[
-"player",
-] instance=ExtResource( 4 )]
+[node name="Executioner" groups=["player"] instance=ExtResource( 4 )]
 script = ExtResource( 3 )
 
 [node name="Executioner" parent="." index="0"]
@@ -97,9 +95,18 @@ autoplay = true
 doppler_tracking = 1
 
 [node name="Weapon" parent="." index="7" instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -4 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.651997, 0, -5.6011 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Weapon" index="4"]
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 10, 0, 0, -510 )
+modulate = Color( 1, 0, 0, 1 )
+alpha_cut = 1
+texture = ExtResource( 8 )
+
+[node name="Weapon2" parent="." index="8" instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.01445, 0, -5.6011 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Weapon2" index="4"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 10, 0, 0, -510 )
 modulate = Color( 1, 0, 0, 1 )
 alpha_cut = 1
