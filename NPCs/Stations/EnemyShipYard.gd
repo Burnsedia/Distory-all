@@ -5,7 +5,7 @@ extends StaticBody
 var drone = preload("res://NPCs/Challenger.tscn")
 var friget = preload("res://NPCs/Ships/Cursier.tscn")
 var wave_num = 1
-var spawn_radius =50
+var spawn_radius = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
