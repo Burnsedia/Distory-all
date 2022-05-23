@@ -115,4 +115,5 @@ func get_aim_at_point():
 	return Vt * t + Pti
 	
 func take_damage(damage):
+	Global.droinCount -= 1
 	queue_free()

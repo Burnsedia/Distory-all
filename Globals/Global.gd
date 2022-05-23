@@ -5,6 +5,9 @@ extends Node
 var player = null
 var MainTower = null
 
+var droinCount = 0
+
+const maxDroinds = 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

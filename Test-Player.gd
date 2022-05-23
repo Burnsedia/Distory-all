@@ -54,7 +54,7 @@ func get_input(delta):
 
 func _physics_process(delta):
 	get_input(delta)
-	ui.text = str(velocity.length())
+	ui.text = str(velocity.length()) + "\n " + str(Global.droinCount) +" drones in the game\n" + str(Engine.get_frames_per_second())
 	
 	transform.basis = transform.basis.rotated(transform.basis.z, roll_input * roll_speed * delta)
 	transform.basis = transform.basis.rotated(transform.basis.x, pitch_input * pitch_speed * delta)

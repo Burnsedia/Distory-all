@@ -26,9 +26,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 21 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 1520.0
@@ -89,9 +86,6 @@ margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/default_color = Color( 1, 0.0156863, 0.0156863, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="GameOverText" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/Control2"]
 visible = false

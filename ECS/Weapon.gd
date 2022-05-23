@@ -13,7 +13,7 @@ func shoot():
 	bullet_inst.global_transform = global_transform
 	$AudioStreamPlayer3D.play()
 	
-	print("weapon fired")
+#	print("weapon fired")
 		
 ## Fires a charged shot, does
 #func charged_shot(target=null):
