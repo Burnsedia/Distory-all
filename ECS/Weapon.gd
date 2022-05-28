@@ -2,7 +2,7 @@ class_name Weapon
 extends Area
 
 # Bullet Prebab
-var bullet = preload("res://ECS/bullit.tscn")
+var bullet = preload("res://TestBulit.tscn")
 # Direction that the bullet will be fired
 var dir = transform.basis.z
 # Fires a unchared shot, no seconday abbilies
@@ -13,7 +13,7 @@ func shoot():
 	bullet_inst.global_transform = global_transform
 	$AudioStreamPlayer3D.play()
 	
-#	print("weapon fired")
+	
 		
 ## Fires a charged shot, does
 #func charged_shot(target=null):

@@ -6,8 +6,10 @@ var player = null
 var MainTower = null
 
 var droinCount = 0
+var bullitCount = 0
 
 const maxDroinds = 60
+const maxbullets = 10000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -14,6 +14,7 @@ func _ready():
 	timer.connect("timeout", self, "_on_timer_timeout")
 	timer.wait_time = KILL_TIMER
 	timer.autostart = true
+	Global.bullitCount += 1
 
 func _physics_process(delta):
 	var forward_dir = -global_transform.basis.z.normalized()
@@ -25,5 +26,7 @@ func _on_timer_timeout():
 func _on_bullit_body_entered(body):
 	body.take_damage(damage)
 	print("Hit " + body.name)
-	queue_free()
+	set_process(false)
+	hide()
+	
 	
