@@ -18,12 +18,12 @@ func _ready():
 #	pass
 
 func spawn_wave():
-	print(Global.droinCount)
 	wave_num += 1
 	var spawn_position = Vector3()
 	var spawn_rotation = Vector3()
 	var drones =  drone.instance()
 	var frigets = friget.instance()
+
 	for w in wave_num:
 		#randomize rotation
 		Global.droinCount += 1
@@ -38,23 +38,17 @@ func spawn_wave():
 		drones.translation = spawn_position
 		# set rotation
 		drones.rotation = spawn_rotation
-		print("Enemy sending drones")
-		print("Wave " + str(wave_num))
-		
 		
 		get_tree().get_root().add_child(drones)
-
 	
 		frigets.translation = spawn_position
 		frigets.rotation = spawn_rotation
-	
 
 		get_tree().call_group("enemies", "set_target", Global.player)
 
 func _on_Timer_timeout():
 	if Global.droinCount <= Global.maxDroinds:
 		spawn_wave()
-		
 
 func take_damage(damage):
 	queue_free()

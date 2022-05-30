@@ -3,10 +3,10 @@ class_name Bullet
 
 onready var timer = $Timer
 var BULLET_SPEED = 1000
-var BULLET_DAMAGE = 15
+var BULLET_DAMAGE = 1 
 var hit_something = false
 
-export var damage:int = 100
+export var damage:int = 1
 
 const KILL_TIMER = .5
 
@@ -27,8 +27,4 @@ func _on_bullit_body_entered(body):
 	Global.bullitCount -= 1
 	body.take_damage(damage)
 	print("Hit " + body.name)
-	set_process(false)
-	hide()
-	print("I am deleting myself")
-	
-	
+	queue_free()
