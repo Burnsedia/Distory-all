@@ -25,4 +25,9 @@ transform = Transform( 1.00217, 0, 0, 0, 1.00217, 0, 0, 0, 1.81622, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 3 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_bullit_body_entered"]

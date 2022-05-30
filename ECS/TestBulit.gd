@@ -15,7 +15,7 @@ func _init():
 	query.collide_with_bodies = true
 	query.transform = global_transform
 	query.collision_mask = 1
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,10 +24,6 @@ func _process(delta):
 	global_translate(motion)
 	travile_distance += distance
 	var reslult := get_world().direct_space_state.intersect_shape(query, 1)
-	for i in reslult:
-		if reslult[i].has_method("take_damage"):
-			print("I hit something that can take damage")
-			set_process(false)
-			reslult[i].take_damage(damage)
+	print(reslult)
 
 		
