@@ -19,6 +19,7 @@ environment = ExtResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -10.487
+autoplay = true
 
 [node name="MainStation" parent="." instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 20, 0, 0, 0, 2, 0, 0, 0 )
