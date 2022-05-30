@@ -8,7 +8,7 @@ var hit_something = false
 
 export var damage:int = 100
 
-const KILL_TIMER = 10
+const KILL_TIMER = 2
 
 func _ready():
 	timer.connect("timeout", self, "_on_timer_timeout")
