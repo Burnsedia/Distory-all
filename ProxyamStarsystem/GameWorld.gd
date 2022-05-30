@@ -6,8 +6,8 @@ func _ready():
 	spawn_stations()
 
 func spawn_stations() -> void:
-	var count = 10
-	var radius = 500.0
+	var count = 50
+	var radius = 5000.0
 	var center = Vector3()
 	# Get how much of an angle objects will be spaced around the circle.
 	# Angles are in radians so 2.0*PI = 360 degrees
@@ -16,7 +16,7 @@ func spawn_stations() -> void:
 	var angle = 0
 	# For each node to spawn
 	for i in range(0, count):
-		var direction = Vector3(cos(angle),cos(angle), sin(angle))
+		var direction = Vector3(cos(angle), 0, sin(angle))
 		var pos = center + direction * radius
 		var node = preload("res://NPCs/Stations/EnemyShipYard.tscn").instance()
 		node.global_translate(pos)
