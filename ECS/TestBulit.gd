@@ -24,9 +24,10 @@ func _process(delta):
 	global_translate(motion)
 	travile_distance += distance
 	var reslult := get_world().direct_space_state.intersect_shape(query, 1)
-	if reslult:
-		print(reslult)
+	for i in reslult:
+		if reslult[i].has_method("take_damage"):
+			print("I hit something that can take damage")
+			set_process(false)
+			reslult[i].take_damage(damage)
 
-	
-		
 		
