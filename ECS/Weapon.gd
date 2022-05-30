@@ -1,8 +1,7 @@
 class_name Weapon
 extends Area
 
-# Bullet Prebab
-var bullet = preload("res://TestBulit.tscn")
+var bullet = preload("res://ECS/bullit.tscn")
 # Direction that the bullet will be fired
 var dir = transform.basis.z
 # Fires a unchared shot, no seconday abbilies

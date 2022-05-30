@@ -18,12 +18,15 @@ func _ready():
 
 func _physics_process(delta):
 	var forward_dir = -global_transform.basis.z.normalized()
-	global_translate(forward_dir * BULLET_SPEED * delta)
+	if Engine.get_idle_frames()%2==0:
+		global_translate(forward_dir * BULLET_SPEED * delta)
 
 func _on_timer_timeout():
 	queue_free()
+	Global.bullitCount -= 1
 
 func _on_bullit_body_entered(body):
+	Global.bullitCount -= 1
 	body.take_damage(damage)
 	print("Hit " + body.name)
 	set_process(false)

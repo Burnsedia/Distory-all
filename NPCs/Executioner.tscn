@@ -85,6 +85,7 @@ far = 8192.0
 [node name="MarginContainer" parent="." index="5" instance=ExtResource( 6 )]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
+visible = false
 stream = ExtResource( 9 )
 attenuation_model = 2
 unit_db = 10.874
@@ -95,7 +96,7 @@ autoplay = true
 doppler_tracking = 1
 
 [node name="Weapon" parent="." index="7" instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.651997, 0, -5.6011 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.314802, 0, -5.6011 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Weapon" index="4"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 10, 0, 0, -510 )
@@ -105,9 +106,11 @@ texture = ExtResource( 8 )
 
 [node name="Weapon2" parent="." index="8" instance=ExtResource( 1 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.01445, 0, -5.6011 )
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Weapon2" index="4"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 10, 0, 0, -510 )
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 alpha_cut = 1
 texture = ExtResource( 8 )

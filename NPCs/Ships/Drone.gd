@@ -8,7 +8,7 @@ var faction = null
 var velocity:Vector3 = Vector3.ZERO
 
 var accerleration = Vector3.ZERO
-var speed:float = 16
+var speed:float = 32
 
 var can_shoot = false
 var steer_force:float = .8
@@ -36,14 +36,13 @@ func _ready():
 
 # Physics Function
 func _physics_process(delta:float) -> void:
-
-
-	if transform.origin.distance_to(target.transform.origin) < free_range:
-		avoid(delta)
-	elif transform.origin.distance_to(target.transform.origin) <= attact_range:
-		attack(delta)
-	else:
-		seek(delta)
+	if Engine.get_idle_frames()%2==0:
+		if transform.origin.distance_to(target.transform.origin) < free_range:
+			avoid(delta)
+		elif transform.origin.distance_to(target.transform.origin) <= attact_range:
+			attack(delta)
+		else:
+			seek(delta)
 		
 func seek(delta):
 	var target_location = target.global_transform.origin

@@ -1,5 +1,5 @@
 extends KinematicBody
-
+class_name Player
 export var hp = 100
 
 export var max_speed = 30

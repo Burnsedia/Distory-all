@@ -24,9 +24,9 @@ func spawn_wave():
 	var spawn_rotation = Vector3()
 	var drones =  drone.instance()
 	var frigets = friget.instance()
-	Global.droinCount += 1
 	for w in wave_num:
 		#randomize rotation
+		Global.droinCount += 1
 		spawn_rotation.x = rand_range(-spawn_radius, spawn_radius)
 		spawn_rotation.y = rand_range(-spawn_radius, spawn_radius)
 		spawn_rotation.z = rand_range(-spawn_radius, spawn_radius)
@@ -54,7 +54,7 @@ func spawn_wave():
 func _on_Timer_timeout():
 	if Global.droinCount <= Global.maxDroinds:
 		spawn_wave()
-		print(Global.droinCount)
+		
 
 func take_damage(damage):
 	queue_free()
