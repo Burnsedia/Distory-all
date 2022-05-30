@@ -20,6 +20,7 @@ var forward_speed = 0
 var pitch_input = 0
 var roll_input = 0
 var yaw_input = 0
+var canFire = true
 
 #func _init(): 
 # 	Global.player = self */
@@ -35,7 +36,7 @@ func get_input(delta):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 	if Input.is_action_pressed("throttle_down"):
 		forward_speed = lerp(forward_speed, 0, acceleration * delta)
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot"):
 		#Shoot the gun
 		$Weapon.shoot()
 		
@@ -67,3 +68,4 @@ func _gameOverScreen():
 	
 func take_damage(damage):
 	pass
+

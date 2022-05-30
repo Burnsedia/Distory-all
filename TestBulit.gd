@@ -25,7 +25,7 @@ func _process(delta):
 	travile_distance += distance
 	var reslult := get_world().direct_space_state.intersect_shape(query, 1)
 	if reslult:
-		set_process(false)
+		print(reslult)
 
 	
 		
