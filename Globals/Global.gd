@@ -3,7 +3,7 @@ extends Node
 
 # Declare member variables here. Examples:
 var player = null
-var MainTower = null
+var maintower = null
 
 var droinCount = 0
 var bullitCount = 0
