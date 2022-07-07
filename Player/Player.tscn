@@ -8,9 +8,7 @@ extents = Vector3( 3, 2, 7 )
 
 [sub_resource type="CubeMesh" id=2]
 
-[node name="Player" type="KinematicBody" groups=[
-"player",
-]]
+[node name="Player" type="KinematicBody" groups=["player"]]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
@@ -34,9 +32,7 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, -0.027735, -0.87581 )
 [node name="Weapon4" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, -0.027735, -0.87581 )
 
-[node name="Weapon5" parent="." groups=[
-"weapons",
-] instance=ExtResource( 3 )]
+[node name="Weapon5" parent="." groups=["weapons"] instance=ExtResource( 3 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, 0.472265, -0.87581 )
 
 [node name="Weapon6" parent="." instance=ExtResource( 3 )]
@@ -54,9 +50,7 @@ transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0
 [node name="Weapon10" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, -1.08494, -0.210748, -4.37581 )
 
-[node name="Weapon11" parent="." groups=[
-"weapons",
-] instance=ExtResource( 3 )]
+[node name="Weapon11" parent="." groups=["weapons"] instance=ExtResource( 3 )]
 transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0.866025, 0.240214, -4.37581 )
 
 [node name="Weapon12" parent="." instance=ExtResource( 3 )]

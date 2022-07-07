@@ -119,23 +119,23 @@ func get_aim_at_point():
 	
 func avoid_collions() -> Vector3:
 	if steerLeft.is_colliding():
-		steer_vec.x += steer_force
+		steer_vec.x += steer_force * .8
 		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force 
-		else: steer_vec.y -= steer_force
+		else: steer_vec.y -= steer_force * .8
 		
 	if steerLeft.is_colliding():
-		steer_vec.x -= steer_force	
+		steer_vec.x -= steer_force * .8
 		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
-		else: steer_vec.y -= steer_force	
+		else: steer_vec.y -= steer_force * .8
 		
 	if steerUp.is_colliding():
-		steer_vec.y += steer_force
+		steer_vec.y += steer_force * .8
 		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
-		else: steer_vec.y -= steer_force
+		else: steer_vec.y -= steer_force * .8
 	if steerDown.is_colliding():
-		steer_vec.y -= steer_force	
-		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
-		else: steer_vec.y -= steer_force
+		steer_vec.y -= steer_force * .8
+		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force * .8
+		else: steer_vec.y -= steer_force * .8
 		
 	return steer_vec
 
