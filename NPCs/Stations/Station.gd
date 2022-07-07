@@ -1,4 +1,5 @@
 extends StaticBody
+class_name Station
 
 
 # Declare member variables here. Examples:
@@ -22,8 +23,9 @@ func repair_damge(rp:int) -> void:
 		hp = maxhp
 
 func take_damage(damage:int) -> void:
-	if hp >= 0:
+	if hp <= 0:
 		queue_free()
 	else:
 		hp - damage
 		
+# Replace with function body.

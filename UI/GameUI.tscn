@@ -178,6 +178,7 @@ position = Vector2( 65.9099, 152.255 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 20 )
 pressed = ExtResource( 10 )
+action = "PlaceStation"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
 position = Vector2( 317.751, 102.97 )
@@ -185,12 +186,13 @@ scale = Vector2( 2, 2 )
 normal = ExtResource( 14 )
 pressed = ExtResource( 15 )
 passby_press = true
+action = "menu"
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 visible = false
-margin_top = 302.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_top = 241.0
+margin_right = 1520.0
+margin_bottom = 478.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {

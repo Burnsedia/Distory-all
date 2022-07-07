@@ -3,7 +3,7 @@
 [ext_resource path="res://NPCs/Stations/Station.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 8.13357, 4.44078, 6.3213 )
+extents = Vector3( 18.6427, 4.44078, 6.3213 )
 
 [sub_resource type="CubeMesh" id=2]
 

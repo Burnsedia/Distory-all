@@ -138,6 +138,9 @@ func avoid_collions() -> Vector3:
 		else: steer_vec.y -= steer_force * .8
 		
 	return steer_vec
+	
+func get_velocity():
+	return self.velocity
 
 func take_damage(damage):
 	Global.droinCount -= 1
