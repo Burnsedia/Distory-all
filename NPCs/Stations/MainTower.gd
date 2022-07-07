@@ -8,7 +8,7 @@ export var hp:int = 5000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.MainTower = self
+	Global.maintower = self
 	add_to_group("player")
 
 

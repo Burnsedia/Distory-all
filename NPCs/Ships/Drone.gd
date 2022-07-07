@@ -3,37 +3,41 @@ class_name Drone
 
 
 # Declare member variables here. Examples:
-var target = Global.player
+var target = null
 var faction = null
 var velocity:Vector3 = Vector3.ZERO
 
+var steer_vec:Vector3 = Vector3.ZERO
 var accerleration = Vector3.ZERO
-var speed:float = 32
+var speed:float = 8
 
 var can_shoot = false
-var steer_force:float = .8
+
+var steer_force:float = .2
 var move_vec:Vector3 = Vector3.ZERO
 var target_vec = null
-var num_rays = 8
 
 var attact_range = 300.0
 var free_range = 250.0
-## context array
-#var ray_directions = []
-#var interest = []
-#var danger = []
-#var chosen_dir = Vector3.ZERO
-#var look_ahead = 1000
-#var max_speed = 100
 
+var bullit_speed = 1000
 
 onready var fire_point = $Weapon.global_transform
 onready var cooldown = $CoolDown
-var bullit_speed = 1000
+
+onready var steerUp = $SteerUp
+onready var steerDown = $SteerDown
+onready var steerRight = $SteerRight
+onready var steerLeft = $SteerLeft
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemies")
-
+	if randi()%2 == 0:
+		target = Global.player
+	else:
+		target = Global.maintower
+	
 # Physics Function
 func _physics_process(delta:float) -> void:
 
@@ -51,7 +55,7 @@ func seek(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer * delta
+	velocity += steer + avoid_collions() * delta
 	# look at movement
 	look_at(transform.origin + velocity, Vector3.UP)
 	# move
@@ -65,7 +69,7 @@ func attack(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer * delta
+	velocity += steer + avoid_collions() * delta
 	# look at movement
 	look_at(get_aim_at_point(), Vector3.UP)
 	# move
@@ -82,7 +86,7 @@ func avoid(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer * delta
+	velocity += steer + avoid_collions() * delta
 	# look at movement
 	look_at(transform.origin + velocity, Vector3.UP)
 	# move	
@@ -113,6 +117,28 @@ func get_aim_at_point():
 	
 	return Vt * t + Pti
 	
+func avoid_collions() -> Vector3:
+	if steerLeft.is_colliding():
+		steer_vec.x += steer_force
+		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force 
+		else: steer_vec.y -= steer_force
+		
+	if steerLeft.is_colliding():
+		steer_vec.x -= steer_force	
+		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
+		else: steer_vec.y -= steer_force	
+		
+	if steerUp.is_colliding():
+		steer_vec.y += steer_force
+		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
+		else: steer_vec.y -= steer_force
+	if steerDown.is_colliding():
+		steer_vec.y -= steer_force	
+		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
+		else: steer_vec.y -= steer_force
+		
+	return steer_vec
+
 func take_damage(damage):
 	Global.droinCount -= 1
 	queue_free()
