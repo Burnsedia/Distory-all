@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/Sprites/flatDark/flatDark09.png" type="Texture" id=1]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark04.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/Sprites/lineDark/lineDark01.png" type="Texture" id=19]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark30.png" type="Texture" id=20]
 [ext_resource path="res://UI/GameUI.gd" type="Script" id=21]
+[ext_resource path="res://assets/Sprites/flatDark/flatDark37.png" type="Texture" id=22]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
@@ -102,6 +103,28 @@ text = "Game Over Loser"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StationMenu" type="PanelContainer" parent="VBoxContainer/HBoxContainer/Control2"]
+visible = false
+margin_top = 132.0
+margin_right = 476.0
+margin_bottom = 550.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control2/StationMenu"]
+position = Vector2( 44, 150 )
+normal = ExtResource( 22 )
+action = "selectGunStation"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control2/StationMenu"]
+position = Vector2( 183, 147 )
+normal = ExtResource( 22 )
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control2/StationMenu"]
+position = Vector2( 324, 144 )
+normal = ExtResource( 22 )
+action = "GunStarin"
 
 [node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer"]
 margin_left = 1016.0
@@ -190,9 +213,9 @@ action = "menu"
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 visible = false
-margin_top = 241.0
+margin_top = 362.0
 margin_right = 1520.0
-margin_bottom = 478.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {

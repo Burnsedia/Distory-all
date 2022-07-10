@@ -7,6 +7,7 @@ class_name Station
 # var b = "text"
 export var hp:int = 500
 export var maxhp:int = 600
+var velocity = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -28,4 +29,6 @@ func take_damage(damage:int) -> void:
 	else:
 		hp - damage
 		
+func get_velocity():
+	return self.velocity
 # Replace with function body.

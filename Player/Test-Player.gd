@@ -14,6 +14,7 @@ export var input_response = 8.0
 
 onready var ui = $"MarginContainer/VBoxContainer/HBoxContainer/Control2/RichTextLabel"
 onready var game_over_text = $"MarginContainer/VBoxContainer/HBoxContainer/Control2/GameOverText"
+onready var targeting = $"Weapon/Sprite3D"
 
 var velocity = Vector3.ZERO
 var forward_speed = 0

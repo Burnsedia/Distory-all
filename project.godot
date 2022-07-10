@@ -188,6 +188,14 @@ PlaceStation={
 "deadzone": 0.5,
 "events": [  ]
 }
+menu={
+"deadzone": 0.5,
+"events": [  ]
+}
+selectGunStation={
+"deadzone": 0.5,
+"events": [  ]
+}
 
 [input_devices]
 

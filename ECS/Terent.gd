@@ -30,6 +30,8 @@ func _process(delta):
 func get_aim_at_point():
 	if !target:
 		return 
+	if is_in_group("player"):
+		return
 	
 	var Pti = target.global_transform.origin
 	var Pbi = self.global_transform.origin
