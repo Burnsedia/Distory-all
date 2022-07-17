@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://NPCs/Ships/Drone.gd" type="Script" id=1]
 [ext_resource path="res://assets/Challenger.gltf" type="PackedScene" id=2]
@@ -12,7 +12,10 @@ flags_unshaded = true
 albedo_texture = ExtResource( 3 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 4.7444, 1.56263, 5.04572 )
+extents = Vector3( 4.7444, 1.62131, 5.04572 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 2.90774, 1.25099, 4.89063 )
 
 [node name="Challenger" groups=["enemies"] instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -60,3 +63,15 @@ cast_to = Vector3( 0, 0, -500 )
 [node name="SteerUp" type="RayCast" parent="." index="10"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0 )
 cast_to = Vector3( 0, 0, -500 )
+
+[node name="Area" type="Area" parent="." index="11"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00303078, -0.0113983, 0 )
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

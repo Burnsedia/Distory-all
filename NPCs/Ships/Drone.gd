@@ -22,6 +22,8 @@ var free_range = 250.0
 
 var bullit_speed = 1000
 
+export var empactDamage = 500
+
 onready var fire_point = $Weapon.global_transform
 onready var cooldown = $CoolDown
 
@@ -40,6 +42,10 @@ func _ready():
 	
 # Physics Function
 func _physics_process(delta:float) -> void:
+	
+	if transform.origin.distance_to(Global.maintower.transform.origin) > 500:
+		queue_free()
+		Global.droinCount -= 1
 
 	if transform.origin.distance_to(target.transform.origin) < free_range:
 		avoid(delta)
@@ -143,5 +149,13 @@ func get_velocity():
 	return self.velocity
 
 func take_damage(damage):
+	Global.droinCount -= 1
+	queue_free()
+
+
+func _on_Area_body_entered(body):
+	if body == self:
+		return
+	body.take_damage(empactDamage)
 	Global.droinCount -= 1
 	queue_free()

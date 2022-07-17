@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ProxyamStarsystem/Proxma.tres" type="Environment" id=1]
 [ext_resource path="res://NPCs/Stations/MainTower.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://ProxyamStarsystem/GameWorld.gd" type="Script" id=4]
 [ext_resource path="res://NPCs/Stations/MainTower.gd" type="Script" id=5]
 [ext_resource path="res://assets/Sounds of Space - 5_7_19, 1.52 AM.mp3" type="AudioStream" id=6]
-[ext_resource path="res://DefenseStation.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
@@ -25,15 +24,3 @@ autoplay = true
 [node name="MainStation" parent="." instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 20, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 5 )
-
-[node name="DefenseStation" parent="." groups=["player"] instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -238.329, 27.3862, 161.641 )
-
-[node name="DefenseStation2" parent="." groups=["player"] instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.5187, -8.6003, -489.947 )
-
-[node name="DefenseStation3" parent="." groups=["player"] instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -244.625, -122.363, 703.031 )
-
-[node name="DefenseStation4" parent="." groups=["player"] instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 132.51, 50, 703.031 )

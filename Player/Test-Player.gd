@@ -29,6 +29,8 @@ var canFire = true
 func _ready():
 	Events.connect("game_over", self, "_gameOverScreen")
 	Global.player = self
+	$StationSpawnPosition.set_as_toplevel(true)
+	Global.stationSpawnPoint = $StationSpawnPosition
 	yield(get_tree(), "idle_frame")
 
 

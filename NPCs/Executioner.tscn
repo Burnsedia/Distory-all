@@ -103,13 +103,5 @@ modulate = Color( 1, 0, 0, 1 )
 alpha_cut = 1
 texture = ExtResource( 8 )
 
-[node name="Weapon2" parent="." index="8" instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.01445, 0, -5.6011 )
-visible = false
-
-[node name="Sprite3D" type="Sprite3D" parent="Weapon2" index="4"]
-transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 10, 0, 0, -510 )
-visible = false
-modulate = Color( 1, 0, 0, 1 )
-alpha_cut = 1
-texture = ExtResource( 8 )
+[node name="StationSpawnPosition" type="Spatial" parent="." index="8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80 )

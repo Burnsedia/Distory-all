@@ -23,6 +23,8 @@ func _process(delta):
 		get_tree().get_root().add_child(station)
 		station.add_to_group("player")
 		station.global_transform =  Global.player.global_transform
+		station.rotation =  Vector3.ZERO
+		
 		
 		
 		
