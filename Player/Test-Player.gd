@@ -15,6 +15,7 @@ export var input_response = 8.0
 onready var ui = $"MarginContainer/VBoxContainer/HBoxContainer/Control2/RichTextLabel"
 onready var game_over_text = $"MarginContainer/VBoxContainer/HBoxContainer/Control2/GameOverText"
 onready var targeting = $"Weapon/Sprite3D"
+onready var stationsSpawnPoint  = $StationSpawnPosition
 
 var velocity = Vector3.ZERO
 var forward_speed = 0
@@ -29,7 +30,6 @@ var canFire = true
 func _ready():
 	Events.connect("game_over", self, "_gameOverScreen")
 	Global.player = self
-	$StationSpawnPosition.set_as_toplevel(true)
 	Global.stationSpawnPoint = $StationSpawnPosition
 	yield(get_tree(), "idle_frame")
 

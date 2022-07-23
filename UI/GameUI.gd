@@ -22,7 +22,7 @@ func _process(delta):
 		var station = Global.gunStation.instance()
 		get_tree().get_root().add_child(station)
 		station.add_to_group("player")
-		station.global_transform =  Global.player.global_transform
+		station.global_transform =  Global.stationSpawnPoint.global_transform
 		station.rotation =  Vector3.ZERO
 		
 		
