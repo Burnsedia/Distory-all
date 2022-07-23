@@ -5,12 +5,13 @@ extends StaticBody
 var drone = preload("res://NPCs/Challenger.tscn")
 var friget = preload("res://NPCs/Ships/Cursier.tscn")
 var wave_num = 1
-var spawn_radius = 50
+var spawn_radius = 20
+var velocity = Vector3.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.start()
-	# spawn_wave()
+	spawn_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,6 +50,8 @@ func spawn_wave():
 func _on_Timer_timeout():
 	if Global.droinCount <= Global.maxDroinds:
 		spawn_wave()
-
+func get_velocity():
+	return self.velocity
+	
 func take_damage(damage):
 	queue_free()

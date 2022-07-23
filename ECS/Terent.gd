@@ -1,8 +1,9 @@
 extends Area
+class_name Turent
 
-var target = Global.player
-var fire_point
+var target = null
 var bullit_speed = 1000
+onready var fire_point = $Weapon.global_transform
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,20 +11,30 @@ var bullit_speed = 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("enemies")
+	pass
 
 
+func set_target():
+	get_parent()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	look_at(get_aim_at_point(), Vector3.UP)
-	$Weapon.shoot()
+	if !target:
+		return
+	else:
+		look_at(get_aim_at_point(), Vector3.UP)
+		if OS.get_ticks_msec()%2==0:
+			$Weapon.shoot()
+
+
 
 func get_aim_at_point():
-	if !target.has_method("get_velocity"):
-		return target.global_transform.origin
+	if !target:
+		return 
+	if is_in_group("player"):
+		return
 	
 	var Pti = target.global_transform.origin
-	var Pbi = fire_point.global_transform.origin
+	var Pbi = self.global_transform.origin
 	var D = Pti.distance_to(Pbi)
 	var Vt = target.get_velocity()
 	var St = Vt.length()

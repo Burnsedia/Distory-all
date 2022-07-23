@@ -1,4 +1,5 @@
 extends StaticBody
+class_name Station
 
 
 # Declare member variables here. Examples:
@@ -6,6 +7,7 @@ extends StaticBody
 # var b = "text"
 export var hp:int = 500
 export var maxhp:int = 600
+var velocity = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,8 +24,11 @@ func repair_damge(rp:int) -> void:
 		hp = maxhp
 
 func take_damage(damage:int) -> void:
-	if hp >= 0:
+	if hp <= 0:
 		queue_free()
 	else:
 		hp - damage
 		
+func get_velocity():
+	return self.velocity
+# Replace with function body.

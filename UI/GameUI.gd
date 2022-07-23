@@ -12,5 +12,20 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_just_pressed("menu"):
+		$VBoxContainer/HBoxContainer/Control2/StationMenu.show()
+	if Input.is_action_just_pressed("selectGunStation"):
+		$VBoxContainer/HBoxContainer/Control2/StationMenu.hide()
+		Global.currentStation = Global.gunStation
+	if Input.is_action_just_pressed("PlaceStation"):
+		var station = Global.gunStation.instance()
+		get_tree().get_root().add_child(station)
+		station.add_to_group("player")
+		station.global_transform =  Global.stationSpawnPoint.global_transform
+		station.rotation =  Vector3.ZERO
+		
+		
+		
+		
+		
