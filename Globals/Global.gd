@@ -8,6 +8,12 @@ var maintower = null
 var droinCount = 0
 var bullitCount = 0
 
+#Econemy
+var startingMinerals = 10000
+var curentMinerals = 0
+
+var gunStationCost = 1000
+
 const maxDroinds = 600
 const maxbullets = 10000
 
@@ -17,7 +23,7 @@ var currentStation =  null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	curentMinerals =  startingMinerals
 
 
 func placeStation(station):
