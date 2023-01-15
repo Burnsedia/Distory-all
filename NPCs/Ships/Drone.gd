@@ -150,6 +150,7 @@ func get_velocity():
 
 func take_damage(damage):
 	Global.droinCount -= 1
+	Global.curentMinerals += 100
 	queue_free()
 
 

@@ -18,12 +18,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("selectGunStation"):
 		$VBoxContainer/HBoxContainer/Control2/StationMenu.hide()
 		Global.currentStation = Global.gunStation
-	if Input.is_action_just_pressed("PlaceStation"):
+	if Input.is_action_just_pressed("PlaceStation") and Global.curentMinerals >= Global.gunStationCost:
 		var station = Global.gunStation.instance()
 		get_tree().get_root().add_child(station)
 		station.add_to_group("player")
 		station.global_transform =  Global.stationSpawnPoint.global_transform
 		station.rotation =  Vector3.ZERO
+		Global.curentMinerals -= Global.gunStationCost
 		
 		
 		
