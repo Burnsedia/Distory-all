@@ -1,16 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://assets/Sprites/lineDark/lineDark48.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sprites/lineDark/lineDark05.png" type="Texture" id=2]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark34.png" type="Texture" id=6]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark47.png" type="Texture" id=7]
 [ext_resource path="res://assets/Sprites/lineLight/lineLight46.png" type="Texture" id=8]
-[ext_resource path="res://assets/Sprites/lineLight/lineLight47.png" type="Texture" id=9]
 [ext_resource path="res://assets/Sprites/lineLight/lineLight29.png" type="Texture" id=10]
-[ext_resource path="res://assets/Sprites/lineLight/lineLight31.png" type="Texture" id=11]
 [ext_resource path="res://assets/Sprites/lineLight/lineLight33.png" type="Texture" id=12]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark48.png" type="Texture" id=13]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark49.png" type="Texture" id=14]
 [ext_resource path="res://assets/Sprites/lineLight/lineLight48.png" type="Texture" id=15]
-[ext_resource path="res://assets/Sprites/flatDark/flatDark32.png" type="Texture" id=16]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark30.png" type="Texture" id=20]
 [ext_resource path="res://UI/GameUI.gd" type="Script" id=21]
 [ext_resource path="res://assets/Sprites/flatDark/flatDark37.png" type="Texture" id=22]
@@ -43,6 +42,16 @@ size_flags_vertical = 3
 
 [node name="Analog" parent="VBoxContainer/HBoxContainer/Control" instance=ExtResource( 24 )]
 position = Vector2( 242, 348 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control"]
+position = Vector2( 396, 214 )
+normal = ExtResource( 2 )
+action = "throttle_up"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control"]
+position = Vector2( 395, 399 )
+normal = ExtResource( 1 )
+action = "throttle_down"
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
 margin_left = 508.0
@@ -112,21 +121,21 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
 margin_right = 339.0
-margin_bottom = 197.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
 margin_right = 167.0
-margin_bottom = 197.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer/CenterContainer2"]
 margin_left = 83.0
-margin_top = 98.0
+margin_top = 149.0
 margin_right = 83.0
-margin_bottom = 98.0
+margin_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -138,15 +147,15 @@ action = "target"
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer"]
 margin_left = 171.0
 margin_right = 339.0
-margin_bottom = 197.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/HBoxContainer/CenterContainer"]
 margin_left = 84.0
-margin_top = 98.0
+margin_top = 149.0
 margin_right = 84.0
-margin_bottom = 98.0
+margin_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -156,51 +165,8 @@ normal = ExtResource( 6 )
 pressed = ExtResource( 12 )
 action = "shoot"
 
-[node name="CenterContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
-margin_top = 201.0
-margin_right = 339.0
-margin_bottom = 398.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3"]
-margin_right = 167.0
-margin_bottom = 197.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3/HBoxContainer"]
-margin_left = 83.0
-margin_top = 98.0
-margin_right = 83.0
-margin_bottom = 98.0
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3/HBoxContainer/Control"]
-normal = ExtResource( 13 )
-pressed = ExtResource( 9 )
-action = "throttle_up"
-
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3"]
-margin_left = 171.0
-margin_right = 339.0
-margin_bottom = 197.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3/CenterContainer"]
-margin_left = 84.0
-margin_top = 98.0
-margin_right = 84.0
-margin_bottom = 98.0
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/CenterContainer3/CenterContainer/Control2"]
-scale = Vector2( 2, 2 )
-normal = ExtResource( 16 )
-pressed = ExtResource( 11 )
-action = "throttle_down"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer"]
-margin_top = 402.0
+margin_top = 302.0
 margin_right = 339.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
@@ -208,21 +174,21 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer"]
 margin_right = 339.0
-margin_bottom = 198.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
 margin_right = 167.0
-margin_bottom = 198.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer"]
 margin_left = 83.0
-margin_top = 99.0
+margin_top = 149.0
 margin_right = 83.0
-margin_bottom = 99.0
+margin_bottom = 149.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 
@@ -235,15 +201,15 @@ action = "PlaceStation"
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 171.0
 margin_right = 339.0
-margin_bottom = 198.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/Control3/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2"]
 margin_left = 84.0
-margin_top = 99.0
+margin_top = 149.0
 margin_right = 84.0
-margin_bottom = 99.0
+margin_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
