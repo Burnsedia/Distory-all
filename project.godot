@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "HBoxContainer",
 "class": "ContributorClass",
 "language": "GDScript",
-"path": "res://addons/github-integration/scripts/ContributorClass.gd"
+"path": "res://plugins/addons/github-integration/scripts/ContributorClass.gd"
 }, {
 "base": "KinematicBody",
 "class": "Crusier",
@@ -37,12 +37,12 @@ _global_script_classes=[ {
 "base": "PanelContainer",
 "class": "GistItem",
 "language": "GDScript",
-"path": "res://addons/github-integration/scripts/GistItem.gd"
+"path": "res://plugins/addons/github-integration/scripts/GistItem.gd"
 }, {
 "base": "HBoxContainer",
 "class": "InvitationItem",
 "language": "GDScript",
-"path": "res://addons/github-integration/scripts/InvitationItem.gd"
+"path": "res://plugins/addons/github-integration/scripts/InvitationItem.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "PanelContainer",
 "class": "RepositoryItem",
 "language": "GDScript",
-"path": "res://addons/github-integration/scripts/RepositoryItem.gd"
+"path": "res://plugins/addons/github-integration/scripts/RepositoryItem.gd"
 }, {
 "base": "StaticBody",
 "class": "Station",
@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "TwitchChatManagerMessageFactory",
 "language": "GDScript",
-"path": "res://addons/twitch-chat-manager/TwitchChatManagerMessageFactory.gd"
+"path": "res://plugins/addons/twitch-chat-manager/TwitchChatManagerMessageFactory.gd"
 }, {
 "base": "Area",
 "class": "Weapon",
@@ -102,10 +102,10 @@ config/icon="res://assets/uvCswI.png"
 
 Global="*res://Globals/Global.gd"
 Events="*res://Globals/Events.gd"
-PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+PluginSettings="*res://plugins/addons/github-integration/scripts/PluginSettings.gd"
+IconLoaderGithub="*res://plugins/addons/github-integration/scripts/IconLoaderGithub.gd"
+UserData="*res://plugins/addons/github-integration/scripts/user_data.gd"
+RestHandler="*res://plugins/addons/github-integration/scenes/RestHandler.tscn"
 
 [display]
 
