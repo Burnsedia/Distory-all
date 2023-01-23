@@ -16,7 +16,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	offset.normalized() * distancse
-	offset.y = hieght
-	pos = target + offset 
 	look_at_from_position(pos, target, Vector3.UP)
