@@ -17,6 +17,7 @@
 TODO: Over World Map
 DONE: Spawn Asteroid fields
 TODO: General Refactor
-
+TODO: Chase camera
+TODO: Redesign flight mechanic
 
 
