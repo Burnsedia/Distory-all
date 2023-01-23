@@ -15,7 +15,7 @@
 
 
 TODO: Over World Map
-TODO: Spawn Asteroid fields
+DONE: Spawn Asteroid fields
 TODO: General Refactor
 
 
