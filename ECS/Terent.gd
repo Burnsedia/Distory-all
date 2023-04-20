@@ -1,9 +1,9 @@
-extends Area
+extends Area3D
 class_name Turent
 
 var target = null
 var bullit_speed = 1000
-onready var fire_point = $Weapon.global_transform
+@onready var fire_point = $Weapon.global_transform
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -22,7 +22,7 @@ func _process(delta):
 		return
 	else:
 		look_at(get_aim_at_point(), Vector3.UP)
-		if OS.get_ticks_msec()%2==0:
+		if Time.get_ticks_msec()%2==0:
 			$Weapon.shoot()
 
 

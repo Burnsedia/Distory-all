@@ -1,4 +1,4 @@
-extends KinematicBody
+extends CharacterBody3D
 class_name Crusier
 
 ## Declare member variables here. Examples:

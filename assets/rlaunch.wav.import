@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/rlaunch.wav-5d66eda5dfb8072995ef392fbd33dd7e.sample"
+type="AudioStreamWAV"
+uid="uid://dkoxeoytnop0p"
+path="res://.godot/imported/rlaunch.wav-5d66eda5dfb8072995ef392fbd33dd7e.sample"
 
 [deps]
 
 source_file="res://assets/rlaunch.wav"
-dest_files=[ "res://.import/rlaunch.wav-5d66eda5dfb8072995ef392fbd33dd7e.sample" ]
+dest_files=["res://.godot/imported/rlaunch.wav-5d66eda5dfb8072995ef392fbd33dd7e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/Smoke30Frames_0.png" type="Texture" id=1]
+[ext_resource path="res://assets/Smoke30Frames_0.png" type="Texture2D" id=1]
 
 [sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.12517, 0.866902, 0.915527, 1, 0, 0.636719, 1, 1 )
+colors = PackedColorArray( 0.12517, 0.866902, 0.915527, 1, 0, 0.636719, 1, 1 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture2D" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticleProcessMaterial" id=3]
 emission_shape = 1
 emission_sphere_radius = 0.01
 direction = Vector3( 0, 0, 1 )
@@ -28,7 +28,7 @@ anim_speed_random = 1.0
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="StandardMaterial3D" id=4]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -43,7 +43,7 @@ albedo_texture = ExtResource( 1 )
 material = SubResource( 4 )
 
 [node name="Particles2" type="Particles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934, -0.136, 2.93276 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934, -0.136, 2.93276 )
 amount = 16
 lifetime = 0.5
 local_coords = false

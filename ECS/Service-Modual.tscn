@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape3D" id=1]
 
 [sub_resource type="CapsuleMesh" id=2]
 
-[node name="Service-Modual" type="Area"]
+[node name="Service-Modual" type="Area3D"]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource( 2 )
 material/0 = null

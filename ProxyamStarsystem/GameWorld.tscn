@@ -7,11 +7,11 @@
 [ext_resource path="res://NPCs/Stations/MainTower.gd" type="Script" id=5]
 [ext_resource path="res://assets/Sounds of Space - 5_7_19, 1.52 AM.mp3" type="AudioStream" id=6]
 
-[node name="Game" type="Spatial"]
+[node name="Game" type="Node3D"]
 script = ExtResource( 4 )
 
 [node name="Executioner" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7734, 11.6831, -162.657 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7734, 11.6831, -162.657 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
@@ -22,5 +22,5 @@ volume_db = -10.487
 autoplay = true
 
 [node name="MainStation" parent="." instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 20, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform3D( 2, 0, 0, 0, 20, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 5 )

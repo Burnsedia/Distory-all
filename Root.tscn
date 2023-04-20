@@ -4,5 +4,5 @@
 
 [node name="Root" type="Node"]
 
-[node name="Spatial" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0995121, 0, 0 )
+[node name="Node3D" parent="." instance=ExtResource( 1 )]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0995121, 0, 0 )

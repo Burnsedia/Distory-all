@@ -3,7 +3,7 @@ extends CanvasLayer
 
 # Declare member variables here. Examples:
 
-onready var StatMenu = $Panel
+@onready var StatMenu = $Panel
 
 func _init():
 	print("I am intering the tree")
@@ -17,5 +17,5 @@ func _ready():
 func _unhandled_input(delta):
 	if Input.is_action_pressed("start-game"):
 		StatMenu.visible = false
-		get_tree().change_scene("res://Root.tscn")
+		get_tree().change_scene_to_file("res://Root.tscn")
 		

@@ -1,17 +1,18 @@
-extends Area
+extends Area3D
 class_name Bullet
 
-onready var timer = $Timer
+@onready var timer = $Timer
+@export var damage:int = 1
+
 var BULLET_SPEED = 1000
 var BULLET_DAMAGE = 1 
 var hit_something = false
 
-export var damage:int = 1
 
 const KILL_TIMER = .5
 
 func _ready():
-	timer.connect("timeout", self, "_on_timer_timeout")
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	Global.bullitCount += 1
 
 func _physics_process(delta):

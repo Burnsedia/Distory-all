@@ -8,17 +8,17 @@
 
 [node name="Core" instance=ExtResource( 4 )]
 
-[node name="MeshInstance" parent="." index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104904, 0.0131488, 0.00544906 )
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104904, 0.0131488, 0.00544906 )
 
 [node name="Service-Modual" parent="." index="2" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.70028 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.70028 )
 
 [node name="Engines" parent="." index="3" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.80745 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.80745 )
 
 [node name="Forward-Hall" parent="." index="4" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.89255 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.89255 )
 
-[node name="Spatial" parent="." index="5" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1.99999, 0, 0, 0, 4, -8.62782, 3.00855, -1.82759 )
+[node name="Node3D" parent="." index="5" instance=ExtResource( 1 )]
+transform = Transform3D( 1, 0, 0, 0, 1.99999, 0, 0, 0, 4, -8.62782, 3.00855, -1.82759 )

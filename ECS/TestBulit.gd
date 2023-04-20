@@ -1,9 +1,9 @@
-extends MeshInstance
+extends MeshInstance3D
 
 var damage = 100
 var speed= 10000
-var SHAPE = BoxShape.new()
-var query = PhysicsShapeQueryParameters.new()
+var SHAPE = BoxShape3D.new()
+var query = PhysicsShapeQueryParameters3D.new()
 var travile_distance = 0
 var max_range = 10000
 # Declare member variables here. Examples:
@@ -23,7 +23,7 @@ func _process(delta):
 	var motion = -transform.basis.z * speed * delta
 	global_translate(motion)
 	travile_distance += distance
-	var reslult := get_world().direct_space_state.intersect_shape(query, 1)
+	var reslult := get_world_3d().direct_space_state.intersect_shape(query, 1)
 	print(reslult)
 
 		
