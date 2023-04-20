@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 
 #
@@ -9,17 +9,17 @@ extends Node
 signal token_captured
 signal canceled
 
-export(String) var twitch_auth_url = "https://twitchapps.com/tmi/"
-export(bool)   var token_persist : bool = true setget set_token_persist, is_token_persist
-export(int)    var timeout_seconds : int = 30
+@export var twitch_auth_url: String = "https://twitchapps.com/tmi/"
+@export var token_persist: bool : bool = true: get = is_token_persist, set = set_token_persist
+@export var timeout_seconds: int : int = 30
 
 var oauth : String
 var timer_countdown : int
 
 func set_token_persist(new_value : bool):
 	token_persist = new_value
-	if $PopupDialog/VBoxContainer/PersistCheckBox:
-		$PopupDialog/VBoxContainer/PersistCheckBox.pressed = token_persist
+	if $Popup/VBoxContainer/PersistCheckBox:
+		$Popup/VBoxContainer/PersistCheckBox.button_pressed = token_persist
 
 func is_token_persist() -> bool: return token_persist
 
@@ -30,22 +30,22 @@ func stop():
 	pass
 
 func open_url():
-	var prompt = $PopupDialog
+	var prompt = $Popup
 	prompt.popup_centered(Vector2(320, 200))
 
 func _on_GetTokenButton_pressed():
 	OS.shell_open(twitch_auth_url)
-	$PopupDialog/VBoxContainer/GetTokenButton.hide()
-	$PopupDialog/VBoxContainer/Token.show()
+	$Popup/VBoxContainer/GetTokenButton.hide()
+	$Popup/VBoxContainer/Token.show()
 
 func _on_Button_pressed():
-	$PopupDialog.hide()
-	oauth = $PopupDialog/VBoxContainer/Token.text
+	$Popup.hide()
+	oauth = $Popup/VBoxContainer/Token.text
 	_save_oauth()
 	emit_signal("token_captured")
 
 func _on_Button2_pressed():
-	$PopupDialog.hide()
+	$Popup.hide()
 	emit_signal("canceled")
 
 func _read_last_oauth():

@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://n116uk8dxul"
+path="res://.godot/imported/source_code_pro.fnt-8341711d8992df1c9940f791f9565c4c.fontdata"
+
+[deps]
+
+source_file="res://plugins/addons/gut/source_code_pro.fnt"
+dest_files=["res://.godot/imported/source_code_pro.fnt-8341711d8992df1c9940f791f9565c4c.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

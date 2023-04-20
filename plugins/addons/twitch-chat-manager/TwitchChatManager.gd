@@ -11,15 +11,15 @@ signal disconnected
 signal message_received
 signal oauth_canceled
 
-export(int)    var max_connection_retries : int = 3
-export(String) var username : String = ""
-export(String) var channel  : String = ""
+@export var max_connection_retries: int : int = 3
+@export var username: String : String = ""
+@export var channel: String  : String = ""
 
-onready var irc_message_factory  = $TwitchChatManagerMessageFactory
-onready var irc_controller       = $TwitchChatManagerIrcController
-onready var oauth_controller     = $TwitchChatManagerOauthController
+@onready var irc_message_factory  = $TwitchChatManagerMessageFactory
+@onready var irc_controller       = $TwitchChatManagerIrcController
+@onready var oauth_controller     = $TwitchChatManagerOauthController
 
-onready var connection_retries : int = 0
+@onready var connection_retries : int = 0
 
 func connect_to_server():
 	irc_controller.username = username
@@ -47,7 +47,7 @@ func _on_TwitchChatManagerIrcController_connection_dropped():
 	if connection_retries > max_connection_retries:
 		emit_signal("disconnected")
 	else:
-		yield(get_tree().create_timer(1.0), "timeout")
+		await get_tree().create_timer(1.0).timeout
 		irc_controller.connect_to_server()
 
 func _on_TwitchChatManagerIrcController_msg_received(user, message):

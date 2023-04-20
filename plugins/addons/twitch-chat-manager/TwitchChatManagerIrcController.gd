@@ -13,13 +13,13 @@ signal connection_dropped
 signal not_oauth_token_found
 signal login_failed
 
-export(NodePath) var oauth_controller_path : NodePath = "../TwitchChatManagerOauthController"
-export(String)   var username = ""
-export(String)   var channel = ""
+@export var oauth_controller_path: NodePath : NodePath = "../TwitchChatManagerOauthController"
+@export var username: String = ""
+@export var channel: String = ""
 
-onready var socket : StreamPeerTCP = null
+@onready var socket : StreamPeerTCP = null
 
-onready var oauth_controller = get_node(oauth_controller_path)
+@onready var oauth_controller = get_node(oauth_controller_path)
 
 const connection_timeout : int    = 4
 const twitch_irc_host    : String = "irc.chat.twitch.tv"
@@ -69,7 +69,7 @@ func send(text : String):
 #		print("< PASS xxxx")
 #	else:
 #		print("< ", text)
-	socket.put_data((text + "\n").to_ascii())
+	socket.put_data((text + "\n").to_ascii_buffer())
 
 func send_msg(text : String):
 	send("PRIVMSG #" + channel + " :" + text)
@@ -105,7 +105,7 @@ func _process(delta : float):
 					emit_signal("chan_joined", msg[2])
 					joined_to = msg[2]
 				elif msg[1] == "001":
-					yield(get_tree().create_timer(4.0), "timeout")
+					await get_tree().create_timer(4.0).timeout
 					if joined_to == "": emit_signal("chan_not_found")
 #				else:
 #					print("> ", line)
