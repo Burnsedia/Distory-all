@@ -29,9 +29,9 @@ func _ready():
 func placeStation(station):
 	currentStation = station
 	get_tree().get_root().add_child(currentStation)
-	currentStation.translation.x = player.transform.origin.x
-	currentStation.translation.y = player.transform.origin.y
-	currentStation.translation.x = player.transform.origin.z + 5
+	currentStation.position.x = player.transform.origin.x
+	currentStation.position.y = player.transform.origin.y
+	currentStation.position.x = player.transform.origin.z + 5
 	currentStation.add_to_group("player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,3 +40,28 @@ func _process(delta):
 		droinCount = 0
 	if bullitCount <= 0:
 		bullitCount = 0
+
+func get_aim_at_point(target, bullitSpeed,firePoint):
+	if !target.has_method("get_velocity"):
+		return target.global_transform.origin
+	
+	var Pti = target.global_transform.origin
+	var Pbi = firePoint.global_transform.origin
+	var D = Pti.distance_to(Pbi)
+	var Vt = target.get_velocity()
+	var St = Vt.length()
+	var Sb = bullitSpeed
+	var cos_theta = Pti.direction_to(Pbi).dot(Vt.normalized())
+	var q_root = sqrt(2*D*St*cos_theta + 4*(Sb*Sb - St*St)*D*D )
+	var q_sub = (2*(Sb*Sb - St*St))
+	var q_left = -2*D*St*cos_theta
+	var t1 = (q_left + q_root) / q_sub
+	var t2 = (q_left - q_root) / q_sub
+	
+	var t = min(t1, t2)
+	if t < 0:
+		t = max(t1, t2)
+	if t < 0:
+		return Vector3.INF # can't hit, target too fast
+	
+	return Vt * t + Pti
