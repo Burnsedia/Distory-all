@@ -1,11 +1,5 @@
 res://assets/default_env.tres
+res://NPCs/Challenger.tscn
 res://UI/StartMenu.tscn
-res://Player/Player.gd
-res://ProxyamStarsystem/GameWorld.gd
-res://Player/Test-Player.gd
-res://NPCs/Ships/Drone.gd
-res://NPCs/FaceTarget.gd
 res://UI/GameUI.tscn
 res://Player/Player.tscn
-res://NPCs/Challenger.tscn
-res://ECS/Bullet.gd
