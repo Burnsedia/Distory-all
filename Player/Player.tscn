@@ -1,99 +1,91 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dynrcq3cmcq2a"]
 
-[ext_resource path="res://ECS/Weapon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=4]
+[ext_resource type="PackedScene" path="res://ECS/Weapon.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://UI/UI.tscn" id="4"]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 3, 2, 7 )
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(3, 2, 7)
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="BoxMesh" id="2"]
 
-[node name="Player" type="KinematicBody" groups=["player"]]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.43334, 10.0332 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.43334, 10.0332)
 current = true
 far = 8192.0
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.14007 )
-shape = SubResource( 1 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.14007)
+shape = SubResource("1")
 
-[node name="Weapon" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, -0.527735, -0.87581 )
+[node name="Weapon" parent="." instance=ExtResource("3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, -0.527735, -0.87581)
 
-[node name="Weapon2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, -0.527735, -0.87581 )
+[node name="Weapon2" parent="." instance=ExtResource("3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, -0.527735, -0.87581)
 
-[node name="Weapon3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, -0.027735, -0.87581 )
+[node name="Weapon3" parent="." instance=ExtResource("3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, -0.027735, -0.87581)
 
-[node name="Weapon4" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, -0.027735, -0.87581 )
+[node name="Weapon4" parent="." instance=ExtResource("3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, -0.027735, -0.87581)
 
-[node name="Weapon5" parent="." groups=["weapons"] instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, 0.472265, -0.87581 )
+[node name="Weapon5" parent="." groups=["weapons"] instance=ExtResource("3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, 0.472265, -0.87581)
 
-[node name="Weapon6" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, 0.472265, -0.87581 )
+[node name="Weapon6" parent="." instance=ExtResource("3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, 0.472265, -0.87581)
 
-[node name="Weapon7" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0.866025, -0.759786, -4.37581 )
+[node name="Weapon7" parent="." instance=ExtResource("3")]
+transform = Transform3D(-0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0.866025, -0.759786, -4.37581)
 
-[node name="Weapon8" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, -1.08494, -0.710748, -4.37581 )
+[node name="Weapon8" parent="." instance=ExtResource("3")]
+transform = Transform3D(-0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, -1.08494, -0.710748, -4.37581)
 
-[node name="Weapon9" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0.866025, -0.259786, -4.37581 )
+[node name="Weapon9" parent="." instance=ExtResource("3")]
+transform = Transform3D(-0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0.866025, -0.259786, -4.37581)
 
-[node name="Weapon10" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, -1.08494, -0.210748, -4.37581 )
+[node name="Weapon10" parent="." instance=ExtResource("3")]
+transform = Transform3D(-0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, -1.08494, -0.210748, -4.37581)
 
-[node name="Weapon11" parent="." groups=["weapons"] instance=ExtResource( 3 )]
-transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0.866025, 0.240214, -4.37581 )
+[node name="Weapon11" parent="." groups=["weapons"] instance=ExtResource("3")]
+transform = Transform3D(-0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, 0.866025, 0.240214, -4.37581)
 
-[node name="Weapon12" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, -1.08494, 0.289252, -4.37581 )
+[node name="Weapon12" parent="." instance=ExtResource("3")]
+transform = Transform3D(-0.1, -1.50996e-08, 0, 1.50996e-08, -0.1, 0, 0, 0, 0.1, -1.08494, 0.289252, -4.37581)
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1.8, 0, 0, 0, 1, 0, 0, 0, 3.8, 0, 0, -0.5 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.8, 0, 0, 0, 1, 0, 0, 0, 3.8, 0, 0, -0.5)
+mesh = SubResource("2")
 
-[node name="MeshInstance3" type="MeshInstance" parent="."]
-transform = Transform( 1.08, 0, 0, 0, 0.4, 0, 0, 0, 2.28, 0, 1.5, 1.5 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.08, 0, 0, 0, 0.4, 0, 0, 0, 2.28, 0, 1.5, 1.5)
+mesh = SubResource("2")
 
-[node name="MeshInstance4" type="MeshInstance" parent="."]
-transform = Transform( -4.72083e-08, -0.4, 0, 1.08, -1.74846e-08, 0, 0, 0, 2.28, -2, 0, 1.5 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.72083e-08, -0.4, 0, 1.08, -1.74846e-08, 0, 0, 0, 2.28, -2, 0, 1.5)
+mesh = SubResource("2")
 
-[node name="MeshInstance5" type="MeshInstance" parent="."]
-transform = Transform( -4.72083e-08, -0.4, 0, 1.08, -1.74846e-08, 0, 0, 0, 2.28, 2, 1.74846e-07, 1.5 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.72083e-08, -0.4, 0, 1.08, -1.74846e-08, 0, 0, 0, 2.28, 2, 1.74846e-07, 1.5)
+mesh = SubResource("2")
 
-[node name="MeshInstance6" type="MeshInstance" parent="."]
-transform = Transform( -1.99604e-08, -0.286, 0, 0.264384, -2.15924e-08, 0, 0, 0, -0.4788, 1, 1.62921e-07, 3.5 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.99604e-08, -0.286, 0, 0.264384, -2.15924e-08, 0, 0, 0, -0.4788, 1, 1.62921e-07, 3.5)
+mesh = SubResource("2")
 
-[node name="MeshInstance7" type="MeshInstance" parent="."]
-transform = Transform( -1.99604e-08, -0.286, 0, 0.264384, -2.15924e-08, 0, 0, 0, -0.4788, 0, 8.74228e-08, 3.5 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.99604e-08, -0.286, 0, 0.264384, -2.15924e-08, 0, 0, 0, -0.4788, 0, 8.74228e-08, 3.5)
+mesh = SubResource("2")
 
-[node name="MeshInstance8" type="MeshInstance" parent="."]
-transform = Transform( -1.99604e-08, -0.286, 0, 0.264384, -2.15924e-08, 0, 0, 0, -0.4788, -1, 1.19249e-08, 3.5 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.99604e-08, -0.286, 0, 0.264384, -2.15924e-08, 0, 0, 0, -0.4788, -1, 1.19249e-08, 3.5)
+mesh = SubResource("2")
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 0.63, 0, 0, 0, 0.7, 0, 0, 0, 3.8, 0, 0, -8 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="MeshInstance2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.63, 0, 0, 0, 0.7, 0, 0, 0, 3.8, 0, 0, -8)
+mesh = SubResource("2")
 
-[node name="UI" parent="." instance=ExtResource( 4 )]
+[node name="UI" parent="." instance=ExtResource("4")]
