@@ -1,26 +1,4 @@
 # Sector Defense
-
-## A Space Tower Defense Game Set in a Decaying Dyson Swarm
-
-
-
-## Goals of Project
-
-* Make a actually fun Open Source Game
-* Releace on SteamDeck
-* Sell Binaries
-
-
-
-
-
-TODO: Over World Map
-DONE: Spawn Asteroid fields
-TODO: General Refactor
-TODO: Chase camera
-TODO: Redesign flight mechanic
-
-# Sector Defense
 Sector Defense is an open-source tower defense game set in a decaying Dyson swarm. The objective of the game is to defend your sector from waves of enemy attacks by strategically placing towers and using different weapons to destroy them. The game is being developed with the goal of being fun and entertaining for players, and we plan to release it on SteamDeck as well as sell binaries.
 
 # Project Goals
@@ -29,12 +7,6 @@ Create an engaging and fun open-source game for players to enjoy.
 Release the game on SteamDeck and sell binaries to expand our audience.
 Continuously improve and refine the game mechanics based on player feedback.
 Current Status
-
-# Over World Map: TODO
-# Spawn Asteroid fields: DONE
-# General Refactor: TODO
-# Chase camera: TODO
-# Redesign flight mechanic: TODO
 
 # How to Contribute
 We welcome contributions from anyone who wants to help make Sector Defense a better game. If you're interested in contributing, please read our contribution guidelines and get in touch with us via our GitHub repository or email.
@@ -56,3 +28,12 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+# Support us on Patreon and GitHub Sponsors
+
+If you enjoy playing Sector Defense and want to help us continue developing it, please consider supporting us on Patreon or GitHub Sponsors. By becoming a patron or sponsor, you'll get access to exclusive updates, behind-the-scenes content, and the ability to vote on future features and updates.
+
+Your support will help us cover the costs of development, including software licenses, server hosting, and equipment. It will also enable us to dedicate more time and resources to making the game even better for players.
+
+* Support us on [Patreon](https://www.patreon.com/RetroFOSS)
+* Support us on [GitHub Sponsors](https://github.com/sponsors/Burnsedia/)
