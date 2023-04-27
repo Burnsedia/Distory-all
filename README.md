@@ -35,5 +35,5 @@ If you enjoy playing Sector Defense and want to help us continue developing it, 
 
 Your support will help us cover the costs of development, including software licenses, server hosting, and equipment. It will also enable us to dedicate more time and resources to making the game even better for players.
 
-Support us on [Patreon](https://www.patreon.com/RetroFOSS)
-Support us on [GitHub Sponsors](https://github.com/sponsors/Burnsedia/)
+* Support us on [Patreon](https://www.patreon.com/RetroFOSS)
+* Support us on [GitHub Sponsors](https://github.com/sponsors/Burnsedia/)
