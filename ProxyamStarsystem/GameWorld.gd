@@ -7,7 +7,7 @@ func _ready():
   spawn_asteroids()
 
 func spawn_stations() -> void:
-	var count = 10
+  var count = 10
 	var radius = 500.0
 	var center = Vector3()
 	# Get how much of an angle objects will be spaced around the circle.

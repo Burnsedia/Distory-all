@@ -1,8 +1,9 @@
+res://NPCs/Executioner.tscn
+res://ProxyamStarsystem/GameWorld.tscn
+res://addons/naejimer_3d_planet_generator/scenes/star.tscn
+res://addons/naejimer_3d_planet_generator/noises/star.tres
 res://UI/StartMenu.tscn
 res://UI/GameUI.tscn
 res://NPCs/Stations/EnemyShipYard.tscn
 res://Root.tscn
-res://ProxyamStarsystem/GameWorld.tscn
 res://NPCs/Stations/MainTower.tscn
-res://NPCs/Executioner.tscn
-res://ProxyamStarsystem/GameWorld.gd

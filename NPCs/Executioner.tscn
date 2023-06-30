@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d15rmf3a38xi8"]
+[gd_scene load_steps=15 format=3 uid="uid://crep7vkqnu5nu"]
 
 [ext_resource type="PackedScene" path="res://ECS/Weapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://dp5gpg2vilsw7" path="res://assets/Smoke30Frames_0.png" id="2"]
 [ext_resource type="Script" path="res://Player/Test-Player.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://c6fiyv478sunh" path="res://assets/Executioner.gltf" id="4"]
 [ext_resource type="PackedScene" uid="uid://cnjrre2soe7pp" path="res://UI/GameUI.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://Particles.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://ECS/Particles.tscn" id="7"]
 [ext_resource type="Texture2D" uid="uid://8xsnjr2ugye1" path="res://assets/Sprites/transparentDark/transparentDark33.png" id="8"]
 [ext_resource type="AudioStream" uid="uid://c2vbeh8dn7uy2" path="res://assets/engine_sound.mp3" id="9"]
 
