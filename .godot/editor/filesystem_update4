@@ -1,0 +1,13 @@
+res://UI/StartMenu.tscn
+res://UI/GameUI.tscn
+res://UI/UI.gd
+res://ProxyamStarsystem/GameWorld.gd
+res://Player/Player.gd
+res://Player/Test-Player.gd
+res://NPCs/FaceTarget.gd
+res://NPCs/Ships/Drone.gd
+res://NPCs/Stations/MainTower.gd
+res://NPCs/Stations/EnemyShipYard.tscn
+res://plugins/addons/analog/analog.gd
+res://ECS/Weapon.gd
+res://NPCs/Stations/Station.gd

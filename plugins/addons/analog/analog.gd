@@ -1,13 +1,13 @@
 extends Node2D
 
 const INACTIVE_IDX = -1;
-export var AnalogTapToShow = false setget set_tap_to_show
-export var AnalogTapToShowContainer = ""
-export var mapAnalogToDpad = true
+@export var AnalogTapToShow = false: set = set_tap_to_show
+@export var AnalogTapToShowContainer = ""
+@export var mapAnalogToDpad = true
 
-onready var ball = $ball
-onready var animation_player = $AnimationPlayer
-onready var halfSize = $bg.texture.get_size()/2
+@onready var ball = $ball
+@onready var animation_player = $AnimationPlayer
+@onready var halfSize = $bg.texture.get_size()/2
 
 var centerPoint = Vector2(0,0)
 var currentForce = Vector2(0,0)
@@ -111,7 +111,7 @@ func isReleased(event):
 	elif event is InputEventMouseButton:
 		return !event.is_pressed()
 
-func calculateForce(var x, var y):
+func calculateForce(x, y):
 	#get direction
 	currentForce.x = (x - centerPoint.x)/halfSize.x
 	currentForce.y = -(y - centerPoint.y)/halfSize.y

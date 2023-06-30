@@ -3,7 +3,7 @@ extends StaticBody
 
 # Declare member variables here. Examples:
 var isDead:bool = false
-export var hp:int = 5000
+@export var hp:int = 5000
 
 
 # Called when the node enters the scene tree for the first time.

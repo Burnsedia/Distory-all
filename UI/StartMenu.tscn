@@ -1,119 +1,90 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c8noqdjfpgxve"]
 
-[ext_resource path="res://assets/icon.png" type="Texture" id=1]
-[ext_resource path="res://assets/Sprites/flatDark/flatDark41.png" type="Texture" id=2]
-[ext_resource path="res://assets/Sprites/lineLight/lineLight41.png" type="Texture" id=3]
-[ext_resource path="res://assets/Sprites/flatDark/flatDark30.png" type="Texture" id=4]
-[ext_resource path="res://assets/Sprites/flatDark/flatDark42.png" type="Texture" id=5]
-[ext_resource path="res://UI/StartMenu.gd" type="Script" id=6]
-[ext_resource path="res://assets/Sprites/flatDark/flatDark32.png" type="Texture" id=7]
-[ext_resource path="res://assets/Sprites/flatDark/flatDark33.png" type="Texture" id=8]
+[ext_resource type="Script" path="res://UI/StartMenu.gd" id="6"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 60, 40 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(120, 80)
 
 [node name="Main_Game_Screen" type="Panel"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 504.0
-margin_bottom = 720.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/HBoxContainer"]
-margin_right = 504.0
-margin_bottom = 358.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/HBoxContainer/CenterContainer"]
-position = Vector2( 106.273, 118.046 )
-scale = Vector2( 1.9499, 2.29638 )
-normal = ExtResource( 2 )
-pressed = ExtResource( 3 )
-shape = SubResource( 1 )
+position = Vector2(106.273, 118.046)
+scale = Vector2(1.9499, 2.29638)
+shape = SubResource("1")
 action = "start-game"
 
 [node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/HBoxContainer"]
-margin_top = 362.0
-margin_right = 504.0
-margin_bottom = 720.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/HBoxContainer/CenterContainer2"]
-position = Vector2( 114.682, 148.318 )
-scale = Vector2( 1.57617, 2.1212 )
-normal = ExtResource( 5 )
+position = Vector2(114.682, 148.318)
+scale = Vector2(1.57617, 2.1212)
 action = "StartGame"
 
 [node name="Middle" type="Control" parent="HBoxContainer"]
-margin_left = 508.0
-margin_right = 1012.0
-margin_bottom = 720.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 1016.0
-margin_right = 1520.0
-margin_bottom = 720.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
-margin_right = 504.0
-margin_bottom = 358.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/CenterContainer"]
-margin_left = 252.0
-margin_top = 179.0
-margin_right = 252.0
-margin_bottom = 179.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-position = Vector2( -20.1815, 0 )
-scale = Vector2( 1.42045, 1.42045 )
-normal = ExtResource( 8 )
+position = Vector2(-20.1815, 0)
+scale = Vector2(1.42045, 1.42045)
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-position = Vector2( -20.1814, 90 )
-scale = Vector2( 1.42045, 1.49052 )
-normal = ExtResource( 4 )
+position = Vector2(-20.1814, 90)
+scale = Vector2(1.42045, 1.49052)
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
-position = Vector2( -19.0592, -90 )
-scale = Vector2( 1.35037, 1.2803 )
-normal = ExtResource( 7 )
+position = Vector2(-19.0592, -90)
+scale = Vector2(1.35037, 1.2803)
 
 [node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 362.0
-margin_right = 504.0
-margin_bottom = 720.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer2"]
-position = Vector2( 202.183, 133.045 )
-scale = Vector2( 2.20879, 1.91973 )
-normal = ExtResource( 1 )
+position = Vector2(202.183, 133.045)
+scale = Vector2(2.20879, 1.91973)
 
 [connection signal="pressed" from="HBoxContainer/HBoxContainer/CenterContainer/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

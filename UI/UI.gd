@@ -3,7 +3,7 @@ extends CanvasLayer
 
 # Declare member variables here. Examples:
 
-onready var StatMenu = $Panel
+@onready var StatMenu = $Panel
 
 func _init():
 	print("I am intering the tree")
