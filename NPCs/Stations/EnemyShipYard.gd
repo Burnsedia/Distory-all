@@ -1,4 +1,4 @@
-extends StaticBody
+extends StaticBody3D
 
 
 # Declare member variables here. Examples:
