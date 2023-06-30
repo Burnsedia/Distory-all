@@ -4,3 +4,5 @@ res://NPCs/Stations/EnemyShipYard.tscn
 res://Root.tscn
 res://ProxyamStarsystem/GameWorld.tscn
 res://NPCs/Stations/MainTower.tscn
+res://NPCs/Executioner.tscn
+res://ProxyamStarsystem/GameWorld.gd

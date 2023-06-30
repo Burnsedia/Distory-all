@@ -1,107 +1,87 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://d15rmf3a38xi8"]
 
-[ext_resource path="res://ECS/Weapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/Smoke30Frames_0.png" type="Texture" id=2]
-[ext_resource path="res://Player/Test-Player.gd" type="Script" id=3]
-[ext_resource path="res://assets/Executioner.gltf" type="PackedScene" id=4]
-[ext_resource path="res://assets/Executoner.material" type="Material" id=5]
-[ext_resource path="res://UI/GameUI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Particles.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/Sprites/transparentDark/transparentDark33.png" type="Texture" id=8]
-[ext_resource path="res://assets/engine_sound.mp3" type="AudioStream" id=9]
+[ext_resource type="PackedScene" path="res://ECS/Weapon.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://dp5gpg2vilsw7" path="res://assets/Smoke30Frames_0.png" id="2"]
+[ext_resource type="Script" path="res://Player/Test-Player.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://c6fiyv478sunh" path="res://assets/Executioner.gltf" id="4"]
+[ext_resource type="PackedScene" uid="uid://cnjrre2soe7pp" path="res://UI/GameUI.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://Particles.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://8xsnjr2ugye1" path="res://assets/Sprites/transparentDark/transparentDark33.png" id="8"]
+[ext_resource type="AudioStream" uid="uid://c2vbeh8dn7uy2" path="res://assets/engine_sound.mp3" id="9"]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 3.25678, 0.845382, 2.60626 )
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(6.51356, 1.69076, 5.21252)
 
-[sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 0.12517, 0.866902, 0.915527, 1, 0, 0.636719, 1, 1 )
+[sub_resource type="Gradient" id="2"]
+colors = PackedColorArray(0.12517, 0.866902, 0.915527, 1, 0, 0.636719, 1, 1)
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture1D" id="3"]
+gradient = SubResource("2")
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticleProcessMaterial" id="4"]
 emission_shape = 1
 emission_sphere_radius = 0.01
-direction = Vector3( 0, 0, 1 )
+direction = Vector3(0, 0, 1)
 spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity_random = 1.0
-linear_accel = 6.98
-linear_accel_random = 1.0
-radial_accel_random = 1.0
-angle = 360.0
-scale_random = 1.0
-color_ramp = SubResource( 3 )
-hue_variation = -0.02
-hue_variation_random = 1.0
-anim_speed = 1.0
-anim_speed_random = 1.0
-anim_offset = 1.0
-anim_offset_random = 1.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("3")
 
-[sub_resource type="SpatialMaterial" id=5]
-flags_transparent = true
-flags_unshaded = true
+[sub_resource type="StandardMaterial3D" id="5"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
 vertex_color_use_as_albedo = true
-params_blend_mode = 1
-params_billboard_mode = 3
+albedo_texture = ExtResource("2")
+billboard_mode = 3
 particles_anim_h_frames = 6
 particles_anim_v_frames = 5
 particles_anim_loop = true
-albedo_texture = ExtResource( 2 )
 
-[sub_resource type="QuadMesh" id=6]
-material = SubResource( 5 )
+[sub_resource type="QuadMesh" id="6"]
+material = SubResource("5")
 
-[node name="Executioner" groups=["player"] instance=ExtResource( 4 )]
-script = ExtResource( 3 )
+[node name="Executioner" groups=["player"] instance=ExtResource("4")]
+script = ExtResource("3")
 
-[node name="Executioner" parent="." index="0"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.106751, 0.188458, 0.14108 )
-cast_shadow = 0
-material/0 = ExtResource( 5 )
+[node name="CollisionShape" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0744009, 0.325914, 0)
+shape = SubResource("1")
 
-[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0744009, 0.325914, 0 )
-shape = SubResource( 1 )
+[node name="Particles2" parent="." index="2" instance=ExtResource("7")]
 
-[node name="Particles2" parent="." index="2" instance=ExtResource( 7 )]
-
-[node name="Particles3" type="Particles" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.954411, -0.136347, 2.95945 )
+[node name="Particles3" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.954411, -0.136347, 2.95945)
 amount = 16
 lifetime = 0.5
-local_coords = false
 draw_order = 2
-process_material = SubResource( 4 )
-draw_pass_1 = SubResource( 6 )
+process_material = SubResource("4")
+draw_pass_1 = SubResource("6")
 
-[node name="Camera" type="Camera" parent="." index="4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0855, 10.3934 )
+[node name="Camera" type="Camera3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0855, 10.3934)
 current = true
 fov = 51.7424
 far = 8192.0
 
-[node name="MarginContainer" parent="." index="5" instance=ExtResource( 6 )]
+[node name="MarginContainer" parent="." index="5" instance=ExtResource("6")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
-stream = ExtResource( 9 )
+stream = ExtResource("9")
 attenuation_model = 2
-unit_db = 10.874
 unit_size = 3.6
 max_db = -3.699
 pitch_scale = 1.21
 autoplay = true
 doppler_tracking = 1
 
-[node name="Weapon" parent="." index="7" instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.314802, 0, -5.6011 )
+[node name="Weapon" parent="." index="7" instance=ExtResource("1")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.314802, 0, -5.6011)
 
 [node name="Sprite3D" type="Sprite3D" parent="Weapon" index="4"]
-transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 10, 0, 0, -510 )
-modulate = Color( 1, 0, 0, 1 )
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 10, 0, 0, -510)
+modulate = Color(1, 0, 0, 1)
 alpha_cut = 1
-texture = ExtResource( 8 )
+texture = ExtResource("8")
 
-[node name="StationSpawnPosition" type="Spatial" parent="." index="8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80 )
+[node name="StationSpawnPosition" type="Node3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
