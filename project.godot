@@ -126,6 +126,7 @@ common/enable_object_picking=false
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 threads/thread_model=2
 vram_compression/import_etc=true
 environment/default_environment="res://assets/default_env.tres"

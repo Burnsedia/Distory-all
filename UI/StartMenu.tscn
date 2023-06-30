@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8noqdjfpgxve"]
+[gd_scene load_steps=4 format=3 uid="uid://c8noqdjfpgxve"]
 
+[ext_resource type="Texture2D" uid="uid://miyhgdv46lim" path="res://assets/Sprites/flatLight/flatLight14.png" id="2_qvf1e"]
 [ext_resource type="Script" path="res://UI/StartMenu.gd" id="6"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -33,6 +34,7 @@ size_flags_vertical = 3
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/HBoxContainer/CenterContainer"]
 position = Vector2(106.273, 118.046)
 scale = Vector2(1.9499, 2.29638)
+texture_normal = ExtResource("2_qvf1e")
 shape = SubResource("1")
 action = "start-game"
 

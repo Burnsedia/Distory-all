@@ -1,26 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://bjg7rf1wr8fma"]
 
-[ext_resource path="res://ProxyamStarsystem/Proxma.tres" type="Environment" id=1]
-[ext_resource path="res://NPCs/Stations/MainTower.tscn" type="PackedScene" id=2]
-[ext_resource path="res://NPCs/Executioner.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ProxyamStarsystem/GameWorld.gd" type="Script" id=4]
-[ext_resource path="res://NPCs/Stations/MainTower.gd" type="Script" id=5]
-[ext_resource path="res://assets/Sounds of Space - 5_7_19, 1.52 AM.mp3" type="AudioStream" id=6]
+[ext_resource type="Environment" uid="uid://bof3vvf6k3577" path="res://ProxyamStarsystem/Proxma.tres" id="1"]
+[ext_resource type="PackedScene" uid="uid://b77rc7p1nvjq2" path="res://NPCs/Stations/MainTower.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://NPCs/Executioner.tscn" id="3"]
+[ext_resource type="Script" path="res://ProxyamStarsystem/GameWorld.gd" id="4"]
+[ext_resource type="Script" path="res://NPCs/Stations/MainTower.gd" id="5"]
+[ext_resource type="AudioStream" uid="uid://b636wgnl02uw" path="res://assets/Sounds of Space - 5_7_19, 1.52 AM.mp3" id="6"]
 
-[node name="Game" type="Spatial"]
-script = ExtResource( 4 )
+[node name="Game" type="Node3D"]
+script = ExtResource("4")
 
-[node name="Executioner" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7734, 11.6831, -162.657 )
+[node name="Executioner" parent="." instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7734, 11.6831, -162.657)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 1 )
+environment = ExtResource("1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource("6")
 volume_db = -10.487
 autoplay = true
 
-[node name="MainStation" parent="." instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 20, 0, 0, 0, 2, 0, 0, 0 )
-script = ExtResource( 5 )
+[node name="MainStation" parent="." instance=ExtResource("2")]
+transform = Transform3D(2, 0, 0, 0, 20, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("5")

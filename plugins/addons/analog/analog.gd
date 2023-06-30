@@ -82,7 +82,7 @@ func reset():
 	calculateForce(0, 0)
 
 	if AnalogTapToShow:
-		hide()
+		fade()
 	else:
 		updateBallPos()
 
@@ -91,7 +91,7 @@ func showAtPos(pos):
 		animation_player.play("alpha_in", 0.2)
 		global_position = pos
 	
-func hide():
+func fade():
 	animation_player.play("alpha_out", 0.2) 
 
 func updateBallPos():
@@ -124,12 +124,12 @@ func set_tap_to_show(value):
 	if value:
 		modulate.a = 0
 		
-		if not AnalogTapToShowContainer is ViewportContainer:
-			assert(
-				AnalogTapToShowContainer is ViewportContainer, 
-				"To use tag AnalogDynamicShowing you need to put GamePad inside a ViewportContainer"
-			)
-	
+#		if not AnalogTapToShowContainer is ViewportContainer:
+#			assert(
+#				AnalogTapToShowContainer is ViewportContainer, 
+#				"To use tag AnalogDynamicShowing you need to put GamePad inside a ViewportContainer"
+#			)
+#
 	AnalogTapToShow = value
 		
 func sendSignal2Listener():
