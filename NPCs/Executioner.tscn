@@ -43,6 +43,9 @@ material = SubResource("5")
 [node name="Executioner" groups=["player"] instance=ExtResource("4")]
 script = ExtResource("3")
 
+[node name="Executioner2" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
 [node name="CollisionShape" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0744009, 0.325914, 0)
 shape = SubResource("1")

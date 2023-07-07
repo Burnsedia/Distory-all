@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjg7rf1wr8fma"]
+[gd_scene load_steps=8 format=3 uid="uid://bjg7rf1wr8fma"]
 
 [ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://addons/naejimer_3d_planet_generator/scenes/star.tscn" id="2_cb0x6"]
 [ext_resource type="PackedScene" path="res://Player/Camera.tscn" id="3_0ftcc"]
 [ext_resource type="Script" path="res://ProxyamStarsystem/GameWorld.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://b77rc7p1nvjq2" path="res://NPCs/Stations/MainTower.tscn" id="4_rg305"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80biu"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -25,11 +26,14 @@ sky = SubResource("Sky_0fdkg")
 script = ExtResource("4")
 
 [node name="Star" parent="." instance=ExtResource("2_cb0x6")]
-transform = Transform3D(807.615, 0, -887.557, 0, 1200, 0, 887.557, 0, 807.615, 0, 1.66377, 0)
+transform = Transform3D(-675.254, 0, -991.987, 0, 1200, 0, 991.987, 0, -675.254, 0, 1.66377, 0)
 skeleton = NodePath("../WorldEnvironment")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m3uq0")
 
 [node name="Camera" parent="." instance=ExtResource("3_0ftcc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1500)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180.914, 272.1, 1765.84)
+
+[node name="MainStation" parent="." instance=ExtResource("4_rg305")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12746, 0, 0)

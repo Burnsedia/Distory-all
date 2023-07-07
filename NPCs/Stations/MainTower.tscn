@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b77rc7p1nvjq2"]
+[gd_scene load_steps=4 format=3 uid="uid://b77rc7p1nvjq2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcj5a"]
 
 [sub_resource type="BoxMesh" id="1"]
+material = SubResource("StandardMaterial3D_rcj5a")
 
 [sub_resource type="BoxShape3D" id="2"]
 size = Vector3(40.5288, 201.718, 41.7266)
@@ -9,7 +12,7 @@ size = Vector3(40.5288, 201.718, 41.7266)
 collision_layer = 3
 
 [node name="MeshInstance" type="MeshInstance3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 100, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 100, 0, 0, 0, 20, -0.0377933, 0.0387154, -0.00345302)
 mesh = SubResource("1")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
