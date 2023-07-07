@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -11,7 +11,7 @@ func spawn_stations() -> void:
 	var radius = 500.0
 	var center = Vector3()
 	# Get how much of an angle objects will be spaced around the circle.
-	# Angles are in radians so 2.0*PI = 360 degrees
+	# Angles are in radians so 2.0*PI = 360 degree
 	var angle_step = 2.0*PI / count
 
 	var angle = 0

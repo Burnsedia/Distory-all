@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/Sounds of Space - 5_7_19, 1.52 AM.mp3-f13f98e1444c5e81ad9e99e77ebbdfba.mp3str"
+uid="uid://b636wgnl02uw"
+path="res://.godot/imported/Sounds of Space - 5_7_19, 1.52 AM.mp3-f13f98e1444c5e81ad9e99e77ebbdfba.mp3str"
 
 [deps]
 
 source_file="res://assets/Sounds of Space - 5_7_19, 1.52 AM.mp3"
-dest_files=[ "res://.import/Sounds of Space - 5_7_19, 1.52 AM.mp3-f13f98e1444c5e81ad9e99e77ebbdfba.mp3str" ]
+dest_files=["res://.godot/imported/Sounds of Space - 5_7_19, 1.52 AM.mp3-f13f98e1444c5e81ad9e99e77ebbdfba.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -22,7 +22,7 @@ var free_range = 250.0
 
 var bullit_speed = 1000
 
-export var empactDamage = 500
+@export var empactDamage = 500
 
 onready var fire_point = $Weapon.global_transform
 onready var cooldown = $CoolDown

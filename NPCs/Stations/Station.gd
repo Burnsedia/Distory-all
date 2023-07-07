@@ -1,12 +1,12 @@
-extends StaticBody
+extends StaticBody3D
 class_name Station
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var hp:int = 500
-export var maxhp:int = 600
+@export var hp:int = 500
+@export var maxhp:int = 600
 var velocity = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
