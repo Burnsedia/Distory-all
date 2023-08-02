@@ -1,2 +1,6 @@
+SpotLight3D
+LightmapGI
+NavigationRegion3D
+OmniLight3D
 WorldEnvironment
 TouchScreenButton
