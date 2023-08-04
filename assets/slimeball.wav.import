@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/slimeball.wav-6cdc857122898f2a59d248114f47db85.sample"
+type="AudioStreamWAV"
+uid="uid://d3uwnk23nch8i"
+path="res://.godot/imported/slimeball.wav-6cdc857122898f2a59d248114f47db85.sample"
 
 [deps]
 
 source_file="res://assets/slimeball.wav"
-dest_files=[ "res://.import/slimeball.wav-6cdc857122898f2a59d248114f47db85.sample" ]
+dest_files=["res://.godot/imported/slimeball.wav-6cdc857122898f2a59d248114f47db85.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

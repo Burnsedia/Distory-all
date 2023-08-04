@@ -1,6 +1,6 @@
 extends Camera
 
-export (float) var weight = 0.8
+export(float) var weight = 0.8
 
 func _ready():
 	set_as_toplevel(true)

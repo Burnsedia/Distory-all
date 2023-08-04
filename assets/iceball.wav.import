@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/iceball.wav-1efa6881af52c652bf598d7d27c71d50.sample"
+type="AudioStreamWAV"
+uid="uid://c0omcwmun16vv"
+path="res://.godot/imported/iceball.wav-1efa6881af52c652bf598d7d27c71d50.sample"
 
 [deps]
 
 source_file="res://assets/iceball.wav"
-dest_files=[ "res://.import/iceball.wav-1efa6881af52c652bf598d7d27c71d50.sample" ]
+dest_files=["res://.godot/imported/iceball.wav-1efa6881af52c652bf598d7d27c71d50.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

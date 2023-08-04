@@ -1,4 +1,4 @@
-extends KinematicBody
+extends CharacterBody3D
 class_name Drone
 
 
@@ -22,15 +22,15 @@ var free_range = 250.0
 
 var bullit_speed = 1000
 
-export var empactDamage = 500
+@export var empactDamage = 500
 
-onready var fire_point = $Weapon.global_transform
-onready var cooldown = $CoolDown
+@onready var fire_point = $Weapon.global_transform
+@onready var cooldown = $CoolDown
 
-onready var steerUp = $SteerUp
-onready var steerDown = $SteerDown
-onready var steerRight = $SteerRight
-onready var steerLeft = $SteerLeft
+@onready var steerUp = $SteerUp
+@onready var steerDown = $SteerDown
+@onready var steerRight = $SteerRight
+@onready var steerLeft = $SteerLeft
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
