@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1mqteaptty1y"
+uid="uid://d12qvfeyg2wno"
 path.s3tc="res://.godot/imported/Executioner_Executioner_Orange.png-50314f102d9a572ef466852fbfbf1a19.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

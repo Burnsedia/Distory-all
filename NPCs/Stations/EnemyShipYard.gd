@@ -28,13 +28,13 @@ func spawn_wave():
 	for w in wave_num:
 		#randomize rotation
 		Global.droinCount += 1
-		spawn_rotation.x = rand_range(-spawn_radius, spawn_radius)
-		spawn_rotation.y = rand_range(-spawn_radius, spawn_radius)
-		spawn_rotation.z = rand_range(-spawn_radius, spawn_radius)
+		spawn_rotation.x = randf_range(-spawn_radius, spawn_radius)
+		spawn_rotation.y = randf_range(-spawn_radius, spawn_radius)
+		spawn_rotation.z = randf_range(-spawn_radius, spawn_radius)
 		# randomize position
-		spawn_position.x = rand_range(-spawn_radius, spawn_radius)
-		spawn_position.y = rand_range(-spawn_radius, spawn_radius)
-		spawn_position.z = rand_range(-spawn_radius, spawn_radius)
+		spawn_position.x = randf_range(-spawn_radius, spawn_radius)
+		spawn_position.y = randf_range(-spawn_radius, spawn_radius)
+		spawn_position.z = randf_range(-spawn_radius, spawn_radius)
 		# set position
 		drones.translation = spawn_position
 		# set rotation

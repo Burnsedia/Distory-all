@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var max_speed = 5
+@export var max_speed = 5.0
 @export var acceleration = 0.9
 @export var pitch_speed = 1.9
 @export var roll_speed = .75
@@ -8,10 +8,10 @@ extends CharacterBody3D
 # Set lower for linked roll/yaw
 @export var input_response = 8.0
 
-var forward_speed = 0
-var pitch_input = 0
-var roll_input = 0
-var yaw_input = 0
+var forward_speed = 0.0
+var pitch_input = 0.0
+var roll_input = 0.0
+var yaw_input = 0.0
 
 func get_input(delta):
 	if Input.is_action_pressed("throttle_up"):

@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8i3esx30fn5m"
-path.s3tc="res://.godot/imported/Challenger_Orange.png-3ea365b239f1d33817c4460efcda5081.s3tc.ctex"
+uid="uid://bvvl7f7nkv5sh"
+path="res://.godot/imported/Challenger_Orange.png-3ea365b239f1d33817c4460efcda5081.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/Challenger_Orange.png"
-dest_files=["res://.godot/imported/Challenger_Orange.png-3ea365b239f1d33817c4460efcda5081.s3tc.ctex"]
+dest_files=["res://.godot/imported/Challenger_Orange.png-3ea365b239f1d33817c4460efcda5081.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

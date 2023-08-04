@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://qkq3tfh3may3"
+=======
+uid="uid://cm1dxkl5pgida"
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 path="res://.godot/imported/flaunch.wav-ce32d210d8cf993b2cd1b61718a9ff67.sample"
 
 [deps]
