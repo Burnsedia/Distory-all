@@ -1,9 +1,10 @@
+MeshInstance3D
+SpotLight3D
 OmniLight3D
 Camera3D
 CollisionShape3D
 CharacterBody3D
 WorldEnvironment
-SpotLight3D
 LightmapGI
 NavigationRegion3D
 TouchScreenButton

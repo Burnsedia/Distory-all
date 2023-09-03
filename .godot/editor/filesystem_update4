@@ -1,4 +1,5 @@
+res://ProxyamStarsystem/game_world.tscn
+res://VERSION.md
 res://UI/GameUI.tscn
 res://Player/Camera.tscn
 res://Player/test_player.tscn
-res://ProxyamStarsystem/game_world.tscn

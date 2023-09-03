@@ -78,14 +78,14 @@
   + you can now create a new branch from all selectable branches in your repository
 + **!Repository committing system**:  
   + [filtering]  
-    + Since FILTERS are not supported anymore, the usage of `.gitignore` is now implemented.
-    + a `.gitignore` file is loaded from the repository you want to commit to. If this repository doesn't have a gitignore, an empty and new gitignore can be created and committed.
-    + the "gitignore editor" is shown next to the "committing tree" so you can procedurally select files and folders, and exclude/include them with the gitignore. *if you don't know how to use a gitignore, I recommend you to click on the `?` button in the bottom-right of the gitignore editor*
-    + the "edit .gitignore" button will prevent any unwanted modifications to be applied by any chance (miss-typing, or you just don't need to edit the gitignore since it was loaded from the repository)  
+	+ Since FILTERS are not supported anymore, the usage of `.gitignore` is now implemented.
+	+ a `.gitignore` file is loaded from the repository you want to commit to. If this repository doesn't have a gitignore, an empty and new gitignore can be created and committed.
+	+ the "gitignore editor" is shown next to the "committing tree" so you can procedurally select files and folders, and exclude/include them with the gitignore. *if you don't know how to use a gitignore, I recommend you to click on the `?` button in the bottom-right of the gitignore editor*
+	+ the "edit .gitignore" button will prevent any unwanted modifications to be applied by any chance (miss-typing, or you just don't need to edit the gitignore since it was loaded from the repository)  
   + [file choosing]
-    + Since FILTERS are not supported anymore, the commit process won't start from the project folder.
-    + Now you can select multiple files and directories you want to commit through a file dialog showing your whole project folder.
-    + Files and directories can always be removed before committing  
+	+ Since FILTERS are not supported anymore, the commit process won't start from the project folder.
+	+ Now you can select multiple files and directories you want to commit through a file dialog showing your whole project folder.
+	+ Files and directories can always be removed before committing  
 **Please, note that the gitignore filtering method is custom made. To fully support the same gitignore method applied by GitHub some tests are needed**
 + **Gists** can now be opened, edited, and pushed with a cusotm GitEditor. Gists which contain more than one file are supported, and you can edit more files at the same time.
 
@@ -119,7 +119,7 @@
 - **auto extraction** : the plugin is now able to auto-extract downloaded archives automatically. _your OS needs python_ to run the extraction script since it is not currently built in Godot Engine. It is still a beta script, so it is highly recommended to use it inside empty projects and have some tests. You can always report issues and contact me for any bug.  
 - **sing up link** : if you don't have an account, or want to create a new one, you can click on the *'Don't have a GitHub account yet?'* button in  the main tab of the plugin
   
-    --------------------
+	--------------------
 
 **version 0.7.5**  
 *fixed*  
