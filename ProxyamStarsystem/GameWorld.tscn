@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgdydb13pkde5"]
+
+[ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://addons/naejimer_3d_planet_generator/scenes/star.tscn" id="2_cb0x6"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="3_d0kyi"]
+[ext_resource type="PackedScene" uid="uid://l3fj0obu7eh0" path="res://Player/test_player.tscn" id="3_nt8um"]
+[ext_resource type="PackedScene" uid="uid://b77rc7p1nvjq2" path="res://NPCs/Stations/MainTower.tscn" id="4_rg305"]
+[ext_resource type="Script" path="res://Player/PlayerCamera.gd" id="5_8sqk2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80biu"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.517647, 0.635294, 1, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.517647, 0.635294, 1, 1)
+ground_curve = 0.15
+sun_angle_max = 283.33
+sun_curve = 4.66758e-05
+
+[sub_resource type="Sky" id="Sky_0fdkg"]
+sky_material = SubResource("ProceduralSkyMaterial_80biu")
+
+[sub_resource type="Environment" id="Environment_m3uq0"]
+background_mode = 2
+background_energy_multiplier = 1.32
+sky = SubResource("Sky_0fdkg")
+
+[node name="Game" type="Node3D"]
+
+[node name="Star" parent="." instance=ExtResource("2_cb0x6")]
+transform = Transform3D(498.375, 0, 1091.62, 0, 1200, 0, -1091.62, 0, 498.375, -1394.49, 1.66377, 1243.58)
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m3uq0")
+
+[node name="MainStation" parent="." instance=ExtResource("4_rg305")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1650)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MainStation"]
+light_color = Color(0.882353, 0.47451, 0.494118, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.784314, 0.67451, 1, 1)
+
+[node name="TestPlayer" parent="." instance=ExtResource("3_nt8um")]
+script = ExtResource("3_d0kyi")
+
+[node name="Camera3D" type="Camera3D" parent="TestPlayer"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, -6)
+current = true
+script = ExtResource("5_8sqk2")
