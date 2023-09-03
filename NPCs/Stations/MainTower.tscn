@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+[gd_scene load_steps=3 format=3 uid="uid://cjd30yr68xp4w"]
+
+[sub_resource type="BoxMesh" id="1"]
+
+[sub_resource type="BoxShape3D" id="2"]
+size = Vector3(40.5288, 201.718, 41.7266)
+
+=======
 [gd_scene load_steps=5 format=3 uid="uid://b77rc7p1nvjq2"]
 
 [ext_resource type="Texture2D" uid="uid://dwi7fwg5fgeia" path="res://assets/Challenger_Purple.png" id="1_bsp1w"]
@@ -15,12 +24,17 @@ uv2_padding = 2.2
 [sub_resource type="BoxShape3D" id="2"]
 size = Vector3(40.5288, 201.718, 41.7266)
 
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 [node name="MainStation" type="StaticBody3D"]
 collision_layer = 3
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance" type="MeshInstance3D" parent="."]
+<<<<<<< HEAD
+transform = Transform3D(20, 0, 0, 0, 100, 0, 0, 0, 20, 0, 0, 0)
+=======
 transform = Transform3D(20, 0, 0, 0, 100, 0, 0, 0, 20, -0.0377933, 0.0387154, -0.00345302)
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 mesh = SubResource("1")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]

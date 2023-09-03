@@ -1,8 +1,8 @@
-extends KinematicBody
+extends CharacterBody3D
 class_name Player
 @export var hp = 100
 
-@export var max_speed = 30
+@export var max_speed = 30.0
 @export var acceleration = 0.6
 @export var pitch_speed = 1.9
 @export var roll_speed = .75
@@ -17,28 +17,27 @@ class_name Player
 @onready var targeting = $"Weapon/Sprite3D"
 @onready var stationsSpawnPoint  = $StationSpawnPosition
 
-var velocity = Vector3.ZERO
-var forward_speed = 0
-var pitch_input = 0
-var roll_input = 0
-var yaw_input = 0
+var forward_speed = 0.0
+var pitch_input = 0.0
+var roll_input = 0.0
+var yaw_input = 0.0
 var canFire = true
 
 #func _init(): 
 # 	Global.player = self */
 	
 func _ready():
-	Events.connect("game_over", self, "_gameOverScreen")
+	Events.connect("game_over",_gameOverScreen)
 	Global.player = self
 	Global.stationSpawnPoint = $StationSpawnPosition
-	await(get_tree(), "idle_frame")
+#	await(get_tree(), "idle_frame")
 
 
 func get_input(delta):
 	if Input.is_action_pressed("throttle_up"):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 	if Input.is_action_pressed("throttle_down"):
-		forward_speed = lerp(forward_speed, 0, acceleration * delta)
+		forward_speed = lerp(forward_speed, 0.0, acceleration * delta)
 	if Input.is_action_just_pressed("shoot"):
 		#Shoot the gun
 		$Weapon.shoot()
@@ -74,5 +73,5 @@ func take_damage(damage):
 	if hp <=0:
 		hp = 0
 		Events.emit_signal("game_over")	
-		awiet(get_tree(), "idle_frame")
+#		await(get_tree(), "idle_frame")
 		get_tree().paused = true

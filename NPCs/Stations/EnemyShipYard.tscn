@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://k3rvpqqwk1tj"]
+[gd_scene load_steps=3 format=3 uid="uid://biwmus8ktyytt"]
 
 [ext_resource type="PackedScene" path="res://NPCs/Stations/Station.tscn" id="1"]
 [ext_resource type="Script" path="res://NPCs/Stations/EnemyShipYard.gd" id="2"]

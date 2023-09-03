@@ -1,4 +1,4 @@
-extends MeshInstance
+extends MeshInstance3D
 
 var damage = 100
 var speed= 10000

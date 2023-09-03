@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ihseb0kekpc"
-path.s3tc="res://.godot/imported/rock_diffuse.png-d048a43e805dfb2ac6b300954236d55e.s3tc.ctex"
+uid="uid://c3hg88g4axl8x"
+path="res://.godot/imported/rock_diffuse.png-d048a43e805dfb2ac6b300954236d55e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/rock_diffuse.png"
-dest_files=["res://.godot/imported/rock_diffuse.png-d048a43e805dfb2ac6b300954236d55e.s3tc.ctex"]
+dest_files=["res://.godot/imported/rock_diffuse.png-d048a43e805dfb2ac6b300954236d55e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

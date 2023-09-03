@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo0n252v6jkej"]
+
+[ext_resource type="PackedScene" uid="uid://j2t28v2x8i3v" path="res://Player/Player.tscn" id="1_kvbqm"]
+[ext_resource type="Texture2D" uid="uid://oy8hvo0bc0x7" path="res://assets/space_background.png" id="2_slbfi"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u3ccx"]
+panorama = ExtResource("2_slbfi")
+
+[sub_resource type="Sky" id="Sky_4hisd"]
+sky_material = SubResource("PanoramaSkyMaterial_u3ccx")
+
+[sub_resource type="Environment" id="Environment_ducc1"]
+background_mode = 2
+sky = SubResource("Sky_4hisd")
+
+[node name="GameWorld" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_kvbqm")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ducc1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 12, -11)

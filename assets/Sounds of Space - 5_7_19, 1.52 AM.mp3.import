@@ -2,7 +2,11 @@
 
 importer="mp3"
 type="AudioStreamMP3"
+<<<<<<< HEAD
+uid="uid://ukqyrfmrsoel"
+=======
 uid="uid://b636wgnl02uw"
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 path="res://.godot/imported/Sounds of Space - 5_7_19, 1.52 AM.mp3-f13f98e1444c5e81ad9e99e77ebbdfba.mp3str"
 
 [deps]

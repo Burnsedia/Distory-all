@@ -1,7 +1,20 @@
+<<<<<<< HEAD
+[gd_scene load_steps=10 format=3 uid="uid://w8hioeoslmvk"]
+
+[ext_resource type="Texture2D" uid="uid://dlfr4n87d5hc7" path="res://assets/icon.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cqdtdk50pn03r" path="res://assets/Sprites/flatDark/flatDark41.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cqbguinia5idt" path="res://assets/Sprites/lineLight/lineLight41.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dj6melh4jdmye" path="res://assets/Sprites/flatDark/flatDark30.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://wg3addl1uob5" path="res://assets/Sprites/flatDark/flatDark42.png" id="5"]
+[ext_resource type="Script" path="res://UI/StartMenu.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://7mm8ws1cpoqd" path="res://assets/Sprites/flatDark/flatDark32.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://lvbgr328i2p5" path="res://assets/Sprites/flatDark/flatDark33.png" id="8"]
+=======
 [gd_scene load_steps=4 format=3 uid="uid://c8noqdjfpgxve"]
 
 [ext_resource type="Texture2D" uid="uid://miyhgdv46lim" path="res://assets/Sprites/flatLight/flatLight14.png" id="2_qvf1e"]
 [ext_resource type="Script" path="res://UI/StartMenu.gd" id="6"]
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(120, 80)
@@ -34,7 +47,12 @@ size_flags_vertical = 3
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/HBoxContainer/CenterContainer"]
 position = Vector2(106.273, 118.046)
 scale = Vector2(1.9499, 2.29638)
+<<<<<<< HEAD
+texture_normal = ExtResource("2")
+texture_pressed = ExtResource("3")
+=======
 texture_normal = ExtResource("2_qvf1e")
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 shape = SubResource("1")
 action = "start-game"
 
@@ -46,6 +64,10 @@ size_flags_vertical = 3
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/HBoxContainer/CenterContainer2"]
 position = Vector2(114.682, 148.318)
 scale = Vector2(1.57617, 2.1212)
+<<<<<<< HEAD
+texture_normal = ExtResource("5")
+=======
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 action = "StartGame"
 
 [node name="Middle" type="Control" parent="HBoxContainer"]
@@ -71,14 +93,26 @@ size_flags_vertical = 3
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 position = Vector2(-20.1815, 0)
 scale = Vector2(1.42045, 1.42045)
+<<<<<<< HEAD
+texture_normal = ExtResource("8")
+=======
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 position = Vector2(-20.1814, 90)
 scale = Vector2(1.42045, 1.49052)
+<<<<<<< HEAD
+texture_normal = ExtResource("4")
+=======
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 position = Vector2(-19.0592, -90)
 scale = Vector2(1.35037, 1.2803)
+<<<<<<< HEAD
+texture_normal = ExtResource("7")
+=======
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 
 [node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,5 +122,9 @@ size_flags_vertical = 3
 [node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer2"]
 position = Vector2(202.183, 133.045)
 scale = Vector2(2.20879, 1.91973)
+<<<<<<< HEAD
+texture_normal = ExtResource("1")
+=======
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 
 [connection signal="pressed" from="HBoxContainer/HBoxContainer/CenterContainer/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

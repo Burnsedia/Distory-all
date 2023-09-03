@@ -1,7 +1,6 @@
 extends Camera3D
 
 @export var weight = 0.8
-
 func _ready():
 	set_as_top_level(true)
 

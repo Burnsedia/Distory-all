@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvodfjuktw2ys"
+uid="uid://buofyq4ggsnlb"
 path.s3tc="res://.godot/imported/Challenger_Challenger_Orange.png-b6c2c57bfe5bccf31f054f48261aa1bf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

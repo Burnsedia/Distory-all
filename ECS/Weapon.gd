@@ -1,5 +1,6 @@
 class_name Weapon
 extends Area3D
+
 var bullet = preload("res://ECS/Bullet.tscn")
 # Direction that the bullet will be fired
 var dir = transform.basis.z

@@ -2,7 +2,11 @@
 
 importer="font_data_dynamic"
 type="FontFile"
+<<<<<<< HEAD
+uid="uid://ci0a3xygwuu5p"
+=======
 uid="uid://b4u5ppg77vcdy"
+>>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
 path="res://.godot/imported/DataTwenty.otf-db0465ba7214bd1116c791bb4a87e7e3.fontdata"
 
 [deps]
