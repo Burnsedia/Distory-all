@@ -18,7 +18,7 @@ func get_input(delta):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 
 	if Input.is_action_pressed("throttle_down"):
-		forward_speed = lerp(forward_speed, 0, acceleration * delta)
+		forward_speed = lerp(forward_speed, 0.0, acceleration * delta)
 
 	if Input.is_action_just_pressed("shoot"):
 		$Weapon.shoot()
@@ -43,5 +43,5 @@ func _physics_process(delta):
 	transform.basis = transform.basis.rotated(transform.basis.x, pitch_input * pitch_speed * delta)
 	transform.basis = transform.basis.rotated(transform.basis.y, yaw_input * yaw_speed * delta)
 	transform.basis = transform.basis.orthonormalized()
-	velocity = -transform.basis.z * forward_speed
+	velocity = transform.basis.z * forward_speed
 	move_and_collide(velocity * delta)
