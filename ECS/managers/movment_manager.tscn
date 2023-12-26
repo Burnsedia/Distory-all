@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4dtsvtjbrg61"]
+[gd_scene load_steps=2 format=3 uid="uid://bktiltum112p0"]
 
 [ext_resource type="Script" path="res://ECS/movment_manager.gd" id="1_bg78l"]
 

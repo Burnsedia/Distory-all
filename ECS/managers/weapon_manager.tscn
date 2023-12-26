@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxoht2loxmxgt"]
+[gd_scene load_steps=2 format=3 uid="uid://cfh3deoml817x"]
 
 [ext_resource type="Script" path="res://ECS/weapon_manager.gd" id="1_5uh5k"]
 
