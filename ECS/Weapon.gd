@@ -3,7 +3,6 @@ extends Area3D
 
 var bullet = preload("res://ECS/Bullet.tscn")
 # Direction that the bullet will be fired
-var dir = transform.basis.z
 # Fires a unchared shot, no seconday abbilies
 func shoot():
 	# when shoot event detected, fire the weapon when 

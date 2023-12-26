@@ -13,3 +13,5 @@ res://ECS/movment_manager.gd
 res://ECS/weapon_manager.tscn
 res://ECS/health_manager.tscn
 res://ECS/health_manager.gd
+res://ECS/Weapon.gd
+res://NPCs/Stations/Station.gd

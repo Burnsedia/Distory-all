@@ -147,12 +147,6 @@ func avoid_collions() -> Vector3:
 func get_velocity():
 	return self.velocity
 
-func take_damage(damage):
-	Global.droinCount -= 1
-	Global.curentMinerals += 100
-	queue_free()
-
-
 func _on_Area_body_entered(body):
 	if body == self:
 		return
