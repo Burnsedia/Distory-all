@@ -5,7 +5,6 @@ class_name Drone
 # Declare member variables here. Examples:
 var target = null
 var faction = null
-
 var steer_vec:Vector3 = Vector3.ZERO
 var accerleration = Vector3.ZERO
 var speed:float = 8
