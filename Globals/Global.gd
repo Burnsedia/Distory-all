@@ -18,13 +18,12 @@ const maxDroinds = 600
 const maxbullets = 10000
 
 var missileStation
-var gunStation = preload("res://NPCs/Stations/DefenseStation.tscn")
+#var gunStation = preload("res://NPCs/Stations/DefenseStation.tscn")
 var currentStation =  null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	curentMinerals =  startingMinerals
-
 
 func placeStation(station):
 	currentStation = station

@@ -7,3 +7,4 @@ res://NPCs/Ships/Drone.gd
 res://NPCs/Executioner.tscn
 res://NPCs/Stations/EnemyShipYard.tscn
 res://NPCs/Stations/EnemyShipYard.gd
+res://Globals/Global.gd
