@@ -15,3 +15,9 @@ res://ECS/health_manager.tscn
 res://ECS/health_manager.gd
 res://ECS/Weapon.gd
 res://NPCs/Stations/Station.gd
+res://ECS/managers/movment_manager.tscn
+res://NPCs/Ships/Cursier.gd
+res://ECS/managers/State.gd
+res://ECS/managers/weapon_manager.tscn
+res://ECS/managers/health_manager.tscn
+res://ECS/managers/state_manager.tscn

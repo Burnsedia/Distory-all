@@ -1,7 +1,6 @@
 extends CharacterBody3D
 class_name Crusier
-
-## Declare member variables here. Examples:
+# Declare member variables here. Examples:
 #var target = null
 #var faction = null
 #var velocity:Vector3 = Vector3.ZERO
@@ -38,66 +37,25 @@ class_name Crusier
 #	else:
 #		seek(delta)
 #
-#func seek(delta):
-#	var target_location = target.global_transform.origin
-#	# get desiered velocity
-#	var desiered_velocity = (target_location - transform.origin).normalized() * speed
-#	# get diff in velocity
-#	var steer = (desiered_velocity - velocity).normalized() * steer_force
-#	# update velocity
-#	velocity += steer * delta
-#	# look at movement
-#	look_at(transform.origin + velocity, Vector3.UP)
-#	$Weapon.shoot()
-#	# move
-#	move_and_collide(velocity)
-#
-#func attack(delta):
-#	can_shoot= true
-#	var target_location = target.global_transform.origin
-#	# get desiered velocity
-#	var desiered_velocity = (get_aim_at_point() - transform.origin).normalized() * speed
-#	# get diff in velocity
-#	var steer = (desiered_velocity - velocity).normalized() * steer_force
-#	# update velocity
-#	velocity += steer * delta
-#	# look at movement
-#	look_at(transform.origin + velocity, Vector3.UP)
-#	# move
-#
-#	move_and_collide(velocity)
-#
-#
-#func avoid(delta):
-#	var target_location = target.global_transform.origin
-#	# get desiered velocity
-#	var desiered_velocity = (transform.origin - target_location).normalized() * speed
-#	# get diff in velocity
-#	var steer = (desiered_velocity - velocity).normalized() * steer_force
-#	# update velocity
-#	velocity += steer * delta
-#	# look at movement
-#	look_at(transform.origin + velocity, Vector3.UP)
-#	# move	
-#	move_and_collide(velocity)
-#
+
+
 #func get_aim_at_point():
-#	if !target.has_method("get_velocity"):
-#		return target.global_transform.origin
+	#if !target.has_method("get_velocity"):
+		#return target.global_transform.origin
 #
-#	var Pti = target.global_transform.origin
-#	var Pbi = fire_point.global_transform.origin
-#	var D = Pti.distance_to(Pbi)
-#	var Vt = target.get_velocity()
-#	var St = Vt.length()
-#	var Sb = bullit_speed
-#	var cos_theta = Pti.direction_to(Pbi).dot(Vt.normalized())
-#	var q_root = sqrt(2*D*St*cos_theta + 4*(Sb*Sb - St*St)*D*D )
-#	var q_sub = (2*(Sb*Sb - St*St))
-#	var q_left = -2*D*St*cos_theta
-#	var t1 = (q_left + q_root) / q_sub
-#	var t2 = (q_left - q_root) / q_sub
-#
+	#var Pti = target.global_transform.origin
+	#var Pbi = fire_point.global_transform.origin
+	#var D = Pti.distance_to(Pbi)
+	#var Vt = target.get_velocity()
+	#var St = Vt.length()
+	#var Sb = bullit_speed
+	#var cos_theta = Pti.direction_to(Pbi).dot(Vt.normalized())
+	#var q_root = sqrt(2*D*St*cos_theta + 4*(Sb*Sb - St*St)*D*D )
+	#var q_sub = (2*(Sb*Sb - St*St))
+	#var q_left = -2*D*St*cos_theta
+	#var t1 = (q_left + q_root) / q_sub
+	#var t2 = (q_left - q_root) / q_sub
+
 #	var t = min(t1, t2)
 #	if t < 0:
 #		t = max(t1, t2)
