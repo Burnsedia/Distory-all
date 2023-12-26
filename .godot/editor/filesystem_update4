@@ -8,3 +8,6 @@ res://NPCs/Executioner.tscn
 res://NPCs/Stations/EnemyShipYard.tscn
 res://NPCs/Stations/EnemyShipYard.gd
 res://Globals/Global.gd
+res://ECS/movment_manager.tscn
+res://ECS/movment_manager.gd
+res://ECS/weapon_manager.tscn

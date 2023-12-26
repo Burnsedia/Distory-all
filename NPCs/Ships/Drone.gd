@@ -73,7 +73,8 @@ func attack(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer + avoid_collions() * delta
+	velocity += steer + avoid_coll@export var max_speed = 5.0
+@export var acceleration = 0.9ions() * delta
 	# look at movement
 	look_at(get_aim_at_point(), Vector3.UP)
 	# move
