@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://m8e1wwem64ce"]
+[gd_scene load_steps=4 format=3 uid="uid://m8e1wwem64ce"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_0t3oj"]
 [ext_resource type="PackedScene" uid="uid://6v16lp77rx5l" path="res://Executioner.gltf" id="1_43sa6"]
-[ext_resource type="Script" path="res://Player/PlayerCamera.gd" id="3_gcsi3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qkm3d"]
 radius = 2.05082
@@ -19,7 +18,3 @@ shape = SubResource("CapsuleShape3D_qkm3d")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, -12)
-script = ExtResource("3_gcsi3")
-lerp_speed = 5.0
-target_path = NodePath("../Executioner")
-offset = Vector3(0, 2, 6)

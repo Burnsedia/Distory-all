@@ -31,11 +31,11 @@ func get_input(delta):
 			Input.get_action_strength("roll_left") - Input.get_action_strength("roll_right"),
 			input_response * delta)
 
-#	yaw_input = lerp(yaw_input,
-#			Input.get_action_strength("yaw_left") - Input.get_action_strength("yaw_right"),
-#			input_response * delta)
+	yaw_input = lerp(yaw_input,
+			Input.get_action_strength("yaw_left") - Input.get_action_strength("yaw_right"),
+			input_response * delta)
 # replace the line above with this for linked roll/yaw:
-	yaw_input =  roll_input
+#	yaw_input =  roll_input
 
 func _physics_process(delta):
 	get_input(delta)

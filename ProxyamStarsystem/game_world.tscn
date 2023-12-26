@@ -1,7 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo0n252v6jkej"]
+[gd_scene load_steps=15 format=3 uid="uid://bo0n252v6jkej"]
 
-[ext_resource type="PackedScene" path="res://Player/Player.tscn" id="1_kvbqm"]
+[ext_resource type="PackedScene" uid="uid://m8e1wwem64ce" path="res://Player/Player.tscn" id="1_kvbqm"]
 [ext_resource type="Texture2D" uid="uid://oy8hvo0bc0x7" path="res://assets/space_background.png" id="2_slbfi"]
+[ext_resource type="PackedScene" path="res://ECS/Command-Modual.tscn" id="3_c3pvw"]
+[ext_resource type="PackedScene" path="res://ECS/Core-mark2.tscn" id="4_nwjro"]
+[ext_resource type="PackedScene" path="res://ECS/Engines.tscn" id="5_ywl68"]
+[ext_resource type="PackedScene" path="res://ECS/Forward-Hall.tscn" id="6_25xhu"]
+[ext_resource type="PackedScene" path="res://ECS/Service-Modual.tscn" id="7_i0302"]
+[ext_resource type="PackedScene" path="res://ECS/ShipCore.tscn" id="8_3or6j"]
+[ext_resource type="PackedScene" path="res://ECS/SnapPoint.tscn" id="9_e5vp7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u3ccx"]
 panorama = ExtResource("2_slbfi")
@@ -66,3 +73,30 @@ mesh = SubResource("BoxMesh_n6oiw")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5343, 0, 36.4716)
 mesh = SubResource("BoxMesh_n6oiw")
+
+[node name="Command-Modual" parent="." instance=ExtResource("3_c3pvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 248.922, 57.1974, -36.0329)
+
+[node name="Command-Modual2" parent="." instance=ExtResource("4_nwjro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.136, 55.3371, -33.9369)
+
+[node name="Engines" parent="." instance=ExtResource("5_ywl68")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.505, 55.0843, -37.6063)
+
+[node name="Forward-Hall" parent="." instance=ExtResource("6_25xhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.178, 57.037, -39.4755)
+
+[node name="Service-Modual" parent="." instance=ExtResource("7_i0302")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.191, 57.0843, -33.1713)
+
+[node name="Core" parent="." instance=ExtResource("8_3or6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.209, 55.0015, -35.221)
+
+[node name="SnapPoint" parent="." instance=ExtResource("9_e5vp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.385, 54.1807, -36.5487)
+
+[node name="SnapPoint2" parent="." instance=ExtResource("9_e5vp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.868, 58.2925, -34.2369)
+
+[node name="SnapPoint3" parent="." instance=ExtResource("9_e5vp7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.081, 54.3641, -37.3126)

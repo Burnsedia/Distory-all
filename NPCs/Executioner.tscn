@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://cjlob5r8x5yl4"]
 
 [ext_resource type="PackedScene" path="res://ECS/Weapon.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://dp5gpg2vilsw7" path="res://assets/Smoke30Frames_0.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dkcjt5rtwoue4" path="res://assets/Smoke30Frames_0.png" id="2"]
 [ext_resource type="Script" path="res://Player/Test-Player.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://cnjrre2soe7pp" path="res://UI/GameUI.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://2w2hxs2h2a8a" path="res://UI/GameUI.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://ECS/Particles.tscn" id="7"]
-[ext_resource type="Texture2D" uid="uid://8xsnjr2ugye1" path="res://assets/Sprites/transparentDark/transparentDark33.png" id="8"]
-[ext_resource type="AudioStream" uid="uid://c2vbeh8dn7uy2" path="res://assets/engine_sound.mp3" id="9"]
+[ext_resource type="Texture2D" uid="uid://cjhu8ks1xf43y" path="res://assets/Sprites/transparentDark/transparentDark33.png" id="8"]
+[ext_resource type="AudioStream" path="res://assets/engine_sound.mp3" id="9"]
 
 [sub_resource type="BoxShape3D" id="1"]
 size = Vector3(6.51356, 1.69076, 5.21252)
