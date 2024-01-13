@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://m8e1wwem64ce" path="res://Player/Player.tscn" id="1_kvbqm"]
 [ext_resource type="Texture2D" uid="uid://oy8hvo0bc0x7" path="res://assets/space_background.png" id="2_slbfi"]
-[ext_resource type="PackedScene" path="res://ECS/Command-Modual.tscn" id="3_c3pvw"]
-[ext_resource type="PackedScene" path="res://ECS/Core-mark2.tscn" id="4_nwjro"]
-[ext_resource type="PackedScene" path="res://ECS/Engines.tscn" id="5_ywl68"]
-[ext_resource type="PackedScene" path="res://ECS/Forward-Hall.tscn" id="6_25xhu"]
-[ext_resource type="PackedScene" path="res://ECS/Service-Modual.tscn" id="7_i0302"]
-[ext_resource type="PackedScene" path="res://ECS/ShipCore.tscn" id="8_3or6j"]
-[ext_resource type="PackedScene" path="res://ECS/SnapPoint.tscn" id="9_e5vp7"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Command-Modual.tscn" id="3_c3pvw"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Core-mark2.tscn" id="4_nwjro"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Engines.tscn" id="5_ywl68"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Forward-Hall.tscn" id="6_25xhu"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Service-Modual.tscn" id="7_i0302"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/ShipCore.tscn" id="8_3or6j"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/SnapPoint.tscn" id="9_e5vp7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u3ccx"]
 panorama = ExtResource("2_slbfi")

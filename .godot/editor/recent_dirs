@@ -1,8 +1,10 @@
+res://
+res://ECS/ship-parts
+res://ProxyamStarsystem
 res://ECS/managers
+res://ECS/State
 res://ECS
 res://assets
 res://Player
-res://ProxyamStarsystem
-res://
 res://assets/Sprites/flatLight
 res://assets/Sprites/lineDark

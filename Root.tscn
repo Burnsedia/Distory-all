@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://druckixfj0iim"]
 
-[ext_resource type="PackedScene" uid="uid://bjg7rf1wr8fma" path="res://ProxyamStarsystem/GameWorld.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bgdydb13pkde5" path="res://ProxyamStarsystem/GameWorld.tscn" id="1"]
 
 [node name="Root" type="Node"]
 

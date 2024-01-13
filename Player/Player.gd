@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var max_speed = 5.0
+@export var max_speed = 500.0
 @export var acceleration = 0.9
 @export var pitch_speed = 1.9
 @export var roll_speed = .75
@@ -28,7 +28,7 @@ func get_input(delta):
 			input_response * delta)
 
 	roll_input = lerp(roll_input,
-			Input.get_action_strength("roll_left") - Input.get_action_strength("roll_right"),
+			Input.get_action_strength("roll_right") - Input.get_action_strength("roll_left"),
 			input_response * delta)
 
 	yaw_input = lerp(yaw_input,

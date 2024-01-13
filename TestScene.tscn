@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnag24xfv2xr"]
+
+[ext_resource type="Script" path="res://SectorGenerator.gd" id="1_igo1g"]
+[ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://addons/naejimer_3d_planet_generator/scenes/star.tscn" id="7_3wbc6"]
+[ext_resource type="Texture2D" uid="uid://oy8hvo0bc0x7" path="res://assets/space_background.png" id="8_m8yfy"]
+[ext_resource type="PackedScene" uid="uid://m8e1wwem64ce" path="res://Player/Player.tscn" id="9_yps1t"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xwreq"]
+panorama = ExtResource("8_m8yfy")
+
+[sub_resource type="Sky" id="Sky_6im75"]
+sky_material = SubResource("PanoramaSkyMaterial_xwreq")
+
+[sub_resource type="Environment" id="Environment_icub5"]
+background_mode = 2
+sky = SubResource("Sky_6im75")
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.2
+glow_blend_mode = 0
+
+[node name="Test Sector" type="Node3D"]
+script = ExtResource("1_igo1g")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_icub5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
+light_cull_mask = 4294967293
+sky_mode = 1
+
+[node name="Star" parent="." instance=ExtResource("7_3wbc6")]
+transform = Transform3D(-1062.62, 0, -557.526, 0, 1200, 0, 557.526, 0, -1062.62, 0, 0, 0)
+layers = 2
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("9_yps1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.348, 0, 2391.61)
