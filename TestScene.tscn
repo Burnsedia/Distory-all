@@ -33,7 +33,7 @@ light_cull_mask = 4294967293
 sky_mode = 1
 
 [node name="Star" parent="." instance=ExtResource("7_3wbc6")]
-transform = Transform3D(-1062.62, 0, -557.526, 0, 1200, 0, 557.526, 0, -1062.62, 0, 0, 0)
+transform = Transform3D(471.802, 0, 1103.36, 0, 1200, 0, -1103.36, 0, 471.802, 0, 0, 0)
 layers = 2
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("9_yps1t")]

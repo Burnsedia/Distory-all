@@ -15,8 +15,8 @@ const PlantScene  = {
 	Plants.NOATMOSPHER: preload("res://addons/naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn")
 }
 @onready var starObject = $Planets/Star 
-@export var count = 30
-var radius = 50000
+@export var count = 8
+var radius = 5000
 var center = Vector3()
 	# Get how much of an angle objects will be spaced around the circle.
 	# Angles are in radians so 2.0*PI = 360 degrees
@@ -38,6 +38,7 @@ func getPlanet():
 
 func GenStarSystem() -> void:
 	for i in range(0, count):
+		var dist = 2000
 		var direction = Vector3(cos(angle), 0, sin(angle))
 		var pos = center + direction * radius
 		var node = getPlanet()
@@ -47,3 +48,6 @@ func GenStarSystem() -> void:
 		print("I added a planet to the system")
 		# Rotate one step
 		angle += angle_step
+		print(radius)
+		radius += dist
+		print(radius)
