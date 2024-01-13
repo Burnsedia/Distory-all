@@ -48,6 +48,5 @@ func GenStarSystem() -> void:
 		print("I added a planet to the system")
 		# Rotate one step
 		angle += angle_step
-		print(radius)
 		radius += dist
-		print(radius)
+	
