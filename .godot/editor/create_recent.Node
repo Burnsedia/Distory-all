@@ -1,3 +1,6 @@
+ColorRect
+VideoStreamPlayer
+Label
 Node
 MeshInstance3D
 SpotLight3D

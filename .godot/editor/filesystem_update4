@@ -4,4 +4,4 @@ res://addons/naejimer_3d_planet_generator/noises/planet_sand.tres
 res://addons/naejimer_3d_planet_generator/noises/planet_gaseous.tres
 res://addons/naejimer_3d_planet_generator/noises/planet_no_atmosphere.tres
 res://addons/naejimer_3d_planet_generator/noises/star.tres
-res://SectorGenerator.gd
+res://Sector.tscn
