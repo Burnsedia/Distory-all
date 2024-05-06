@@ -1,7 +1,9 @@
-res://TestScene.tscn
+res://ECS/managers/state_manager.tscn
 res://addons/naejimer_3d_planet_generator/noises/planet_lava.tres
 res://addons/naejimer_3d_planet_generator/noises/planet_sand.tres
 res://addons/naejimer_3d_planet_generator/noises/planet_gaseous.tres
 res://addons/naejimer_3d_planet_generator/noises/planet_no_atmosphere.tres
 res://addons/naejimer_3d_planet_generator/noises/star.tres
-res://Sector.tscn
+res://Player/Player.tscn
+res://Sector/Sector.tscn
+res://NPCs/Ships/Drone.gd
