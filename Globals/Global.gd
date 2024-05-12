@@ -23,7 +23,7 @@ var currentStation =  null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	curentMinerals =  startingMinerals
+	curentMinerals = startingMinerals
 
 func placeStation(station):
 	currentStation = station
