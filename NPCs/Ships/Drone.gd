@@ -1,30 +1,25 @@
 extends CharacterBody3D
 class_name Drone
 
-
 # Declare member variables here. Examples:
 var target = null
 var faction = null
 var steer_vec:Vector3 = Vector3.ZERO
 var accerleration = Vector3.ZERO
 var speed:float = 8
-
 var can_shoot = false
-
 var steer_force:float = .2
 var move_vec:Vector3 = Vector3.ZERO
 var target_vec = null
-
 var attact_range = 300.0
 var free_range = 250.0
-
 var bullit_speed = 1000
-
+# Export Vars
 @export var empactDamage = 500
-
+@export var max_speed = 5.0
+#Export Vars
 @onready var fire_point = $Weapon.global_transform
 @onready var cooldown = $CoolDown
-
 @onready var steerUp = $SteerUp
 @onready var steerDown = $SteerDown
 @onready var steerRight = $SteerRight
@@ -40,11 +35,9 @@ func _ready():
 	
 # Physics Function
 func _physics_process(delta:float) -> void:
-	
 	if transform.origin.distance_to(Global.maintower.transform.origin) > 500:
 		queue_free()
 		Global.droinCount -= 1
-
 	if transform.origin.distance_to(target.transform.origin) < free_range:
 		avoid(delta)
 	elif transform.origin.distance_to(target.transform.origin) <= attact_range:
@@ -73,9 +66,9 @@ func attack(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer + avoid_coll@export var max_speed = 5.0
-@export var acceleration = 0.9ions() * delta
+	velocity += steer + avoid_coll
 	# look at movement
+  accerleration = 0.9ions() * delta
 	look_at(get_aim_at_point(), Vector3.UP)
 	# move
 
