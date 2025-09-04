@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://dv48ana6lbt8p"
+=======
 uid="uid://b31pw7kfya6f4"
+>>>>>>> master
 path="res://.godot/imported/bell.png-637dd46fa216c31102f5fdf872b3ea2e.ctex"
 metadata={
 "vram_texture": false

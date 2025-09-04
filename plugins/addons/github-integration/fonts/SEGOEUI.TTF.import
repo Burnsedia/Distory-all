@@ -2,7 +2,11 @@
 
 importer="font_data_dynamic"
 type="FontFile"
+<<<<<<< HEAD
+uid="uid://cjugm54svoi66"
+=======
 uid="uid://dnhopkx64n1il"
+>>>>>>> master
 path="res://.godot/imported/SEGOEUI.TTF-efe35583da8dad8432fbf061be3517f7.fontdata"
 
 [deps]

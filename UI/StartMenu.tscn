@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://lxwqesfhw1qt"]
+
+[ext_resource type="Script" path="res://UI/StartMenu.gd" id="6"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(60, 40)
+
+[node name="Main_Game_Screen" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/HBoxContainer/CenterContainer"]
+position = Vector2(106.273, 118.046)
+scale = Vector2(1.9499, 2.29638)
+shape = SubResource("1")
+action = "start-game"
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/HBoxContainer/CenterContainer2"]
+position = Vector2(114.682, 148.318)
+scale = Vector2(1.57617, 2.1212)
+action = "StartGame"
+
+[node name="Middle" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+position = Vector2(-20.1815, 0)
+scale = Vector2(1.42045, 1.42045)
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+position = Vector2(-20.1814, 90)
+scale = Vector2(1.42045, 1.49052)
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+position = Vector2(-19.0592, -90)
+scale = Vector2(1.35037, 1.2803)
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/VBoxContainer/CenterContainer2"]
+position = Vector2(202.183, 133.045)
+scale = Vector2(2.20879, 1.91973)
+
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/CenterContainer/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

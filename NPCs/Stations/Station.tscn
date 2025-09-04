@@ -2,26 +2,26 @@
 
 [ext_resource path="res://NPCs/Stations/Station.gd" type="Script" id=1]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 18.6427, 4.44078, 6.3213 )
+[sub_resource type="BoxShape3D" id=1]
+size = Vector3( 18.6427, 4.44078, 6.3213 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="BoxMesh" id=2]
 
 [sub_resource type="CylinderMesh" id=3]
 
-[node name="Station" type="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41383, 2.0322, 6.47842 )
+[node name="Station" type="StaticBody3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41383, 2.0322, 6.47842 )
 script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource( 1 )
 
-[node name="TopBase" type="MeshInstance" parent="."]
-transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 6, 0.0408081, 0, 0.0325226 )
+[node name="TopBase" type="MeshInstance3D" parent="."]
+transform = Transform3D( 8, 0, 0, 0, 4, 0, 0, 0, 6, 0.0408081, 0, 0.0325226 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="BottomBase" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 9.06476, 0, 0, 0, 1, 0, -11.764, 0 )
+[node name="BottomBase" type="MeshInstance3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 9.06476, 0, 0, 0, 1, 0, -11.764, 0 )
 mesh = SubResource( 3 )
 material/0 = null

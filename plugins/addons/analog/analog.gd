@@ -124,12 +124,21 @@ func set_tap_to_show(value):
 	if value:
 		modulate.a = 0
 		
+<<<<<<< HEAD
+		if not AnalogTapToShowContainer is SubViewportContainer:
+			assert(
+				AnalogTapToShowContainer is SubViewportContainer, 
+				"To use tag AnalogDynamicShowing you need to put GamePad inside a SubViewportContainer"
+			)
+	
+=======
 #		if not AnalogTapToShowContainer is ViewportContainer:
 #			assert(
 #				AnalogTapToShowContainer is ViewportContainer, 
 #				"To use tag AnalogDynamicShowing you need to put GamePad inside a ViewportContainer"
 #			)
 #
+>>>>>>> master
 	AnalogTapToShow = value
 		
 func sendSignal2Listener():

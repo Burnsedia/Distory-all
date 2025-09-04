@@ -3,12 +3,21 @@
 [ext_resource type="PackedScene" path="res://NPCs/Stations/Station.tscn" id="1"]
 [ext_resource type="Script" path="res://NPCs/Stations/EnemyShipYard.gd" id="2"]
 
+<<<<<<< HEAD
+[node name="EnemyShipYard" instance=ExtResource( 1 )]
+transform = Transform3D( 50, 0, 0, 0, 50, 0, 0, 0, 50, 7.41383, 2.0322, 6.47842 )
+script = ExtResource( 2 )
+
+[node name="TopBase" parent="." index="1"]
+transform = Transform3D( 8, 0, 0, 0, 4, 0, 0, 0, 6, 0, 0, 0 )
+=======
 [node name="EnemyShipYard" instance=ExtResource("1")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 7.41383, 2.0322, 6.47842)
 script = ExtResource("2")
 
 [node name="TopBase" parent="." index="1"]
 transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 6, 0, 0, 0)
+>>>>>>> master
 
 [node name="Timer" type="Timer" parent="." index="3"]
 wait_time = 25.0

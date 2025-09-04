@@ -7,11 +7,9 @@ var mineralCost = 100
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
 
 
 func _on_Detection_body_entered(body):
@@ -24,10 +22,6 @@ func _on_Detection_body_entered(body):
 		$Tur3.target = body
 		$Tur4.target = body
 		$Tur5.target = body
-		
-		
-		
-		
 		
 #func set_target():
 #	for i in get_children():

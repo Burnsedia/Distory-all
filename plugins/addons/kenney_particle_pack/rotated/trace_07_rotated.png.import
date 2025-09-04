@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://buj5wdpnh6251"
+=======
 uid="uid://byn2j04p2glt"
+>>>>>>> master
 path="res://.godot/imported/trace_07_rotated.png-16f18dd33d396a21af94b4f8bc8a4282.ctex"
 metadata={
 "vram_texture": false

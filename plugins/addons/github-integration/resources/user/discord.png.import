@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://bremkh4ba60sa"
+=======
 uid="uid://w5y0shpgeucy"
+>>>>>>> master
 path="res://.godot/imported/discord.png-f121405438806f2d46a9182fe2ab6754.ctex"
 metadata={
 "vram_texture": false

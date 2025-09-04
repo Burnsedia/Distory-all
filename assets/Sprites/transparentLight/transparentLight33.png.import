@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://5lbxtlplvdy8"
+=======
 uid="uid://vuuy0inmxj4d"
+>>>>>>> master
 path="res://.godot/imported/transparentLight33.png-dc57fa05a5a5b14c4501505aa7daadc1.ctex"
 metadata={
 "vram_texture": false

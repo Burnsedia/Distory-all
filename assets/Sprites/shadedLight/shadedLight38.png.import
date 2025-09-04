@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://tqpotw33i2w4"
+=======
 uid="uid://bbxygi3ypomcr"
+>>>>>>> master
 path="res://.godot/imported/shadedLight38.png-926887a2951994016f5d03d64d7ac6de.ctex"
 metadata={
 "vram_texture": false

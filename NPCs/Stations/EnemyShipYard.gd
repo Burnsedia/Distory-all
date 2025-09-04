@@ -19,6 +19,36 @@ func _ready():
 #func _process(delta):
 #	pass
 
+<<<<<<< HEAD
+func spawn_wave():
+	wave_num += 1
+	var spawn_position = Vector3()
+	var spawn_rotation = Vector3()
+	var drones =  drone.instantiate()
+	var frigets = friget.instantiate()
+
+	for w in wave_num:
+		#randomize rotation
+		Global.droinCount += 1
+		spawn_rotation.x = randf_range(-spawn_radius, spawn_radius)
+		spawn_rotation.y = randf_range(-spawn_radius, spawn_radius)
+		spawn_rotation.z = randf_range(-spawn_radius, spawn_radius)
+		# randomize position
+		spawn_position.x = randf_range(-spawn_radius, spawn_radius)
+		spawn_position.y = randf_range(-spawn_radius, spawn_radius)
+		spawn_position.z = randf_range(-spawn_radius, spawn_radius)
+		# set position
+		drones.position = spawn_position
+		# set rotation
+		drones.rotation = spawn_rotation
+		
+		get_tree().get_root().add_child(drones)
+	
+		frigets.position = spawn_position
+		frigets.rotation = spawn_rotation
+
+		get_tree().call_group("enemies", "set_target", Global.player)
+=======
 #TODO: rework all NPC Logic
 #func spawn_wave():
 	#wave_num += 1
@@ -48,6 +78,7 @@ func _ready():
 		#frigets.rotation = spawn_rotation
 #
 		#get_tree().call_group("enemies", "set_target", Global.player)
+>>>>>>> master
 
 func _on_Timer_timeout():
 	if Global.droinCount <= Global.maxDroinds:

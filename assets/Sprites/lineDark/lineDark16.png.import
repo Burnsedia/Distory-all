@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://cc0sdltjw7uac"
+=======
 uid="uid://deyhgigplywuq"
+>>>>>>> master
 path="res://.godot/imported/lineDark16.png-c61e64d989cc173710dd868931596d2c.ctex"
 metadata={
 "vram_texture": false

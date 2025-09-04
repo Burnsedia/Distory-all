@@ -4,6 +4,12 @@ class_name Drone
 # Declare member variables here. Examples:
 var target = null
 var faction = null
+<<<<<<< HEAD
+var vel = velocity
+
+
+=======
+>>>>>>> master
 var steer_vec:Vector3 = Vector3.ZERO
 var accerleration = Vector3.ZERO
 var speed:float = 8
@@ -19,6 +25,10 @@ var bullit_speed = 1000
 
 @onready var fire_point = $Weapon.global_transform
 @onready var cooldown = $CoolDown
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 @onready var steerUp = $SteerUp
 @onready var steerDown = $SteerDown
 @onready var steerRight = $SteerRight
@@ -89,6 +99,9 @@ func avoid(delta):
 	# move	
 	move_and_collide(velocity)
 	
+<<<<<<< HEAD
+
+=======
 func get_aim_at_point():
 	if !target.has_method("get_velocity"):
 		return target.global_transform.origin
@@ -110,30 +123,29 @@ func get_aim_at_point():
 	if t < 0:
 		return Vector3.INF # can't hit, target too fast
 	return Vt * t + Pti
+>>>>>>> master
 	
 func avoid_collions() -> Vector3:
 	if steerLeft.is_colliding():
 		steer_vec.x += steer_force * .8
-		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force 
+		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force 
 		else: steer_vec.y -= steer_force * .8
 		
 	if steerLeft.is_colliding():
 		steer_vec.x -= steer_force * .8
-		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
+		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force
 		else: steer_vec.y -= steer_force * .8
 		
 	if steerUp.is_colliding():
 		steer_vec.y += steer_force * .8
-		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force
+		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force
 		else: steer_vec.y -= steer_force * .8
 	if steerDown.is_colliding():
 		steer_vec.y -= steer_force * .8
-		if OS.get_ticks_msec()%2==0:steer_vec.y += steer_force * .8
+		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force * .8
 		else: steer_vec.y -= steer_force * .8
 	return steer_vec
-	
-func get_velocity():
-	return self.velocity
+
 
 func _on_Area_body_entered(body):
 	if body == self:

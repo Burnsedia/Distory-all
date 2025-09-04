@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://geakxb6vjckf"
+=======
 uid="uid://coq8hy3euq6i"
+>>>>>>> master
 path="res://.godot/imported/flame_03.png-4ae091711aca64f119249e954a79dc59.ctex"
 metadata={
 "vram_texture": false

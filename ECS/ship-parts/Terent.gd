@@ -22,7 +22,12 @@ func _process(delta):
 		return
 	else:
 		look_at(get_aim_at_point(), Vector3.UP)
+<<<<<<< HEAD:ECS/Terent.gd
+		if Time.get_ticks_msec()%2==0:
+			$Weapon.shoot()
+=======
 		$Weapon.shoot()
+>>>>>>> master:ECS/ship-parts/Terent.gd
 
 
 

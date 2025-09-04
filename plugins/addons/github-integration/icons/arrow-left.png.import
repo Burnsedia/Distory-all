@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://dwoykfxdaugtg"
+=======
 uid="uid://d4ixgr8itjist"
+>>>>>>> master
 path="res://.godot/imported/arrow-left.png-d257756b1f614bfe86adcce608b576f1.ctex"
 metadata={
 "vram_texture": false

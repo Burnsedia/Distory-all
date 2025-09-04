@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
+uid="uid://bluapptrgrh5h"
+=======
 uid="uid://chejnfuhl6a6b"
+>>>>>>> master
 path="res://.godot/imported/twirl_02.png-ffd60cf7e464c4711fb65f6adb356333.ctex"
 metadata={
 "vram_texture": false

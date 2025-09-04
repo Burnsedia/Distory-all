@@ -17,5 +17,5 @@ func _ready():
 func _unhandled_input(delta):
 	if Input.is_action_pressed("start-game"):
 		StatMenu.visible = false
-		get_tree().change_scene("res://Root.tscn")
+		get_tree().change_scene_to_file("res://Root.tscn")
 		

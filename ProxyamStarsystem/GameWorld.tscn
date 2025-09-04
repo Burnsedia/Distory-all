@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://b77rc7p1nvjq2" path="res://NPCs/Stations/MainTower.tscn" id="4_rg305"]
 [ext_resource type="Script" path="res://Player/PlayerCamera.gd" id="5_8sqk2"]
 
+<<<<<<< HEAD
+[node name="Game" type="Node3D"]
+script = ExtResource( 4 )
+
+[node name="Executioner" parent="." instance=ExtResource( 3 )]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7734, 11.6831, -162.657 )
+=======
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80biu"]
 sky_top_color = Color(0, 0, 0, 1)
 sky_horizon_color = Color(0.517647, 0.635294, 1, 1)
@@ -28,6 +35,7 @@ sky = SubResource("Sky_0fdkg")
 [node name="Star" parent="." instance=ExtResource("2_cb0x6")]
 transform = Transform3D(498.375, 0, 1091.62, 0, 1200, 0, -1091.62, 0, 498.375, -1394.49, 1.66377, 1243.58)
 skeleton = NodePath("../WorldEnvironment")
+>>>>>>> master
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m3uq0")
@@ -35,6 +43,11 @@ environment = SubResource("Environment_m3uq0")
 [node name="MainStation" parent="." instance=ExtResource("4_rg305")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1650)
 
+<<<<<<< HEAD
+[node name="MainStation" parent="." instance=ExtResource( 2 )]
+transform = Transform3D( 2, 0, 0, 0, 20, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 5 )
+=======
 [node name="SpotLight3D" type="SpotLight3D" parent="MainStation"]
 light_color = Color(0.882353, 0.47451, 0.494118, 1)
 
@@ -48,3 +61,4 @@ script = ExtResource("3_d0kyi")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, -6)
 current = true
 script = ExtResource("5_8sqk2")
+>>>>>>> master
