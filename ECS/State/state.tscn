@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://15w07sxnhvin"]
+
+[ext_resource type="Script" path="res://ECS/managers/State.gd" id="1_owp2b"]
+
+[node name="State" type="Node"]
+script = ExtResource("1_owp2b")

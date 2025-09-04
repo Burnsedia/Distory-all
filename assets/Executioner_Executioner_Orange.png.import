@@ -2,13 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://5brxqvj6ptuh"
+=======
+uid="uid://d12qvfeyg2wno"
+>>>>>>> master
 path.s3tc="res://.godot/imported/Executioner_Executioner_Orange.png-50314f102d9a572ef466852fbfbf1a19.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+<<<<<<< HEAD
 generator_parameters={}
+=======
+>>>>>>> master
 
 [deps]
 

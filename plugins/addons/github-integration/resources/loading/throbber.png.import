@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://c32vkobpso5ql"
+=======
+uid="uid://dbu2unw1esfp8"
+>>>>>>> master
 path="res://.godot/imported/throbber.png-6effa2ccba1e559abafea12ccbc0458f.ctex"
 metadata={
 "vram_texture": false

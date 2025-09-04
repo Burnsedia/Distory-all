@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://ckyxp3vrsqa20"
+=======
+uid="uid://bwibnwep5ghnw"
+>>>>>>> master
 path="res://.godot/imported/unchecked-white.png-6ff73788961e63e80a15414bd750bf96.ctex"
 metadata={
 "vram_texture": false

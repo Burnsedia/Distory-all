@@ -2,21 +2,36 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://be4im1blon5at"
 path.s3tc="res://.godot/imported/rocktest_specular.png-ca55c666dbf88a504c1d8af177479ff5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+=======
+uid="uid://dboy3t7ffnhcd"
+path="res://.godot/imported/rocktest_specular.png-ca55c666dbf88a504c1d8af177479ff5.ctex"
+metadata={
+"vram_texture": false
+>>>>>>> master
 }
 
 [deps]
 
 source_file="res://assets/rocktest_specular.png"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/rocktest_specular.png-ca55c666dbf88a504c1d8af177479ff5.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
+=======
+dest_files=["res://.godot/imported/rocktest_specular.png-ca55c666dbf88a504c1d8af177479ff5.ctex"]
+
+[params]
+
+compress/mode=0
+>>>>>>> master
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://da1ybaf1qarha"
+=======
+uid="uid://dvcp63yhupqur"
+>>>>>>> master
 path="res://.godot/imported/Executioner_Red.png-9ba125fd85030790feddd3411e35c8e9.ctex"
 metadata={
 "vram_texture": false

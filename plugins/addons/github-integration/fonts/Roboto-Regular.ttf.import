@@ -2,7 +2,11 @@
 
 importer="font_data_dynamic"
 type="FontFile"
+<<<<<<< HEAD
 uid="uid://et0neh1fn6l1"
+=======
+uid="uid://ikf0lwnjbdhl"
+>>>>>>> master
 path="res://.godot/imported/Roboto-Regular.ttf-dee87200b3bfe75b77b3a67c65b88e52.fontdata"
 
 [deps]

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dgemk6eaggb1q"
+=======
+uid="uid://badx64blfci0b"
+>>>>>>> master
 path="res://.godot/imported/magic_02.png-9e352ac50cc3e9894e2c97fa584432d2.ctex"
 metadata={
 "vram_texture": false

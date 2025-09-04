@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dpx8o321rihii"
+=======
+uid="uid://cn7dsvfl22f1x"
+>>>>>>> master
 path="res://.godot/imported/scorch_01.png-06abeb7340f96de73e12192b77dda5e0.ctex"
 metadata={
 "vram_texture": false

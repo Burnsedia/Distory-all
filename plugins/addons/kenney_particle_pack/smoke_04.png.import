@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bw0p2hsrl7eys"
+=======
+uid="uid://cgw3yvtr862vm"
+>>>>>>> master
 path="res://.godot/imported/smoke_04.png-d7568b266a7a9a34064b0a05e5211b25.ctex"
 metadata={
 "vram_texture": false

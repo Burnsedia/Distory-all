@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://dynrcq3cmcq2a"]
 
 [ext_resource type="PackedScene" path="res://ECS/Weapon.tscn" id="3"]
@@ -89,3 +90,25 @@ transform = Transform3D(0.63, 0, 0, 0, 0.7, 0, 0, 0, 3.8, 0, 0, -8)
 mesh = SubResource("2")
 
 [node name="UI" parent="." instance=ExtResource("4")]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://m8e1wwem64ce"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_0t3oj"]
+[ext_resource type="PackedScene" uid="uid://6v16lp77rx5l" path="res://Executioner.gltf" id="1_43sa6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qkm3d"]
+radius = 2.05082
+height = 7.50068
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_0t3oj")
+
+[node name="Executioner" parent="." instance=ExtResource("1_43sa6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0.292721)
+shape = SubResource("CapsuleShape3D_qkm3d")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, -12)
+>>>>>>> master

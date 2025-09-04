@@ -2,21 +2,36 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://k6hd2xcpijqn"
 path.s3tc="res://.godot/imported/star_02.png-85998c8dea5f335da43f97728f0cea9d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+=======
+uid="uid://c4fnwhl4lo5ry"
+path="res://.godot/imported/star_02.png-85998c8dea5f335da43f97728f0cea9d.ctex"
+metadata={
+"vram_texture": false
+>>>>>>> master
 }
 
 [deps]
 
 source_file="res://plugins/addons/kenney_particle_pack/star_02.png"
+<<<<<<< HEAD
 dest_files=["res://.godot/imported/star_02.png-85998c8dea5f335da43f97728f0cea9d.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
+=======
+dest_files=["res://.godot/imported/star_02.png-85998c8dea5f335da43f97728f0cea9d.ctex"]
+
+[params]
+
+compress/mode=0
+>>>>>>> master
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

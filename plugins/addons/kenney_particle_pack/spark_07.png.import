@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bs6605iewpun0"
+=======
+uid="uid://c0fm5aleagjv1"
+>>>>>>> master
 path="res://.godot/imported/spark_07.png-b3bef7002e6c30d77f50e444edb48dc0.ctex"
 metadata={
 "vram_texture": false

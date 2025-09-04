@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://di7dg6g160yn1"
+=======
+uid="uid://cbbkd8cfklbpa"
+>>>>>>> master
 path="res://.godot/imported/small_circle.png-da5c89519bb0a0e0de62a30056f78d54.ctex"
 metadata={
 "vram_texture": false

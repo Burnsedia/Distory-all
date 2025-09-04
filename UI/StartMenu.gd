@@ -15,4 +15,8 @@ func _process(_delta):
 		
 func _on_TouchScreenButton_pressed():
 	print("I have been clicket")
+<<<<<<< HEAD
 	get_tree().change_scene_to_file("res://ProxyamStarsystem/GameWorld.tscn")
+=======
+	get_tree().change_scene_to_file("res://ProxyamStarsystem/gm.tscn")
+>>>>>>> master

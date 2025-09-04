@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://ctggsux4gil1q"
+=======
+uid="uid://duj24l61gjyff"
+>>>>>>> master
 path="res://.godot/imported/muzzle_02.png-5bd65b81f1623698902f2fa8aebcff5f.ctex"
 metadata={
 "vram_texture": false

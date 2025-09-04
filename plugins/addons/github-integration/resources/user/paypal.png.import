@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://co8j6rjqrmwbh"
+=======
+uid="uid://74042n48ynlp"
+>>>>>>> master
 path="res://.godot/imported/paypal.png-788450731c877b017cd7173ca014d63f.ctex"
 metadata={
 "vram_texture": false

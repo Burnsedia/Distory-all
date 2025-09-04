@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dg1lqelewdy2l"
+=======
+uid="uid://bceleg78fves4"
+>>>>>>> master
 path="res://.godot/imported/radioChecked.png-d6bbb0428c77dd2199dbbc467b454d42.ctex"
 metadata={
 "vram_texture": false

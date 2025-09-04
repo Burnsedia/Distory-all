@@ -1,5 +1,17 @@
+<<<<<<< HEAD
 res://assets/default_env.tres
 res://NPCs/Challenger.tscn
 res://UI/StartMenu.tscn
 res://UI/GameUI.tscn
 res://Player/Player.tscn
+=======
+res://ECS/managers/state_manager.tscn
+res://addons/naejimer_3d_planet_generator/noises/planet_lava.tres
+res://addons/naejimer_3d_planet_generator/noises/planet_sand.tres
+res://addons/naejimer_3d_planet_generator/noises/planet_gaseous.tres
+res://addons/naejimer_3d_planet_generator/noises/planet_no_atmosphere.tres
+res://addons/naejimer_3d_planet_generator/noises/star.tres
+res://Player/Player.tscn
+res://Sector/Sector.tscn
+res://NPCs/Ships/Drone.gd
+>>>>>>> master
