@@ -18,7 +18,6 @@ func _on_Detection_body_entered(body):
 	else:
 		$Tur.target = body
 		$Tur2.target = body
-		$Tur2.target = body
 		$Tur3.target = body
 		$Tur4.target = body
 		$Tur5.target = body
@@ -26,13 +25,12 @@ func _on_Detection_body_entered(body):
 #func set_target():
 #	for i in get_children():
 #		i.target = target
+#
 
 
 func _on_Detection_body_exited(body):
 	$Tur.target = null
 	$Tur2.target = null
-	$Tur2.target = null
 	$Tur3.target = null
 	$Tur4.target = null
 	$Tur5.target = null
-		

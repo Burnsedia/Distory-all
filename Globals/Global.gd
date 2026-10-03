@@ -5,8 +5,8 @@ extends Node
 var player = null
 var stationSpawnPoint = null
 var maintower = null
-var droinCount = 0
-var bullitCount = 0
+var droneCount = 0
+var bulletCount = 0
 
 #Econemy
 var startingMinerals = 10000
@@ -35,12 +35,12 @@ func placeStation(station):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if droinCount <= 0:
-		droinCount = 0
-	if bullitCount <= 0:
-		bullitCount = 0
+	if droneCount <= 0:
+		droneCount = 0
+	if bulletCount <= 0:
+		bulletCount = 0
 
-func get_aim_at_point(target, bullitSpeed,firePoint):
+func get_aim_at_point(target, bulletSpeed,firePoint):
 	if !target.has_method("get_velocity"):
 		return target.global_transform.origin
 	
@@ -49,7 +49,7 @@ func get_aim_at_point(target, bullitSpeed,firePoint):
 	var D = Pti.distance_to(Pbi)
 	var Vt = target.get_velocity()
 	var St = Vt.length()
-	var Sb = bullitSpeed
+	var Sb = bulletSpeed
 	var cos_theta = Pti.direction_to(Pbi).dot(Vt.normalized())
 	var q_root = sqrt(2*D*St*cos_theta + 4*(Sb*Sb - St*St)*D*D )
 	var q_sub = (2*(Sb*Sb - St*St))
