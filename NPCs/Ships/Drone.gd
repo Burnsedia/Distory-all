@@ -4,12 +4,7 @@ class_name Drone
 # Declare member variables here. Examples:
 var target = null
 var faction = null
-<<<<<<< HEAD
-var vel = velocity
 
-
-=======
->>>>>>> master
 var steer_vec:Vector3 = Vector3.ZERO
 var accerleration = Vector3.ZERO
 var speed:float = 8
@@ -17,18 +12,16 @@ var can_shoot = false
 var steer_force:float = .2
 var move_vec:Vector3 = Vector3.ZERO
 var target_vec = null
-var attact_range = 300.0
+var attack_range = 300.0
 var free_range = 250.0
-var bullit_speed = 1000
+var bullet_speed = 1000
 
 @export var empactDamage = 500
+@export var max_speed = 5.0
+@export var acceleration = 0.9
 
 @onready var fire_point = $Weapon.global_transform
 @onready var cooldown = $CoolDown
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 @onready var steerUp = $SteerUp
 @onready var steerDown = $SteerDown
 @onready var steerRight = $SteerRight
@@ -46,10 +39,10 @@ func _ready():
 func _physics_process(delta:float) -> void:	
 	if transform.origin.distance_to(Global.maintower.transform.origin) > 500:
 		queue_free()
-		Global.droinCount -= 1
+		Global.droneCount -= 1
 	if transform.origin.distance_to(target.transform.origin) < free_range:
 		avoid(delta)
-	elif transform.origin.distance_to(target.transform.origin) <= attact_range:
+	elif transform.origin.distance_to(target.transform.origin) <= attack_range:
 		attack(delta)
 	else:
 		seek(delta)
@@ -61,7 +54,7 @@ func seek(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer + avoid_collions() * delta
+	velocity += steer + avoid_collisions() * delta
 	# look at movement
 	look_at(transform.origin + velocity, Vector3.UP)
 	# move
@@ -75,12 +68,10 @@ func attack(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer + avoid_coll@export var max_speed = 5.0
-	@export var acceleration = 0.9ions() * delta
+	velocity += steer + avoid_collisions() * delta
 	# look at movement
 	look_at(get_aim_at_point(), Vector3.UP)
 	# move
-
 	move_and_collide(velocity)
 	if can_shoot and cooldown.is_stopped():
 		$Weapon.shoot()
@@ -93,15 +84,12 @@ func avoid(delta):
 	# get diff in velocity
 	var steer = (desiered_velocity - velocity).normalized() * steer_force
 	# update velocity
-	velocity += steer + avoid_collions() * delta
+	velocity += steer + avoid_collisions() * delta
 	# look at movement
 	look_at(transform.origin + velocity, Vector3.UP)
 	# move	
 	move_and_collide(velocity)
 	
-<<<<<<< HEAD
-
-=======
 func get_aim_at_point():
 	if !target.has_method("get_velocity"):
 		return target.global_transform.origin
@@ -110,7 +98,7 @@ func get_aim_at_point():
 	var D = Pti.distance_to(Pbi)
 	var Vt = target.get_velocity()
 	var St = Vt.length()
-	var Sb = bullit_speed
+	var Sb = bullet_speed
 	var cos_theta = Pti.direction_to(Pbi).dot(Vt.normalized())
 	var q_root = sqrt(2*D*St*cos_theta + 4*(Sb*Sb - St*St)*D*D )
 	var q_sub = (2*(Sb*Sb - St*St))
@@ -123,15 +111,15 @@ func get_aim_at_point():
 	if t < 0:
 		return Vector3.INF # can't hit, target too fast
 	return Vt * t + Pti
->>>>>>> master
 	
-func avoid_collions() -> Vector3:
+func avoid_collisions() -> Vector3:
+	steer_vec = Vector3.ZERO
 	if steerLeft.is_colliding():
 		steer_vec.x += steer_force * .8
 		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force 
 		else: steer_vec.y -= steer_force * .8
 		
-	if steerLeft.is_colliding():
+	if steerRight.is_colliding():
 		steer_vec.x -= steer_force * .8
 		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force
 		else: steer_vec.y -= steer_force * .8
@@ -146,10 +134,9 @@ func avoid_collions() -> Vector3:
 		else: steer_vec.y -= steer_force * .8
 	return steer_vec
 
-
 func _on_Area_body_entered(body):
 	if body == self:
 		return
 	body.take_damage(empactDamage)
-	Global.droinCount -= 1
+	Global.droneCount -= 1
 	queue_free()
