@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://NPCs/Ships/Cursier.gd" id="1"]
 [ext_resource type="PackedScene" path="res://ECS/Terent.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://ECS/Weapon.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://ECS/Heat-radators.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://ECS/Engines.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://ECS/weapons/Weapon.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Heat-radators.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Engines.tscn" id="5"]
 
 [sub_resource type="BoxShape3D" id="1"]
 

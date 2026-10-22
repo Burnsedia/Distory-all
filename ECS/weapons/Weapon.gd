@@ -1,7 +1,7 @@
 class_name Weapon
 extends Area3D
 
-var bullet = preload("res://ECS/Bullet.tscn")
+var bullet = preload("res://ECS/weapons/Bullet.tscn")
 # Direction that the bullet will be fired
 # Fires a unchared shot, no seconday abbilies
 func shoot():

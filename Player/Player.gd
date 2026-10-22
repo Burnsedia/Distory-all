@@ -20,7 +20,7 @@ func get_input(delta):
 	if Input.is_action_pressed("throttle_down"):
 		forward_speed = lerp(forward_speed, 0.0, acceleration * delta)
 
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and has_node("Weapon"):
 		$Weapon.shoot()
 
 	pitch_input = lerp(pitch_input,
