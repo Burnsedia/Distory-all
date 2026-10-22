@@ -2,11 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://nf074cs17rh4"
-=======
-uid="uid://cx0wrmvimluw1"
->>>>>>> master
+uid="uid://bx5i5i3gkcd4w"
 path="res://.godot/imported/shadedDark05.png-2b9e84f0a44ed6ef561e270924b97a8e.ctex"
 metadata={
 "vram_texture": false
@@ -22,6 +18,8 @@ dest_files=["res://.godot/imported/shadedDark05.png-2b9e84f0a44ed6ef561e270924b9
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -29,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

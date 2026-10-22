@@ -3,15 +3,7 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-<<<<<<< HEAD
-uid="uid://dt4ldu1i71tl5"
-=======
-<<<<<<< HEAD
-uid="uid://c50hh7m8hhyhc"
-=======
-uid="uid://b7tc5kd02f8bs"
->>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
->>>>>>> master
+uid="uid://dlivpg3r18oe8"
 path="res://.godot/imported/rock01.obj-986c01ea8870adbd99b5637aeb0bfce5.mesh"
 
 [deps]
@@ -24,6 +16,10 @@ dest_files=["res://.godot/imported/rock01.obj-986c01ea8870adbd99b5637aeb0bfce5.m
 [params]
 
 generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
 scale_mesh=Vector3(1, 1, 1)
 offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
+force_disable_mesh_compression=false

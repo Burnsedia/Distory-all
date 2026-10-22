@@ -2,15 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://dq8k3773bq5m1"
-=======
-<<<<<<< HEAD
-uid="uid://d3uwnk23nch8i"
-=======
-uid="uid://bpjhnbt6ndfh5"
->>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
->>>>>>> master
+uid="uid://dghgpe0mgp0s0"
 path="res://.godot/imported/slimeball.wav-6cdc857122898f2a59d248114f47db85.sample"
 
 [deps]
@@ -29,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=0
+compress/mode=2

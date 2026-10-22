@@ -2,15 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-<<<<<<< HEAD
-uid="uid://t366rx17q07p"
-=======
-<<<<<<< HEAD
-uid="uid://dt3jyimyme5bs"
-=======
-uid="uid://c2vbeh8dn7uy2"
->>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
->>>>>>> master
+uid="uid://p7v2vilpptas"
 path="res://.godot/imported/engine_sound.mp3-d2491b9fe0bb91097b7493bc5369855a.mp3str"
 
 [deps]
@@ -20,7 +12,7 @@ dest_files=["res://.godot/imported/engine_sound.mp3-d2491b9fe0bb91097b7493bc5369
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
 bpm=0
 beat_count=0
