@@ -1,151 +1,128 @@
 extends CharacterBody3D
 class_name Drone
+## Swarm kamikaze fighter. Approaches its target, strafes and shoots,
+## then rams once close enough.
 
-# Declare member variables here. Examples:
-var target = null
-var faction = null
+@export var speed: float = 16.0
+@export var steer_force: float = 2.0
+@export var attack_range: float = 320.0
+@export var ram_range: float = 70.0
+@export var bullet_speed: float = 1100.0
+@export var impact_damage: float = 500.0
+@export var weapon_damage: float = 10.0
+@export var weapon_cooldown: float = 1.5
+## Despawn beyond this distance from the sector center.
+@export var leash_range: float = 900.0
 
-var steer_vec:Vector3 = Vector3.ZERO
-var accerleration = Vector3.ZERO
-var speed:float = 8
-var can_shoot = false
-var steer_force:float = .2
-var move_vec:Vector3 = Vector3.ZERO
-var target_vec = null
-var attack_range = 300.0
-var free_range = 250.0
-var bullet_speed = 1000
+var target: Node3D = null
 
-@export var empactDamage = 500
-@export var max_speed = 5.0
-@export var acceleration = 0.9
+@onready var weapon: Weapon = $Weapon
+@onready var cooldown: Timer = $CoolDown
+@onready var steer_rays: Array = [$SteerUp, $SteerDown, $SteerLeft, $SteerRight]
 
-@onready var fire_point = $Weapon.global_transform
-@onready var cooldown = $CoolDown
-@onready var steerUp = $SteerUp
-@onready var steerDown = $SteerDown
-@onready var steerRight = $SteerRight
-@onready var steerLeft = $SteerLeft
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	add_to_group("enemies")
-	if Global.player != null and Global.maintower != null:
-		if randi()%2 == 0:
-			target = Global.player
-		else:
-			target = Global.maintower
+	Global.droneCount += 1
+	weapon.faction = &"enemy"
+	weapon.damage = weapon_damage
+	cooldown.wait_time = weapon_cooldown
+	$DamageSystem.died.connect(_on_died)
+	call_deferred("_pick_target")
+
+func _pick_target() -> void:
+	if Global.maintower != null and Global.player != null:
+		target = Global.maintower if randi() % 3 == 0 else Global.player
 	elif Global.player != null:
 		target = Global.player
 	elif Global.maintower != null:
 		target = Global.maintower
-	
-# Physics Function
-func _physics_process(delta:float) -> void:
-	if target == null:
-		return
-	if Global.maintower != null and global_position.distance_to(Global.maintower.global_position) > 500:
-		queue_free()
-		Global.droneCount -= 1
-		return
-	var dist_to_target = global_position.distance_to(target.global_position)
-	if dist_to_target < free_range:
-		avoid(delta)
-	elif dist_to_target <= attack_range:
-		attack(delta)
-	else:
-		seek(delta)
-		
-func seek(delta):
-	var target_location = target.global_transform.origin
-	# get desiered velocity
-	var desiered_velocity = (target_location - transform.origin).normalized() * speed
-	# get diff in velocity
-	var steer = (desiered_velocity - velocity).normalized() * steer_force
-	# update velocity
-	velocity += steer + avoid_collisions() * delta
-	# look at movement
-	look_at(transform.origin + velocity, Vector3.UP)
-	# move
-	move_and_collide(velocity)
-	
-func attack(delta):
-	can_shoot= true
-	var target_location = target.global_transform.origin
-	# get desiered velocity
-	var desiered_velocity = (get_aim_at_point() - transform.origin).normalized() * speed
-	# get diff in velocity
-	var steer = (desiered_velocity - velocity).normalized() * steer_force
-	# update velocity
-	velocity += steer + avoid_collisions() * delta
-	# look at movement
-	look_at(get_aim_at_point(), Vector3.UP)
-	# move
-	move_and_collide(velocity)
-	if can_shoot and cooldown.is_stopped():
-		$Weapon.shoot()
-		cooldown.start()
-	
-func avoid(delta):
-	var target_location = target.global_transform.origin
-	# get desiered velocity
-	var desiered_velocity = (transform.origin - target_location).normalized() * speed
-	# get diff in velocity
-	var steer = (desiered_velocity - velocity).normalized() * steer_force
-	# update velocity
-	velocity += steer + avoid_collisions() * delta
-	# look at movement
-	look_at(transform.origin + velocity, Vector3.UP)
-	# move	
-	move_and_collide(velocity)
-	
-func get_aim_at_point():
-	if !target.has_method("get_velocity"):
-		return target.global_transform.origin
-	var Pti = target.global_transform.origin
-	var Pbi = fire_point.origin
-	var D = Pti.distance_to(Pbi)
-	var Vt = target.get_velocity()
-	var St = Vt.length()
-	var Sb = bullet_speed
-	var cos_theta = Pti.direction_to(Pbi).dot(Vt.normalized())
-	var q_root = sqrt(2*D*St*cos_theta + 4*(Sb*Sb - St*St)*D*D )
-	var q_sub = (2*(Sb*Sb - St*St))
-	var q_left = -2*D*St*cos_theta
-	var t1 = (q_left + q_root) / q_sub
-	var t2 = (q_left - q_root) / q_sub
-	var t = min(t1, t2)
-	if t < 0:
-		t = max(t1, t2)
-	if t < 0:
-		return Vector3.INF # can't hit, target too fast
-	return Vt * t + Pti
-	
-func avoid_collisions() -> Vector3:
-	steer_vec = Vector3.ZERO
-	if steerLeft.is_colliding():
-		steer_vec.x += steer_force * .8
-		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force 
-		else: steer_vec.y -= steer_force * .8
-		
-	if steerRight.is_colliding():
-		steer_vec.x -= steer_force * .8
-		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force
-		else: steer_vec.y -= steer_force * .8
-		
-	if steerUp.is_colliding():
-		steer_vec.y += steer_force * .8
-		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force
-		else: steer_vec.y -= steer_force * .8
-	if steerDown.is_colliding():
-		steer_vec.y -= steer_force * .8
-		if Time.get_ticks_msec()%2==0:steer_vec.y += steer_force * .8
-		else: steer_vec.y -= steer_force * .8
-	return steer_vec
 
-func _on_Area_body_entered(body):
+func _physics_process(delta: float) -> void:
+	if target == null or not is_instance_valid(target):
+		_pick_target()
+		if target == null:
+			return
+	if global_position.length() > leash_range:
+		$DamageSystem.die()
+		return
+	var dist := global_position.distance_to(target.global_position)
+	if dist > attack_range:
+		_seek(delta, target.global_position)
+	elif dist > ram_range:
+		_attack(delta)
+	else:
+		_ram(delta)
+
+func _seek(delta: float, point: Vector3) -> void:
+	var desired := (point - global_position).normalized() * speed
+	_steer(delta, desired)
+
+func _attack(delta: float) -> void:
+	var aim := get_aim_at_point()
+	if aim == Vector3.INF or not is_finite(aim.x):
+		_seek(delta, target.global_position)
+		return
+	var desired := (aim - global_position).normalized() * speed
+	_steer(delta, desired)
+	if cooldown.is_stopped():
+		weapon.shoot()
+		cooldown.start()
+
+func _ram(delta: float) -> void:
+	var desired := (target.global_position - global_position).normalized() * speed * 2.2
+	_steer(delta, desired)
+
+func _steer(delta: float, desired: Vector3) -> void:
+	velocity = velocity.move_toward(desired, steer_force * speed * delta)
+	velocity += _avoidance()
+	if velocity.length() > 0.01:
+		look_at(global_position + velocity.normalized() * 10.0, Vector3.UP)
+	move_and_collide(velocity * delta)
+
+func _avoidance() -> Vector3:
+	var push := Vector3.ZERO
+	for ray in steer_rays:
+		if (ray as RayCast3D).is_colliding():
+			var to := (ray as RayCast3D).get_collision_point()
+			push += (global_position - to).normalized()
+	if push.length() > 0.0:
+		return push.normalized() * speed * 0.8
+	return Vector3.ZERO
+
+## Interception point for leading a moving target.
+func get_aim_at_point() -> Vector3:
+	var Vt: Vector3 = Vector3.ZERO
+	if target is CharacterBody3D:
+		Vt = (target as CharacterBody3D).velocity
+	var Pti: Vector3 = target.global_position
+	var Pbi: Vector3 = global_position
+	var St: float = Vt.length()
+	if St < 1.0:
+		return Pti
+	var D: float = Pti.distance_to(Pbi)
+	var Sb: float = bullet_speed
+	var cos_theta: float = Pti.direction_to(Pbi).dot(Vt.normalized())
+	var q_sub: float = 2.0 * (Sb * Sb - St * St)
+	if absf(q_sub) < 0.001:
+		return Pti
+	var q_root: float = sqrt(maxf(2 * D * St * cos_theta + 4 * (Sb * Sb - St * St) * D * D, 0.0))
+	var q_left: float = -2.0 * D * St * cos_theta
+	var t1: float = (q_left + q_root) / q_sub
+	var t2: float = (q_left - q_root) / q_sub
+	var t: float = minf(t1, t2)
+	if t < 0.0:
+		t = maxf(t1, t2)
+	if t < 0.0:
+		return Vector3.INF
+	return Vt * t + Pti
+
+func _on_Area_body_entered(body: Node3D) -> void:
 	if body == self:
 		return
-	body.take_damage(empactDamage)
-	Global.droneCount -= 1
+	if body.is_in_group("player") or body.is_in_group("player_stations"):
+		DamageSystem.apply(body, DamageInstance.new(DamageTypes.KINETIC, impact_damage))
+	$DamageSystem.die()
+
+func _on_died() -> void:
+	Global.droneCount = maxi(0, Global.droneCount - 1)
 	queue_free()

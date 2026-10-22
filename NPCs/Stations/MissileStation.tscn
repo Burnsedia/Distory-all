@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://NPCs/Stations/Station.tscn" id="1"]
+[ext_resource type="Script" path="res://NPCs/Stations/MissileStation.gd" id="2"]
+[ext_resource type="PackedScene" path="res://ECS/damage/DamageSystem.tscn" id="3"]
+[ext_resource type="Resource" path="res://ECS/damage/resistances/station.tres" id="4"]
+[ext_resource type="PackedScene" path="res://NPCs/Stations/Turret.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://ECS/weapons/Missile.tscn" id="6"]
+[ext_resource type="Resource" path="res://ECS/damage/types/heat.tres" id="7"]
+
+[node name="MissileStation" instance=ExtResource("1")]
+collision_layer = 4
+script = ExtResource("2")
+
+[node name="Turrets" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+
+[node name="Pod1" parent="Turrets" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0.5)
+fire_cooldown = 4.0
+damage = 150.0
+bullet_speed = 500.0
+damage_type = ExtResource("7")
+projectile = ExtResource("6")
+
+[node name="Pod2" parent="Turrets" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0.5)
+fire_cooldown = 4.0
+damage = 150.0
+bullet_speed = 500.0
+damage_type = ExtResource("7")
+projectile = ExtResource("6")
+
+[node name="DamageSystem" parent="." instance=ExtResource("3")]
+max_health = 1200.0
+resistances = ExtResource("4")
+mineral_reward = 0
+death_faction = &"player_station"

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://NPCs/Stations/Turret.gd" id="1"]
+
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(2.2, 1.2, 2.2)
+
+[sub_resource type="CylinderMesh" id="2"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 3.5
+
+[sub_resource type="StandardMaterial3D" id="3"]
+albedo_color = Color(0.55, 0.58, 0.65, 1)
+metallic = 0.7
+roughness = 0.4
+
+[node name="Turret" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("3")
+
+[node name="Yaw" type="Node3D" parent="."]
+
+[node name="Pitch" type="Node3D" parent="Yaw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+
+[node name="Barrel" type="MeshInstance3D" parent="Yaw/Pitch"]
+transform = Transform3D(1, 0, 0, 0, 1.73205e-07, -1, 0, 1, 1.73205e-07, 0, 0, -1.75)
+mesh = SubResource("2")
+surface_material_override/0 = SubResource("3")
+
+[node name="Muzzle" type="Node3D" parent="Yaw/Pitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.7)

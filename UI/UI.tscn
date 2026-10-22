@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://citb0jkatit6l"]
-
-[ext_resource type="PackedScene" uid="uid://2w2hxs2h2a8a" path="res://UI/GameUI.tscn" id="1"]
-
-[node name="UI" type="CanvasLayer"]
-
-[node name="MarginContainer" parent="." instance=ExtResource("1")]
-grow_horizontal = 2
-grow_vertical = 2

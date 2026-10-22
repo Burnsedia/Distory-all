@@ -1,10 +1,14 @@
-TODO: Spawn Astoids
-TODO: Spawn EnemyStations
-TODO: Spawn Enemy Waves
-TODO: Spawn Player Defense Stations/Towers
+DONE: Spawn Asteroids (ring around the sector)
+DONE: Spawn Enemy Stations (10 shipyards on the sector ring)
+DONE: Spawn Enemy Waves (GameState wave director, escalating compositions)
+DONE: Spawn Player Defense Stations/Towers (gun + missile stations, ghost placement)
+DONE: Damage system with typed resources (issue #18)
+DONE: Chase camera (issue #10, base implementation)
+DONE: Main menu, HUD, pause, win/lose flow
 
-TODO: Make Shipyards
-TOOD: Make OverWorld 
-    - Sectore Map
-    - Fleet System
-    - bacis 4x
+NEXT: Save game system (issue #23)
+NEXT: Overworld map (issue #16) — sector map, fleet system, basic 4X
+NEXT: Squadron control system (issue #19)
+NEXT: State machine refactor of enemy steering (issue #20)
+NEXT: Shipyard defense turrets (make the ring dangerous)
+NEXT: More towers — shield station, repair pad, laser lance

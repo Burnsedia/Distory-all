@@ -1,43 +1,23 @@
 extends Node3D
+## The sector combat scene. Sets the stage (asteroids, lights) and hands
+## control to GameState, which owns the wave cycle and objectives.
 
+const AsteroidScene := preload("res://ECS/Asteroid.tscn")
 
-## Called when the node enters the scene tree for the first time.
+@onready var core: Node3D = $SectorCore
+
 func _ready() -> void:
-  spawn_stations()
-  spawn_asteroids()
-
-func spawn_stations() -> void:
-	var count = 10
-	var radius = 500.0
-	var center = Vector3()
-	# Get how much of an angle objects will be spaced around the circle.
-	# Angles are in radians so 2.0*PI = 360 degrees
-	var angle_step = 2.0*PI / count
-	var angle = 0
-	# For each node to spawn
-	for i in range(0, count):
-		var direction = Vector3(cos(angle), 0, sin(angle))
-		var pos = center + direction * radius
-		var node = preload("res://NPCs/Stations/EnemyShipYard.tscn").instantiate()
-		node.global_translate(pos)
-		add_child(node)
-		# Rotate one step
-		angle += angle_step
+	spawn_asteroids()
+	GameState.start_game(core, self)
 
 func spawn_asteroids() -> void:
-	var count = 1000
-	var radius = 650.0
-	var center = Vector3()
-	# Get how much of an angle objects will be spaced around the circle.
-	# Angles are in radians so 2.0*PI = 360 degrees
-	var angle_step = 2.0*PI / count
-	var angle = 0
-	# For each node to spawn
-	for i in range(0, count):
-		var direction = Vector3(cos(angle), randf_range(-angle, angle), sin(angle))
-		var pos = center + direction * radius
-		var node = preload("res://ECS/Asteroid.tscn").instantiate()
-		node.global_translate(pos)
+	var count := 350
+	var base_radius := 650.0
+	for i in count:
+		var angle := TAU * i / count
+		var direction := Vector3(cos(angle), randf_range(-0.5, 0.5), sin(angle)).normalized()
+		var node := AsteroidScene.instantiate()
+		node.position = direction * (base_radius + randf_range(-100.0, 120.0))
+		node.rotation = Vector3(randf() * TAU, randf() * TAU, randf() * TAU)
+		node.scale = Vector3.ONE * randf_range(4.0, 12.0)
 		add_child(node)
-		# Rotate one step
-		angle += angle_step

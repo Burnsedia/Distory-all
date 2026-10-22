@@ -1,25 +1,11 @@
 extends StaticBody3D
+## The Sector Core — the thing every wave wants dead. If it dies, you lose.
 
-
-var isDead:bool = false
-@export var hp:int = 5000
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	Global.maintower = self
-	add_to_group("player")
+	add_to_group("player_stations")
+	$DamageSystem.died.connect(_on_died)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func take_damage(damage):
-	if hp > 0:
-		hp -= damage
-		if hp <= 0:
-			Events.game_over.emit()
-			queue_free()
-			get_tree().paused = true
+func _on_died() -> void:
+	# The core is not freed immediately so the death moment stays visible.
+	visible = false

@@ -1,138 +1,78 @@
 extends CharacterBody3D
 class_name Crusier
+## Tanky gun platform. Keeps its distance and hammers the target with energy bolts.
 
-var target = null
-var faction = null
+@export var speed: float = 12.0
+@export var steer_force: float = 1.2
+@export var attack_range: float = 450.0
+@export var keep_range: float = 220.0
+@export var bullet_speed: float = 1200.0
+@export var weapon_damage: float = 30.0
+@export var weapon_cooldown: float = 2.5
+## Despawn beyond this distance from the sector center.
+@export var leash_range: float = 900.0
 
-var steer_vec:Vector3 = Vector3.ZERO
-var acceleration_vec = Vector3.ZERO
-var speed:float = 15.0
-var can_shoot = false
-var steer_force:float = 0.5
-var move_vec:Vector3 = Vector3.ZERO
-var target_vec = null
-var attack_range = 400.0
-var free_range = 300.0
-var bullet_speed = 1200
+var target: Node3D = null
+var strafe_dir: float = 1.0
 
-@export var empactDamage = 1000
-@export var max_speed = 20.0
-@export var acceleration = 1.5
+@onready var weapon: Weapon = $Weapon
+@onready var cooldown: Timer = $CoolDown
 
-@onready var fire_point = $Weapon.global_transform
-@onready var cooldown = $CoolDown
-@onready var areas = [$Area3, $Area4, $Area2, $Area5, $Area6, $Area7, $Area8, $Area9]
-
-func _ready():
+func _ready() -> void:
 	add_to_group("enemies")
-	if randi()%2 == 0:
+	weapon.faction = &"enemy"
+	weapon.damage = weapon_damage
+	cooldown.wait_time = weapon_cooldown
+	$DamageSystem.died.connect(_on_died)
+	strafe_dir = 1.0 if randf() < 0.5 else -1.0
+	call_deferred("_pick_target")
+
+func _pick_target() -> void:
+	if Global.maintower != null and Global.player != null:
+		target = Global.maintower if randi() % 4 == 0 else Global.player
+	elif Global.player != null:
 		target = Global.player
-	else:
+	elif Global.maintower != null:
 		target = Global.maintower
 
-func _physics_process(delta:float) -> void:
-	if !target:
+func _physics_process(delta: float) -> void:
+	if target == null or not is_instance_valid(target):
+		_pick_target()
+		if target == null:
+			return
+	if global_position.length() > leash_range:
+		$DamageSystem.die()
 		return
-		
-	var dist_to_target = global_position.distance_to(target.global_position)
-	
-	if dist_to_target < free_range:
-		avoid(delta)
-	elif dist_to_target <= attack_range:
-		attack(delta)
+	var dist := global_position.distance_to(target.global_position)
+	if dist > attack_range:
+		_seek(delta, target.global_position)
+	elif dist < keep_range:
+		_back_off(delta)
 	else:
-		seek(delta)
+		_strafe_and_shoot(delta)
 
-func seek(delta):
-	var target_location = target.global_position
-	var desired_velocity = (target_location - global_position).normalized() * speed
-	var steer = (desired_velocity - velocity).normalized() * steer_force
-	
-	velocity += steer + avoid_collisions() * delta
-	velocity = velocity.limit_length(max_speed)
-	
-	look_at(global_position + velocity, Vector3.UP)
-	move_and_collide(velocity * delta)
+func _seek(delta: float, point: Vector3) -> void:
+	var desired := (point - global_position).normalized() * speed
+	_steer(delta, desired)
 
-func attack(delta):
-	can_shoot = true
-	var aim_point = get_aim_at_point()
-	
-	if aim_point == Vector3.INF:
-		# If we can't hit, just move towards target
-		seek(delta)
-		return
+func _back_off(delta: float) -> void:
+	var away := (global_position - target.global_position).normalized()
+	var desired := (away + target.global_transform.basis.x * strafe_dir * 0.4).normalized() * speed
+	_steer(delta, desired)
 
-	var desired_velocity = (aim_point - global_position).normalized() * speed
-	var steer = (desired_velocity - velocity).normalized() * steer_force
-	
-	velocity += steer + avoid_collisions() * delta
-	velocity = velocity.limit_length(max_speed)
-	
-	look_at(aim_point, Vector3.UP)
-	move_and_collide(velocity * delta)
-	
-	if can_shoot and cooldown.is_stopped():
-		$Weapon.shoot()
+func _strafe_and_shoot(delta: float) -> void:
+	var to_target := (target.global_position - global_position).normalized()
+	var desired := (to_target * 0.3 + target.global_transform.basis.x * strafe_dir).normalized() * speed
+	_steer(delta, desired)
+	if cooldown.is_stopped():
+		weapon.shoot()
 		cooldown.start()
 
-func avoid(delta):
-	var target_location = target.global_position
-	var desired_velocity = (global_position - target_location).normalized() * speed
-	var steer = (desired_velocity - velocity).normalized() * steer_force
-	
-	velocity += steer + avoid_collisions() * delta
-	velocity = velocity.limit_length(max_speed)
-	
-	look_at(global_position + velocity, Vector3.UP)
+func _steer(delta: float, desired: Vector3) -> void:
+	velocity = velocity.move_toward(desired, steer_force * speed * delta)
+	if velocity.length() > 0.01:
+		look_at(global_position + velocity.normalized() * 10.0, Vector3.UP)
 	move_and_collide(velocity * delta)
 
-func get_aim_at_point():
-	if !target.has_method("get_velocity"):
-		return target.global_position
-		
-	var Pti = target.global_position
-	var Pbi = fire_point.origin # Use origin of the transform
-	var D = Pti.distance_to(Pbi)
-	var Vt = target.get_velocity()
-	var St = Vt.length()
-	var Sb = bullet_speed
-	var cos_theta = Pti.direction_to(Pbi).dot(Vt.normalized())
-	
-	# Quadratic formula for interception
-	var q_root = sqrt(2*D*St*cos_theta + 4*(Sb*Sb - St*St)*D*D )
-	var q_sub = (2*(Sb*Sb - St*St))
-	var q_left = -2*D*St*cos_theta
-	
-	if q_sub == 0: return Pti
-	
-	var t1 = (q_left + q_root) / q_sub
-	var t2 = (q_left - q_root) / q_sub
-	var t = min(t1, t2)
-	
-	if t < 0:
-		t = max(t1, t2)
-	if t < 0:
-		return Vector3.INF 
-		
-	return Vt * t + Pti
-
-func avoid_collisions() -> Vector3:
-	var avoidance_vec = Vector3.ZERO
-	var count = 0
-	
-	for area in areas:
-		var overlapping = area.get_overlapping_bodies()
-		for body in overlapping:
-			if body != self and body.is_in_group("enemies"):
-				var diff = global_position - body.global_position
-				avoidance_vec += diff.normalized()
-				count += 1
-	
-	if count > 0:
-		return (avoidance_vec / count).normalized() * steer_force
-	return Vector3.ZERO
-
-func take_damage(damage):
-	# Placeholder for actual health logic
+func _on_died() -> void:
 	queue_free()

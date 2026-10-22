@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://druckixfj0iim"]
-
-[ext_resource type="PackedScene" uid="uid://bgdydb13pkde5" path="res://ProxyamStarsystem/GameWorld.tscn" id="1"]
-
-[node name="Root" type="Node"]
-
-[node name="Node3D" parent="." instance=ExtResource("1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0995121, 0, 0)
