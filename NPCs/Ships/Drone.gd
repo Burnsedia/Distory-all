@@ -30,19 +30,28 @@ var bullet_speed = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemies")
-	if randi()%2 == 0:
+	if Global.player != null and Global.maintower != null:
+		if randi()%2 == 0:
+			target = Global.player
+		else:
+			target = Global.maintower
+	elif Global.player != null:
 		target = Global.player
-	else:
+	elif Global.maintower != null:
 		target = Global.maintower
 	
 # Physics Function
-func _physics_process(delta:float) -> void:	
-	if transform.origin.distance_to(Global.maintower.transform.origin) > 500:
+func _physics_process(delta:float) -> void:
+	if target == null:
+		return
+	if Global.maintower != null and global_position.distance_to(Global.maintower.global_position) > 500:
 		queue_free()
 		Global.droneCount -= 1
-	if transform.origin.distance_to(target.transform.origin) < free_range:
+		return
+	var dist_to_target = global_position.distance_to(target.global_position)
+	if dist_to_target < free_range:
 		avoid(delta)
-	elif transform.origin.distance_to(target.transform.origin) <= attack_range:
+	elif dist_to_target <= attack_range:
 		attack(delta)
 	else:
 		seek(delta)
@@ -94,7 +103,7 @@ func get_aim_at_point():
 	if !target.has_method("get_velocity"):
 		return target.global_transform.origin
 	var Pti = target.global_transform.origin
-	var Pbi = fire_point.global_transform.origin
+	var Pbi = fire_point.origin
 	var D = Pti.distance_to(Pbi)
 	var Vt = target.get_velocity()
 	var St = Vt.length()
