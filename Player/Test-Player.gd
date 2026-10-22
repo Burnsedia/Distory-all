@@ -17,28 +17,24 @@ class_name Player
 @onready var targeting = $"Weapon/Sprite3D"
 @onready var stationsSpawnPoint  = $StationSpawnPosition
 
-#var velocity = Vector3.ZERO
-var forward_speed = 0
-var pitch_input = 0
-var roll_input = 0
-var yaw_input = 0
+var forward_speed = 0.0
+var pitch_input = 0.0
+var roll_input = 0.0
+var yaw_input = 0.0
 var canFire = true
-
-#func _init(): 
-# 	Global.player = self */
 	
 func _ready():
-	Events.connect("game_over", Callable(self, "_gameOverScreen"))
+	Events.game_over.connect(_gameOverScreen)
 	Global.player = self
 	Global.stationSpawnPoint = $StationSpawnPosition
-	await get_tree().idle_frame
+	await get_tree().process_frame
 
 
 func get_input(delta):
 	if Input.is_action_pressed("throttle_up"):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 	if Input.is_action_pressed("throttle_down"):
-		forward_speed = lerp(forward_speed, 0, acceleration * delta)
+		forward_speed = lerp(forward_speed, 0.0, acceleration * delta)
 	if Input.is_action_just_pressed("shoot"):
 		#Shoot the gun
 		$Weapon.shoot()
@@ -49,9 +45,6 @@ func get_input(delta):
 	roll_input = lerp(roll_input,
 			Input.get_action_strength("roll_left") - Input.get_action_strength("roll_right"),
 			input_response * delta)
-#	yaw_input = lerp(yaw_input,
-#			Input.get_action_strength("yaw_left") - Input.get_action_strength("yaw_right"),
-#			input_response * delta)
 	# replace the line above with this for linked roll/yaw:
 	yaw_input =  roll_input
 
@@ -73,6 +66,6 @@ func take_damage(damage):
 	hp -= damage
 	if hp <=0:
 		hp = 0
-		Events.emit_signal("game_over")	
-		await get_tree().idle_frame
+		Events.game_over.emit()	
+		await get_tree().process_frame
 		get_tree().paused = true

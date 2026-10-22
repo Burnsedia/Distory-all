@@ -13,6 +13,10 @@ var pitch_input = 0.0
 var roll_input = 0.0
 var yaw_input = 0.0
 
+func _ready():
+	Global.player = self
+	add_to_group("player")
+
 func get_input(delta):
 	if Input.is_action_pressed("throttle_up"):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
@@ -20,7 +24,7 @@ func get_input(delta):
 	if Input.is_action_pressed("throttle_down"):
 		forward_speed = lerp(forward_speed, 0.0, acceleration * delta)
 
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and has_node("Weapon"):
 		$Weapon.shoot()
 
 	pitch_input = lerp(pitch_input,

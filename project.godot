@@ -21,10 +21,6 @@ config/icon="res://assets/uvCswI.png"
 
 Global="*res://Globals/Global.gd"
 Events="*res://Globals/Events.gd"
-PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 
 [display]
 
@@ -124,7 +120,6 @@ yaw_right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"echo":false,"script":null)
 ]
 }
-}
 
 [input_devices]
 
@@ -132,7 +127,7 @@ pointing/emulate_touch_from_mouse=true
 
 [physics]
 
-3d/physics_engine="Bullet"
+3d/physics_engine="DEFAULT"
 common/enable_object_picking=false
 
 [rendering]

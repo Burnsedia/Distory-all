@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://analog_joypad"]
 
-[ext_resource path="res://plugins/addons/analog/analog.gd" type="Script" id=1]
-[ext_resource path="res://plugins/addons/analog/small_circle.png" type="Texture2D" id=2]
-[ext_resource path="res://plugins/addons/analog/big_circle.png" type="Texture2D" id=3]
+[ext_resource type="Script" path="res://plugins/addons/analog/analog.gd" id="1"]
+[ext_resource type="Texture2D" path="res://plugins/addons/analog/small_circle.png" id="2"]
+[ext_resource type="Texture2D" path="res://plugins/addons/analog/big_circle.png" id="3"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -34,7 +34,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ball:rotation_degrees")
 tracks/0/interp = 1
@@ -60,7 +60,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -75,19 +75,19 @@ tracks/0/keys = {
 }
 
 [node name="Analog" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
 
 [node name="bg" type="Sprite2D" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource("3")
 
 [node name="ball" type="Sprite2D" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["JoyStick"]]
-anims/alpha_in = SubResource( 1 )
-anims/alpha_out = SubResource( 2 )
-anims/ball_center = SubResource( 3 )
-anims/default = SubResource( 4 )
+anims/alpha_in = SubResource("1")
+anims/alpha_out = SubResource("2")
+anims/ball_center = SubResource("3")
+anims/default = SubResource("4")

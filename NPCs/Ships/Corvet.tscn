@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://ECS/Heat-radators.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ECS/Engines.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ECS/Weapon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ECS/ShipCore.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ECS/Forward-Hall.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ECS/Service-Modual.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ECS/ship-parts/Heat-radators.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ECS/ship-parts/Engines.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ECS/weapons/Weapon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ECS/ship-parts/ShipCore.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ECS/ship-parts/Forward-Hall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ECS/ship-parts/Service-Modual.tscn" type="PackedScene" id=6]
 
 [node name="Corvet" instance=ExtResource( 4 )]
 

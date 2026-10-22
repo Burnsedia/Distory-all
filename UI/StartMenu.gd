@@ -1,13 +1,13 @@
 extends Panel
 
 func _init():
-	print("Startmenu has intered the tree")
+	print("Startmenu has entered the tree")
 
 func _ready():
 	print("I am at the Login Screen")
 
 func _input(event):
-	if InputEventScreenTouch:
+	if event is InputEventScreenTouch:
 		print(event.device)
 		
 func _process(_delta):
@@ -15,8 +15,4 @@ func _process(_delta):
 		
 func _on_TouchScreenButton_pressed():
 	print("I have been clicket")
-<<<<<<< HEAD
 	get_tree().change_scene_to_file("res://ProxyamStarsystem/GameWorld.tscn")
-=======
-	get_tree().change_scene_to_file("res://ProxyamStarsystem/gm.tscn")
->>>>>>> master

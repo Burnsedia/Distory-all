@@ -2,42 +2,39 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://5brxqvj6ptuh"
-=======
-uid="uid://d12qvfeyg2wno"
->>>>>>> master
-path.s3tc="res://.godot/imported/Executioner_Executioner_Orange.png-50314f102d9a572ef466852fbfbf1a19.s3tc.ctex"
+uid="uid://dyr8tc4a2bwp1"
+path="res://.godot/imported/Executioner_Executioner_Orange.png-50314f102d9a572ef466852fbfbf1a19.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
-<<<<<<< HEAD
-generator_parameters={}
-=======
->>>>>>> master
 
 [deps]
 
 source_file="res://assets/Executioner_Executioner_Orange.png"
-dest_files=["res://.godot/imported/Executioner_Executioner_Orange.png-50314f102d9a572ef466852fbfbf1a19.s3tc.ctex"]
+dest_files=["res://.godot/imported/Executioner_Executioner_Orange.png-50314f102d9a572ef466852fbfbf1a19.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

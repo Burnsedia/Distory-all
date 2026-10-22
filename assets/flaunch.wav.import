@@ -2,15 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< HEAD
-uid="uid://cxyetgdsv8awj"
-=======
-<<<<<<< HEAD
-uid="uid://qkq3tfh3may3"
-=======
-uid="uid://cm1dxkl5pgida"
->>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
->>>>>>> master
+uid="uid://bnc7vcj02c04d"
 path="res://.godot/imported/flaunch.wav-ce32d210d8cf993b2cd1b61718a9ff67.sample"
 
 [deps]
@@ -29,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=0
+compress/mode=2

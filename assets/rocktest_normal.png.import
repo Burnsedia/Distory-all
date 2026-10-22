@@ -2,34 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://b8ltskriow0w1"
-path.s3tc="res://.godot/imported/rocktest_normal.png-40f5f8a5b92ead1ba8ca93334c65c3a5.s3tc.ctex"
-metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-=======
-uid="uid://c325tywlvr7u7"
+uid="uid://jhx2wscpnwpn"
 path="res://.godot/imported/rocktest_normal.png-40f5f8a5b92ead1ba8ca93334c65c3a5.ctex"
 metadata={
 "vram_texture": false
->>>>>>> master
 }
 
 [deps]
 
 source_file="res://assets/rocktest_normal.png"
-<<<<<<< HEAD
-dest_files=["res://.godot/imported/rocktest_normal.png-40f5f8a5b92ead1ba8ca93334c65c3a5.s3tc.ctex"]
-
-[params]
-
-compress/mode=2
-compress/high_quality=false
-compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=1
-=======
 dest_files=["res://.godot/imported/rocktest_normal.png-40f5f8a5b92ead1ba8ca93334c65c3a5.ctex"]
 
 [params]
@@ -37,14 +18,19 @@ dest_files=["res://.godot/imported/rocktest_normal.png-40f5f8a5b92ead1ba8ca93334
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
->>>>>>> master
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

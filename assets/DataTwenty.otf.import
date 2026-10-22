@@ -2,15 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-<<<<<<< HEAD
-uid="uid://dfxsbrfq1o2ac"
-=======
-<<<<<<< HEAD
-uid="uid://ci0a3xygwuu5p"
-=======
-uid="uid://b4u5ppg77vcdy"
->>>>>>> 6687f4b2b694a9635fd13de40016ee12fb7d7cef
->>>>>>> master
+uid="uid://b5k8vti6j2gt7"
 path="res://.godot/imported/DataTwenty.otf-db0465ba7214bd1116c791bb4a87e7e3.fontdata"
 
 [deps]
@@ -23,13 +15,16 @@ dest_files=["res://.godot/imported/DataTwenty.otf-db0465ba7214bd1116c791bb4a87e7
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
-hinting=1
-subpixel_positioning=1
+modulate_color_glyphs=false
+hinting=3
+subpixel_positioning=4
+keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://NPCs/Ships/Cursier.gd" id="1"]
 [ext_resource type="PackedScene" path="res://ECS/Terent.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://ECS/Weapon.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://ECS/Heat-radators.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://ECS/Engines.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://ECS/weapons/Weapon.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Heat-radators.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://ECS/ship-parts/Engines.tscn" id="5"]
 
 [sub_resource type="BoxShape3D" id="1"]
 
@@ -16,6 +16,10 @@ script = ExtResource("1")
 
 [node name="Weapon" parent="." instance=ExtResource("3")]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00765324, 0.0195007, -12.1425 )
+
+[node name="CoolDown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D( 1.5, 0, 0, 0, 1, 0, 0, 0, 5.61723, 0, 0, -4.61031 )
