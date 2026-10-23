@@ -1,35 +1,146 @@
 # Sector Defense — Game Design Document
 
-**Version:** 0.2 (Playable Vertical Slice)
+**Version:** 0.3 — four-layer vision: **Wing Commander × Tower Defense × mini-RTS × mini-4X**
 **Engine:** Godot 4.x
 **License:** AGPL-3.0
+**Platform:** PC + Steam Deck (not mobile — see §11)
+
+Status markers: `[SHIPPED]` in the game · `[M0]`/`[M1]`/`[M2]`/`[M3]` planned milestones (§12).
 
 ## 1. Overview
 
-Sector Defense is an open-source **hybrid tower-defense / space-combat** game set in a
-decaying Dyson swarm. You are the last guardian of your sector. Enemy shipyards ring
-the sector and pour escalating waves at your **Sector Core**. You fly a fighter into
-the swarm, earn salvage (minerals) from kills, and spend it on defense stations around
-the core. Lose when the core dies; win by destroying every shipyard.
+You are a **wing commander** in a decaying Dyson swarm, leading a remnant faction
+against a rival for control of a cluster of sectors. You fly your fighter into
+every battle, command a wing of AI wingmen, build the defenses — and between
+battles, run the war on a sector map.
+
+The game is four layers, nested:
+
+1. **Overworld (mini-4X)** — the campaign spine: explore, expand, exploit, exterminate.
+2. **Battle (mini-RTS)** — pausable command overlay: towers, squadron orders, unit production.
+3. **Tower Defense** — towers defend your Sector Core from escalating waves.
+4. **Wing Commander** — cockpit combat, wingmen, the feel layer.
+
+Reference cocktail: Wing Commander (combat + wingmen) × Battlezone / Sins of a
+Solar Empire (pilot ↔ command) × Kingdom Rush (towers) × Stellaris-lite (map).
 
 **Pillars**
 
-- **Power fantasy** — 6DOF fighter flight backed by a ring of turrets you built.
-- **Risk/reward** — diving the shipyard ring to kill wave sources puts you in the swarm.
-- **Strategy** — tower types counter enemy types (kinetic vs drones, energy vs shields, missiles vs swarms).
-- **Escalation clarity** — wave banners, escalating compositions, visible objectives.
+- **Power fantasy** — 6DOF fighter flight backed by wingmen and towers you command.
+- **Commander fantasy** — your decisions on the map and in the overlay win sectors, not just your aim.
+- **Stakes that persist** — sectors, fleets and towers carry between battles; losses hurt.
+- **Escalation clarity** — wave banners, sector income, visible objectives.
 
-## 2. Core Loop
+## 2. The Four Layers
 
-1. Main menu → Deploy → sector scene.
-2. Fly and fight; kills automatically grant minerals.
-3. Open the build menu, pick a station, fly into position (ghost preview shows
-   validity near the core), place it.
-4. Survive escalating waves; win by destroying all 10 shipyards; lose if the
-   Sector Core or your ship dies.
-5. Victory/defeat screen → Retry or Main Menu.
+### Layer 1 — Overworld (mini-4X) `[M2]` (issue #16)
 
-## 3. Factions & Collision Layers
+- **Pausable real-time** sector map: ~12 sector nodes + travel lanes, **2 factions**, fog of war.
+- **Explore** — fleets entering unknown sectors reveal them.
+- **Expand** — claim neutral sectors; upgrade owned ones (shipyard level, tower battery, extractor).
+- **Exploit** — each owned sector pays minerals per minute into a faction treasury.
+- **Exterminate** — fleets move along lanes in real time; a fleet entering a hostile
+  sector starts a battle. Destroy the enemy **home sector** to win the campaign;
+  lose yours and it's over.
+- **Enemy campaign AI** mirrors the player: builds fleets, probes your weakest sector.
+- The map pauses when you issue orders; time flows otherwise.
+
+### Layer 2 — Battle (mini-RTS) `[M1]`
+
+- Fleet units from the overworld become friendly ships in the 3D battle; the sector's
+  **persistent** towers and garrison (built in earlier defenses) are already present.
+- The enemy sector has shipyards and escalating waves, as today `[SHIPPED]`.
+- **Command overlay** `[M1]`: hold a button → game pauses → you can place towers,
+  order squadrons ("move here / attack that"), and **produce units** at your carrier
+  (fighter wings, drone wings) using the treasury.
+- **Carrier** `[M1]`: a mobile base in battle. Lose it and you lose production;
+  keep it safe.
+- Battle ends when the enemy shipyards fall (**sector won**) or your core dies
+  (**sector lost** — surviving fleet units retreat to a friendly sector).
+
+### Layer 3 — Tower Defense `[SHIPPED]` (extended `[M3]`)
+
+- Towers defend the Sector Core from waves. Gun + Missile stations ship now;
+  a Shield station arrives in M3.
+- `[M2]` Towers persist per sector and repair between battles — defending a sector
+  is an investment, not a one-off.
+
+### Layer 4 — Wing Commander `[M0]` (issues #10, #19, #20)
+
+- You always fly. **3 AI wingmen** fly with you.
+- **Wingman command menu** `[M0]`: Attack my target · Form on my wing ·
+  Break and attack · Defend the core · Return to carrier.
+- Cockpit view + the existing chase camera `[SHIPPED base]`.
+- All ship AI (wingmen and enemies) runs on the state-machine pattern: `[M0]`
+
+  `FORMATION → ATTACK → DEFEND → RTB`
+
+## 3. Core Loops
+
+**Campaign loop** `[M2]`
+Overworld: collect income → build/upgrade fleets and sectors → move fleets →
+battle in a contested sector → win (claim/upgrade) or lose (retreat, rebuild) →
+march on the enemy home sector.
+
+**Battle loop** `[SHIPPED]` + `[M0]`/`[M1]`
+Deploy with your fleet → fight waves → command wingmen → earn minerals → pause
+overlay: build towers, order squadrons, produce units → push the enemy ring →
+destroy all shipyards → sector secured.
+
+## 4. The "Mini" Contract (hard caps)
+
+These caps are a design principle, not a starting point. Any feature that breaks
+one needs a design argument:
+
+| System | Cap |
+|---|---|
+| Factions | 2 |
+| Sectors on the map | 12 |
+| Wingmen | 3 |
+| Tower types | 3 (gun, missile, shield) |
+| Buildable unit types | 3 (fighter wing, drone wing, bomber) |
+| Fleet size per side | 10 units |
+| Concurrent battles | 1 |
+| Active enemy ships per battle | ~40 |
+
+## 5. Factions & Units
+
+| Unit | Role | Notes |
+|---|---|---|
+| Drone (Challenger) | Swarm kamikaze | `[SHIPPED]` enemy |
+| Striker | Fast weaver, rams | `[SHIPPED]` enemy, wave 3+ |
+| Cruiser (Cursier) | Tanky gun platform | `[SHIPPED]` enemy, wave 5+ |
+| Shipyard | Wave source, objective | `[SHIPPED]` enemy station |
+| Fighter wing | Your wingmen + buildable squadron | `[M0]` AI + `[M1]` production |
+| Drone wing | Cheap buildable squadron | `[M1]` |
+| Bomber | Slow, anti-station payload | `[M1]`/`[M2]` |
+| Carrier | Mobile production/base | `[M1]` |
+
+## 6. Damage System `[SHIPPED]` (issue #18)
+
+Reusable, inheritance-free, Resource-based:
+
+- **`DamageType`** (Resource) — `kinetic`, `energy`, `heat`, `radiation`.
+- **`DamageInstance`** (Resource) — a `DamageType` + an amount.
+- **`Resistances`** (Resource) — per-type reduction map (0 = full, 1 = immune).
+- **`DamageSystem`** (Node component) — attach as a child named `DamageSystem`.
+  Exports `max_health`, `resistances`, `mineral_reward`, `death_faction`.
+  Signals: `damaged`, `health_changed`, `healed`, `died`.
+
+Death bookkeeping: `Events.entity_died(system)` → `GameState`.
+
+| Entity | HP | Kin | En | Heat | Rad | Reward |
+|---|---|---|---|---|---|---|
+| Drone | 100 | 25% | 10% | 20% | 0% | 50 |
+| Striker | 120 | 10% | 30% | 0% | 0% | 100 |
+| Cruiser | 800 | 15% | 50% | 30% | 10% | 300 |
+| Shipyard | 3000 | 20% | 20% | 20% | 20% | 2000 |
+| Gun/Missile station | 1500/1200 | 20% | 20% | 20% | 20% | — |
+| Sector Core | 5000 | 10% | 10% | 10% | 10% | — |
+| Player | 1000 | 20% | 40% | 30% | 30% | — |
+
+Collision layers (faction safety is enforced by masks — a bullet can never hit
+its own side):
 
 | Layer | Value | Contents |
 |---|---|---|
@@ -40,111 +151,87 @@ the core. Lose when the core dies; win by destroying every shipyard.
 | 5 | 16 | Asteroids (visual only) |
 | 6 | 32 | Bullets/missiles |
 
-Player bullets hit layers 2+4; enemy bullets hit layers 1+3. Faction safety is
-enforced entirely by collision masks — a bullet can never hit its own side.
+## 7. Ship AI — State Machines `[M0]` (issue #20)
 
-## 4. Damage System (issue #18)
+Shared lightweight FSM for wingmen and enemies (replaces the ad-hoc steering):
 
-Reusable, inheritance-free, built from Resource objects:
+- **FORMATION** — hold a slot relative to the leader (left/right/rear), match velocity.
+- **ATTACK** — dogfight the assigned target: intercept, lead with `get_aim_at_point()`,
+  break off at minimum range, strafe while on cooldown.
+- **DEFEND** — orbit the assigned object (core/carrier), engage hostiles within range.
+- **RTB** — disengage, return to the carrier/formation point, land/despawn.
 
-- **`DamageType`** (Resource) — `kinetic`, `energy`, `heat`, `radiation`
-  (`.tres` files in `ECS/damage/types/`).
-- **`DamageInstance`** (Resource) — a `DamageType` + an amount.
-- **`Resistances`** (Resource) — per-type reduction map (0 = full damage, 1 = immune).
-- **`DamageSystem`** (Node component, `ECS/damage/DamageSystem.tscn`) — attach as a
-  child named `DamageSystem` to anything damageable. Exports `max_health`,
-  `resistances`, `mineral_reward`, `death_faction`. Signals: `damaged`,
-  `health_changed`, `healed`, `died`.
+Enemy squadrons reuse the same states with different parameters (no wingman
+commands — the enemy campaign AI `[M2]` assigns them objectives).
 
-Death bookkeeping flows through `Events.entity_died(system)` → `GameState`.
+## 8. Economy
 
-Roles and resistances:
+- **Treasury** is faction-wide `[M2]`; during battles it is `GameState.minerals`.
+- **Income:** owned sectors pay minerals/minute on the overworld; kills and wave
+  clears pay in battle `[SHIPPED]`.
+- **Costs** `[SHIPPED]`: Gun station 1000, Missile station 1500, starting 10,000.
+- **Planned** `[M1]`/`[M2]`: fighter wing ~500, drone wing ~250, bomber ~1200,
+  carrier repair, sector upgrades (extractor level 1–3, shipyard level 1–3,
+  tower battery level 1–3).
 
-| Entity | HP | Kinetic | Energy | Heat | Rad | Reward |
-|---|---|---|---|---|---|---|
-| Drone | 100 | 25% | 10% | 20% | 0% | 50 |
-| Striker | 120 | 10% | 30% | 0% | 0% | 100 |
-| Cruiser | 800 | 15% | 50% | 30% | 10% | 300 |
-| Shipyard | 3000 | 20% | 20% | 20% | 20% | 2000 |
-| Gun/Missile station | 1500/1200 | 20% | 20% | 20% | 20% | — |
-| Sector Core | 5000 | 10% | 10% | 10% | 10% | — |
-| Player | 1000 | 20% | 40% | 30% | 30% | — |
+## 9. Persistence & Save `[M2]` (issue #23)
 
-## 5. Enemies
+- Owned sectors keep towers + garrison between battles; damaged structures repair
+  over time on the overworld.
+- Fleet units persist (composition + hull HP); survivors of a lost sector retreat.
+- Save format: JSON or ConfigFile — overworld graph state, fog of war, treasury,
+  fleets, sector layouts, campaign flags. One slot + autosave.
 
-| Enemy | Behavior | Notes |
+## 10. UI & Controls
+
+**Current** `[SHIPPED]` — W/S pitch+throttle, A/D yaw, Q/E roll, Shift boost,
+Space fire, B build menu, 1/2 select tower, Enter place, Esc cancel/pause, R retry.
+Gamepad: A/B throttle, right stick yaw, RB fire, View build menu, X/Y towers,
+Start pause.
+
+**Planned** `[M0]` — wingman command menu: hold **Q** (keyboard) / **LB** (gamepad)
+→ radial or list (Attack target / Form up / Break / Defend core / RTB); release
+to confirm.
+
+**Planned** `[M1]` — command overlay: hold **Tab** (keyboard) / **Select** (gamepad)
+→ pause → free cursor for tower placement, squadron orders, production queue.
+
+UI standards: 720p-safe layouts, font sizes ≥ 14pt, gamepad-first menus, all
+actions reachable by keyboard, gamepad, and mouse.
+
+## 11. Platform — PC & Steam Deck
+
+This design (WC + RTS + 4X) is the most PC-native possible. **Mobile is out of
+scope** for the core game:
+
+- 6DOF flight and simultaneous multi-axis control need a keyboard/gamepad.
+- 300–500 unit engagement ranges are legible on a monitor or the Deck's 7" screen.
+- 15–60 min battles + campaign sessions don't fit mobile session patterns.
+- "Sell binaries + open source" matches PC stores (itch/Steam) far better than
+  app-store monetization norms.
+
+**Steam Deck is the design target**: 720p-safe UI, gamepad-first, pausable
+overlays (perfect for Deck), stable 40–60 fps, offline save.
+
+## 12. Roadmap
+
+| Milestone | Content | Issues |
 |---|---|---|
-| Drone (Challenger) | Seeks target, strafes with a kinetic peashooter, rams at close range | Swarm filler; kamikaze impact 500 kinetic |
-| Striker | Fast weaver, no guns, detonates on contact | Introduced wave 3; heat-vulnerable |
-| Cruiser (Cursier) | Keeps 220–450 range, strafes, energy bolts | Tanky, shielded; introduced wave 5 |
-| Shipyard | Static wave source on the sector ring | Primary objective |
+| **M0 — Wingmen** | Wingman FSM, formation slots, command menu (kb + gamepad), 3 wingmen, enemy squadrons on same AI | #19, #20 |
+| **M1 — Command overlay** | Pause overlay: squadron orders, unit production, carrier as mobile base | #19, #16 (partial) |
+| **M2 — Campaign** | Sector map, fleets, fog of war, income, upgrades, garrison persistence, enemy campaign AI, save/load | #16, #23 |
+| **M3 — Ship & polish** | Cockpit view, shield tower, balance/audio pass, Steam Deck pass, itch/Steam release | #10 (full) |
 
-Targeting: drones/cruisers prefer the player, occasionally the core; strikers prefer
-the core. All enemies despawn (count as cleared) beyond 900 units from the sector
-center so waves can never stall.
+Done: #12 (Godot 4), #18 (damage system), #10 (chase camera base).
 
-## 6. Player
-
-- Freelancer-style flight: W/S pitch + throttle, A/D yaw, Q/E roll, Shift boost,
-  Space fires the nose gun (kinetic, 25 damage).
-- Chase camera trails behind the ship, looks ahead, widens FOV at speed (issue #10).
-- 1000 HP with energy-biased shields. Death = sector lost.
-
-## 7. Towers & Economy
-
-- Start: **10,000 minerals**. Kills grant the rewards above; wave clears grant a
-  `100 × wave` bonus.
-- **Gun Station** (1000) — 4 kinetic turrets, ~75 combined DPS. General purpose.
-- **Missile Station** (1500) — 2 pods firing homing heat missiles (150 splash,
-  radius 45). Anti-swarm.
-- Placement: within **260 units** of the core, at least 40 units away. Ghost preview
-  is green when valid, red otherwise.
-
-## 8. Wave Director (GameState)
-
-- 10 shipyards ring the core at radius 500. Waves spawn from random living shipyards.
-- Composition: `drones = min(4 + 2n, 24)`, `strikers = n - 2` (wave 3+),
-  `cruisers = (n - 4) / 2` (wave 5+).
-- First wave at 8s; after a clear, 12s intermission, then the next wave.
-- Win: all shipyards destroyed. Lose: core or player dies.
-
-## 9. UI
-
-- **Main menu** — Deploy / Controls / Quit (keyboard + gamepad focus).
-- **HUD** — minerals, wave, hostiles, shipyards; player + core HP bars; banner
-  announcements; crosshair; build menu; pause menu; victory/defeat overlay with
-  stats (waves survived, minerals held).
-
-## 10. Input
-
-| Action | Keyboard | Gamepad (Steam Deck) |
-|---|---|---|
-| Throttle / pitch | W / S | A / B buttons |
-| Yaw | A / D | Right stick X |
-| Roll | Q / E | Right stick? (bindable) |
-| Fire | Space | RB |
-| Boost | Shift | LB (bindable) |
-| Build menu | B | View button |
-| Select gun / missile | 1 / 2 | X / Y |
-| Place station | Enter | A |
-| Cancel / pause | Esc | Start / B |
-
-## 11. Roadmap (tracked as GitHub issues)
-
-- [x] #12 Port to Godot 4
-- [x] #18 Damage System (Resources + component)
-- [x] #10 Chase camera (base implementation)
-- [ ] #23 Save game system
-- [ ] #16 Overworld map — sector map, fleet system, basic 4X
-- [ ] #19 Squadron control system — assign drone wings to targets
-- [ ] #20 State machine refactor of the steering AI
-- [ ] Shipyard defense turrets (risk on the ring)
-- [ ] More towers: shield station, repair pad, laser lance
-
-## 12. Testing
+## 13. Testing
 
 - `test/unit_tests.gd` (+ `unit_runner.tscn`) — damage-system unit tests.
   `godot --headless --path . res://test/unit_runner.tscn`
 - `test/smoke_launcher.tscn` (+ `smoke_launcher.gd`, `smoke_core.gd`) — boots the
   real game scene and drives a full gameplay arc (wave → clear → tower → victory).
   `godot --headless --path . res://test/smoke_launcher.tscn`
+- **M0 adds:** unit tests for the wingman FSM (state transitions, slot math,
+  command handling) and a smoke check that wingmen spawn, form up, and obey
+  "attack my target".
+- **M2 adds:** campaign simulation smoke test (scripted AI-vs-AI campaign run).
