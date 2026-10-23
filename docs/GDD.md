@@ -1,6 +1,6 @@
 # Sector Defense — Game Design Document
 
-**Version:** 0.3 — four-layer vision: **Wing Commander × Tower Defense × mini-RTS × mini-4X**
+**Version:** 0.4 — four-layer vision: **Wing Commander × Tower Defense × mini-RTS × mini-4X** · crew morale system, single/multi-pilot roster, bribe/defection economy
 **Engine:** Godot 4.x
 **License:** AGPL-3.0
 **Platform:** PC + Steam Deck (not mobile — see §11)
@@ -105,16 +105,60 @@ one needs a design argument:
 
 ## 5. Factions & Units
 
+Each manned unit carries **two tags**: `faction` (combat side — `player`/`enemy`, drives collision masks) and `owner`/`loyalty` (who commands it — `none`, `player`, or a mercenary contract). `faction` is the GDD's 2-faction rule; `owner` is the new loyalty axis (hacked/bribed units flip `faction` while keeping the same hull).
+
+**Manned fighters — 1 pilot each.** Skills + morale + personality drive them (see §5.1).
+
+| Fighter | Role | Armor | Speed | Primary skill | Notes |
+|---|---|---|---|---|---|
+| Interceptor | Air superiority, escort, hunt fighters | Light | Fast | Piloting | The player's ship |
+| Gunship | All-rounder, workhorse | Medium | Medium | Piloting + Gunnery | Balanced |
+| Bomber | Anti-station / anti-capital | Heavy | Slow | Gunnery | Shipyard-killer — your win condition (§2) |
+
+**Capital ships — multi-crew.** Full crew (pilot + gunnery + engineering) → multiple wages, crew morale.
+
+| Capital | Role | Notes |
+|---|---|---|
+| Fighter carrier | Spawns/leads fighter wings; mobile production | `[M1]` |
+| Cruiser (Cursier) | Heavy gun platform | `[SHIPPED]` enemy / `[M1]` ally variant |
+| Big station | Orbital heavy defense / base | `[M1]` |
+
+**Unmanned:** drones have no crew, so they are immune to bribery and defection (§8.2).
+
 | Unit | Role | Notes |
 |---|---|---|
 | Drone (Challenger) | Swarm kamikaze | `[SHIPPED]` enemy |
 | Striker | Fast weaver, rams | `[SHIPPED]` enemy, wave 3+ |
-| Cruiser (Cursier) | Tanky gun platform | `[SHIPPED]` enemy, wave 5+ |
 | Shipyard | Wave source, objective | `[SHIPPED]` enemy station |
-| Fighter wing | Your wingmen + buildable squadron | `[M0]` AI + `[M1]` production |
 | Drone wing | Cheap buildable squadron | `[M1]` |
-| Bomber | Slow, anti-station payload | `[M1]`/`[M2]` |
-| Carrier | Mobile production/base | `[M1]` |
+
+**Personality traits (M0 set):** **Loyal** (resists, needs less pay), **Greedy** (bribes more effective, morale swings on payouts), **Brave** (fights harder when out-numbered / low morale), **Cowardly** (flees when damaged / low morale).
+
+### 5.1 Crew & Morale System `[M0]`
+
+Every manned crew (fighter pilot + capital crew) has three stat layers:
+
+- **Skills** — piloting / gunnery / engineering. Combat performance only.
+- **Morale** (0–100) — the umbrella state: loyalty + confidence + will to fight. Driven by events, filtered by personality.
+- **Personality** — traits (Loyal / Greedy / Cowardly / Brave) that (a) tune how much each event moves morale and (b) grant conditional stat boosts.
+
+**Morale loop:**
+
+```
+EVENTS (victory / defeat, pay, casualties, out-numbered)
+  |  (filtered & personalized by PERSONALITY)
+  v
+MORALE  -->  combat stats  +  defection / bribe / flee risk
+```
+
+- **Events move morale.** Victories (per battle) raise morale; defeats and heavy casualties lower it. A **momentum snowball**: winning → higher morale → fight better → win more; losing → lower morale → crews get bribed/defect → lose more. A struggling faction can recover by stringing together wins.
+- **Personality filters events.** Loyal morale barely drops from underpaying/losses; Greedy morale plummets when unpaid and soars on bounties; Brave morale *rises* when out-numbered or low; Cowardly collapses when damaged.
+- **Personality grants conditional stats.** Brave → +piloting when out-numbered / low morale; Greedy → +gunnery when bounty is high; Loyal → +engineering retention; Cowardly −piloting/dodge when morale is low.
+- **Morale affects stats globally.** High morale → confidence bonus across all skills; low morale → penalty. This closes the loop: morale → effective skills → who wins the fight → next morale.
+
+**Consequences of low morale:** crews defect (§8.2), accept bribes more readily in battle (§8.2), flee when damaged, and fight poorly.
+
+See also the two-tag system above — `faction` (masks) can flip on hack/bribe while the hull and personality stay.
 
 ## 6. Damage System `[SHIPPED]` (issue #18)
 
@@ -164,7 +208,7 @@ Shared lightweight FSM for wingmen and enemies (replaces the ad-hoc steering):
 Enemy squadrons reuse the same states with different parameters (no wingman
 commands — the enemy campaign AI `[M2]` assigns them objectives).
 
-## 8. Economy
+## 8. Economy & Loyalty
 
 - **Treasury** is faction-wide `[M2]`; during battles it is `GameState.minerals`.
 - **Income:** owned sectors pay minerals/minute on the overworld; kills and wave
@@ -173,6 +217,22 @@ commands — the enemy campaign AI `[M2]` assigns them objectives).
 - **Planned** `[M1]`/`[M2]`: fighter wing ~500, drone wing ~250, bomber ~1200,
   carrier repair, sector upgrades (extractor level 1–3, shipyard level 1–3,
   tower battery level 1–3).
+
+### 8.1 Wages & the Morale/pay loop
+- Every manned crew has a **wage**. Wages are paid from the treasury on a cycle.
+- **Wages drive morale** (§5.1): paying at/above a crew's pay-requirement keeps morale up; underpaying drains it. Personality sets the requirement (Greedy needs more, Loyal less).
+- Minerals are therefore spent two ways at once — **upkeep (wages)** to keep morale high, or **offense (towers/units)** — and skimping on upkeep makes your army vulnerable.
+
+### 8.2 Bribe war (mid-battle) & over-map defection
+- **Bribe war** `[M0]`: during a battle you can spend minerals to flip an enemy
+  crew to your side (and the enemy can flip yours). Success scales with the
+  target's current **morale** (lower = easier), their **personality** (Greedy =
+  easiest, Cowardly next), and the size of your offer. A flipped crew takes
+  their ship with them and rejoins your roster.
+- **Over-map defection** `[M1]`: a crew whose morale stays low (sustained
+  underpaying) may **defect** and leave your fleet — usually after a short
+  warning grace period so you can correct the pay.
+- **Drones are immune** — no crew, so they cannot be bribed or defect.
 
 ## 9. Persistence & Save `[M2]` (issue #23)
 
@@ -217,7 +277,7 @@ overlays (perfect for Deck), stable 40–60 fps, offline save.
 
 | Milestone | Content | Issues |
 |---|---|---|
-| **M0 — Wingmen** | Wingman FSM, formation slots, command menu (kb + gamepad), 3 wingmen, enemy squadrons on same AI | #19, #20 |
+| **M0 — Wingmen** | Wingman FSM, formation slots, command menu (kb + gamepad), 3 wingmen, enemy squadrons on same AI, crew morale+personality system, mid-battle bribe war (interceptor + one more class) | #19, #20 |
 | **M1 — Command overlay** | Pause overlay: squadron orders, unit production, carrier as mobile base | #19, #16 (partial) |
 | **M2 — Campaign** | Sector map, fleets, fog of war, income, upgrades, garrison persistence, enemy campaign AI, save/load | #16, #23 |
 | **M3 — Ship & polish** | Cockpit view, shield tower, balance/audio pass, Steam Deck pass, itch/Steam release | #10 (full) |
@@ -233,5 +293,6 @@ Done: #12 (Godot 4), #18 (damage system), #10 (chase camera base).
   `godot --headless --path . res://test/smoke_launcher.tscn`
 - **M0 adds:** unit tests for the wingman FSM (state transitions, slot math,
   command handling) and a smoke check that wingmen spawn, form up, and obey
-  "attack my target".
+  "attack my target"; unit tests for the morale system (event→morale→loyalty
+  transitions, personality modifiers, victory/defeat momentum).
 - **M2 adds:** campaign simulation smoke test (scripted AI-vs-AI campaign run).
