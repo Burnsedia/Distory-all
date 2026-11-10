@@ -7,6 +7,27 @@
 
 Status markers: `[SHIPPED]` in the game · `[M0]`/`[M1]`/`[M2]`/`[M3]` planned milestones (§12).
 
+### Related documents
+
+The GDD is the master index. Detailed docs live in `docs/`:
+
+**Game design** — the *what* and *why* (`docs/design/`):
+- [Core Loops](design/01-core-loops.md) — nested loops, the four layers, the campaign loop
+- [Factions & Units](design/02-factions-and-units.md) — two-tag identity, roster, personality
+- [Crew & Morale](design/03-crew-and-morale.md) — the stat bridge between management and combat
+- [Economy & Loyalty](design/04-economy-and-loyalty.md) — wages, treasury, bribe war, defection
+- [Ship AI](design/05-ship-ai.md) — the shared FSM driving every ship
+- [UI & Controls](design/06-ui-and-controls.md) — input model, command menu, overlay
+
+**System design** — the *how* for programmers (`docs/systems/`):
+- [Architecture](systems/01-architecture.md) — globals, ECS, factions, groups
+- [Damage System](systems/02-damage-system.md) — typed damage, resistances, death
+- [Weapon System](systems/03-weapon-system.md) — weapons, bullets, homing missiles, faction safety
+- [Morale System](systems/04-morale-system.md) — data model, event pipeline, momentum
+- [Economy System](systems/05-economy-system.md) — minerals, treasury, upkeep
+- [Bribe & Defection](systems/06-bribe-and-defection-system.md) — bribe war, over-map defection
+- [Save / Load](systems/07-save-system.md) — persistence, versioning, fog of war
+
 ## 1. Overview
 
 You are a **wing commander** in a decaying Dyson swarm, leading a remnant faction
