@@ -22,7 +22,6 @@ var target: Node3D = null
 
 func _ready() -> void:
 	add_to_group("enemies")
-	Global.droneCount += 1
 	weapon.faction = &"enemy"
 	weapon.damage = weapon_damage
 	cooldown.wait_time = weapon_cooldown
@@ -124,5 +123,4 @@ func _on_Area_body_entered(body: Node3D) -> void:
 	$DamageSystem.die()
 
 func _on_died() -> void:
-	Global.droneCount = maxi(0, Global.droneCount - 1)
 	queue_free()

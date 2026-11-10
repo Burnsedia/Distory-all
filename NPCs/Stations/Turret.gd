@@ -67,12 +67,8 @@ func _facing_target() -> bool:
 
 func _fire() -> void:
 	cooldown_left = fire_cooldown
-	var p := projectile.instantiate()
-	get_tree().current_scene.add_child(p)
-	p.global_transform = muzzle.global_transform
+	var p := Spawner.spawn_projectile(projectile, muzzle.global_transform)
 	if p.has_method("configure"):
 		p.configure(damage, damage_type, faction, bullet_speed)
 	if p is Missile and target != null:
-		p.set_target(target)
-	if p.has_method("set_target") and target != null and not (p is Missile):
 		p.set_target(target)

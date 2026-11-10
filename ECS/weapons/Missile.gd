@@ -1,27 +1,25 @@
-extends Area3D
+extends Pooled
 class_name Missile
-## Homing explosive projectile. Splash damage on impact or proximity.
+## Homing explosive projectile. Spawned via the Spawner's pooled pool.
 
 @export var speed: float = 500.0
 @export var damage: float = 150.0
-@export var damage_type: DamageType
+@export var damage_type: DamageType = DamageTypes.HEAT
 @export var splash_radius: float = 45.0
 @export var faction: StringName = &"player"
-@export var lifetime: float = 8.0
 @export var turn_speed: float = 3.0
 
 var target: Node3D = null
 var _exploded: bool = false
 var _dir: Vector3 = Vector3.FORWARD
 
-func _ready() -> void:
-	Global.bulletCount += 1
-	if damage_type == null:
-		damage_type = DamageTypes.HEAT
-	_dir = -global_transform.basis.z
-	get_tree().create_timer(lifetime).timeout.connect(explode)
+func activate(owner: Node, transform: Transform3D) -> void:
+	super.activate(owner, transform)
+	_dir = -transform.basis.z
 
 func configure(p_damage: float, p_type: DamageType, p_faction: StringName, p_speed: float) -> void:
+	if damage_type == null:
+		damage_type = DamageTypes.HEAT
 	damage = p_damage
 	damage_type = p_type
 	faction = p_faction
@@ -51,7 +49,6 @@ func explode() -> void:
 	if _exploded:
 		return
 	_exploded = true
-	Global.bulletCount -= 1
 	var group_name: String = "enemies" if faction == &"player" else "player"
 	for body in get_tree().get_nodes_in_group(group_name):
 		var node := body as Node3D
@@ -71,4 +68,4 @@ func explode() -> void:
 			if d <= splash_radius:
 				var falloff := 1.0 - 0.5 * (d / splash_radius)
 				DamageSystem.apply(node, DamageInstance.new(damage_type, damage * falloff))
-	queue_free()
+	return_to_pool()

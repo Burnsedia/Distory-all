@@ -26,6 +26,7 @@ config/icon="res://assets/uvCswI.png"
 Global="*res://Globals/Global.gd"
 Events="*res://Globals/Events.gd"
 GameState="*res://Globals/GameState.gd"
+Spawner="*res://Globals/Spawner.gd"
 
 [display]
 

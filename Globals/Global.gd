@@ -1,19 +1,13 @@
 extends Node
-## Small shared state and counters. GameState owns the actual game rules.
+## Slim world anchors shared by every node.
+##
+## Keeps only the two world anchors plus the projectile cap; the live count that
+## backs BULLET_MAX is owned by the Spawner. Nothing else here — coupling lives
+## in the services that own their own state.
 
 var player = null
 var maintower = null
-var droneCount = 0
-var bulletCount = 0
 
-const maxDroinds = 600
-const maxbullets = 10000
-
-## Hard cap on live bullets to protect performance.
-const BULLET_MAX = 2000
-
-func _process(_delta):
-	if droneCount < 0:
-		droneCount = 0
-	if bulletCount < 0:
-		bulletCount = 0
+## Hard cap on live projectiles to protect performance.
+## The Spawner owns the live count that this caps.
+const BULLET_MAX := 2000
