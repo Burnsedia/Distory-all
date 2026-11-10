@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name Crusier
+class_name Cursier
 ## Tanky gun platform. Keeps its distance and hammers the target with energy bolts.
 
 @export var speed: float = 12.0

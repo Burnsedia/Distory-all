@@ -11,7 +11,7 @@ size = Vector3(10, 4, 22)
 [sub_resource type="BoxMesh" id="2"]
 size = Vector3(6, 3, 18)
 
-[node name="Crusier" type="CharacterBody3D" groups=["enemies"]]
+[node name="Cursier" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1")

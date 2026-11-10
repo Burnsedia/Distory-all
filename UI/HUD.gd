@@ -56,8 +56,7 @@ func _bind_health(owner: Node, bar: ProgressBar) -> void:
 # ------------------------------------------------------------------ input
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("menu") \
-			or event.is_action_pressed("pause"):
+	if event.is_action_pressed("menu"):
 		_handle_cancel()
 	elif event.is_action_pressed("ui_accept"):
 		_handle_accept()

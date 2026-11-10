@@ -54,7 +54,6 @@ var _intermission_timer: Timer
 
 func _ready() -> void:
 	Events.entity_died.connect(_on_entity_died)
-	_ensure_input_bindings()
 	_spawn_timer = Timer.new()
 	_spawn_timer.one_shot = false
 	_spawn_timer.wait_time = SPAWN_INTERVAL
@@ -65,40 +64,6 @@ func _ready() -> void:
 	_intermission_timer.wait_time = WAVE_DELAY
 	_intermission_timer.timeout.connect(_on_intermission_end)
 	add_child(_intermission_timer)
-
-## Ensures the required input actions exist even if project.godot bindings
-## were lost or edited. (Runtime safety net; see docs/GDD.md §10.)
-func _ensure_input_bindings() -> void:
-	_bind_key(&"menu", KEY_ESCAPE)
-	_bind_key(&"PlaceStation", KEY_B)
-	_bind_key(&"selectGunStation", KEY_1)
-	_bind_key(&"selectMissileStation", KEY_2)
-	_bind_key(&"retry", KEY_R)
-	_bind_key(&"start-game", KEY_ENTER)
-	_bind_joy(&"menu", JOY_BUTTON_START)
-	_bind_joy(&"PlaceStation", JOY_BUTTON_BACK)
-	_bind_joy(&"selectGunStation", JOY_BUTTON_X)
-	_bind_joy(&"selectMissileStation", JOY_BUTTON_Y)
-
-func _bind_key(action: StringName, keycode: Key) -> void:
-	if not InputMap.has_action(action):
-		InputMap.add_action(action)
-	for ev in InputMap.action_get_events(action):
-		if ev is InputEventKey and ev.physical_keycode == keycode:
-			return
-	var e := InputEventKey.new()
-	e.physical_keycode = keycode
-	InputMap.action_add_event(action, e)
-
-func _bind_joy(action: StringName, button: JoyButton) -> void:
-	if not InputMap.has_action(action):
-		InputMap.add_action(action)
-	for ev in InputMap.action_get_events(action):
-		if ev is InputEventJoypadButton and ev.button_index == button:
-			return
-	var e := InputEventJoypadButton.new()
-	e.button_index = button
-	InputMap.action_add_event(action, e)
 
 func _process(_delta: float) -> void:
 	if not build_mode or ghost == null or Global.player == null:
