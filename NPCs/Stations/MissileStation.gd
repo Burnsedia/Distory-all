@@ -2,7 +2,7 @@ extends Station
 class_name MissileStation
 ## Player-built missile battery. Slow but splashes whole clusters of enemies.
 
-## Build cost in minerals (read by GameState when placing).
+## Build cost in minerals (read by Build when placing).
 @export var cost: int = 1500
 
 func _ready() -> void:

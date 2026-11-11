@@ -15,7 +15,7 @@ signal died
 @export var resistances: Resistances
 ## Minerals awarded to the player when this entity dies.
 @export var mineral_reward: int = 0
-## Bookkeeping tag used by GameState:
+## Bookkeeping tag used by the game services:
 ## "enemy" (ship), "enemy_station" (shipyard), "player" (player ship),
 ## "player_station" (towers), "core" (sector core), or "" (ignored).
 @export var death_faction: StringName = &""

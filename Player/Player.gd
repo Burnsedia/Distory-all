@@ -21,7 +21,7 @@ func _ready() -> void:
 	$DamageSystem.died.connect(_on_died)
 
 func _on_died() -> void:
-	# GameState turns this into the defeat screen; keep the body for the camera.
+	# GameFlow turns this into the defeat screen; keep the body for the camera.
 	visible = false
 
 func get_input(delta: float) -> void:

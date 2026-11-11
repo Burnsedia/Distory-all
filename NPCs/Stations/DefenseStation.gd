@@ -2,7 +2,7 @@ extends Station
 class_name DefenseStation
 ## Player-built gun station. Kinetic turrets protect the sector core.
 
-## Build cost in minerals (read by GameState when placing).
+## Build cost in minerals (read by Build when placing).
 @export var cost: int = 1000
 
 func _ready() -> void:
