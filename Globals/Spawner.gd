@@ -4,7 +4,7 @@ extends Node
 ## It owns the live-projectile count (capped by Global.BULLET_MAX) and recycles
 ## projectiles through a lazy object pool, so weapons never allocate on the hot
 ## path. Ships/stations pool here between waves once those spawn paths route
-## through spawn_unit() (GameState / WaveDirector).
+## through spawn_unit() (WaveDirector).
 ##
 ## Nodes request; the Spawner answers. It does not dictate behaviour.
 ## The singleton name "Spawner" (the autoload) is the reference point for
@@ -57,6 +57,16 @@ func release_projectile(inst: Area3D) -> void:
 		_missile_idle.append(inst)
 	else:
 		inst.queue_free()
+
+## Instantiates a world unit (ship/station/world object) under `parent` at
+## `position`. Ships and stations pool here between waves once pooling is wired
+## in — for now this is the single spawn entry point so all world spawning goes
+## through one place.
+func spawn_unit(scene: PackedScene, parent: Node, position: Vector3) -> Node3D:
+	var node := scene.instantiate() as Node3D
+	parent.add_child(node)
+	node.global_position = position
+	return node
 
 func _pop(template: PackedScene) -> Node3D:
 	var pool := _bullet_idle if template == BULLET_SCENE else _missile_idle
