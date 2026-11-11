@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="PackedScene" path="res://Player/Player.tscn" id="1"]
 [ext_resource type="PackedScene" path="res://NPCs/Stations/MainTower.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://UI/HUD.tscn" id="3"]
 [ext_resource type="Script" path="res://ProxyamStarsystem/GameWorld.gd" id="4"]
 [ext_resource type="Texture2D" path="res://assets/space_background.png" id="5"]
+[ext_resource type="Script" path="res://Globals/Economy.gd" id="6"]
+[ext_resource type="Script" path="res://Globals/WaveDirector.gd" id="7"]
+[ext_resource type="Script" path="res://Globals/GameFlow.gd" id="8"]
+[ext_resource type="Script" path="res://Globals/Build.gd" id="9"]
 
 [sub_resource type="PanoramaSkyMaterial" id="1"]
 panorama = ExtResource("5")
@@ -18,6 +22,17 @@ sky = SubResource("2")
 
 [node name="GameWorld" type="Node3D"]
 script = ExtResource("4")
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="Economy" type="Node" parent="Managers"]
+script = ExtResource("6")
+[node name="WaveDirector" type="Node" parent="Managers"]
+script = ExtResource("7")
+[node name="GameFlow" type="Node" parent="Managers"]
+script = ExtResource("8")
+[node name="Build" type="Node" parent="Managers"]
+script = ExtResource("9")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("3")

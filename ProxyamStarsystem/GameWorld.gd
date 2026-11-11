@@ -1,14 +1,15 @@
 extends Node3D
 ## The sector combat scene. Sets the stage (asteroids, lights) and hands
-## control to GameState, which owns the wave cycle and objectives.
+## control to GameFlow, which owns the wave cycle and objectives.
 
 const AsteroidScene := preload("res://ECS/Asteroid.tscn")
 
 @onready var core: Node3D = $SectorCore
+@onready var game_flow = $Managers/GameFlow
 
 func _ready() -> void:
 	spawn_asteroids()
-	GameState.start_game(core, self)
+	game_flow.start_game(self)
 
 func spawn_asteroids() -> void:
 	var count := 350
